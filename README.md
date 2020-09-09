@@ -1,5 +1,3 @@
-
-Inline-style: 
 ![alt text](https://bitbucket.org/zlamdunk/gpp/raw/dd6fe34372a05f027410c10e7f7c1cdd0ad07a7d/gpp.svg "GamePlayParty")
 ---
 
