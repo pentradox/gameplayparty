@@ -2,17 +2,11 @@
 ---
 
 ## Rules
-### Coding conventions:
-* 2 tabs
-* constante all uppercase
-* variables all lowercase
-* functions camel casing
-* classes pascal casing
-
-### Coding languages
-* HTML 5
-* CSS 4
-* PHP 7.4
-* Apache ???
-
+Coding conventions|Coding languages
+--- | ---
+2 tabs|HTML 5
+constante all uppercase | CSS 4
+variables all lowercase | PHP 7.4
+functions camel casing | Apache ???
+classes pascal casing | 
 ---
