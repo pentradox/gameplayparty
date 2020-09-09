@@ -9,7 +9,7 @@ constante all uppercase | CSS 4
 variables all lowercase | PHP 7.4
 functions camel casing | Apache ???
 classes pascal casing | 
----
+
 ## Documentation
 Document | Link
 --- | ---
