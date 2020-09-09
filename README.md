@@ -10,3 +10,10 @@ variables all lowercase | PHP 7.4
 functions camel casing | Apache ???
 classes pascal casing | 
 ---
+## Documentation
+Document | Link
+--- | ---
+Programma van eisen | 
+Projectplan | 
+Functioneel ontwerp | 
+Technisch ontwerp | 
