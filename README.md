@@ -7,7 +7,7 @@ Coding conventions|Coding languages
 2 tabs|HTML 5
 constante all uppercase | CSS 4
 variables all lowercase | PHP 7.4
-functions camel casing | Apache ???
+functions camel casing | Microsoft SQL Azure  - 12.0.2000.8
 classes pascal casing | 
 
 ## Documentation
