@@ -1,5 +1,5 @@
-RewriteRule ^(view/img)($|/) - [L]
-RewriteRule ^(view/js)($|/) - [L]
-RewriteEngine On
-RewriteCond %{REQUEST_URI} !.(css|gif|ico|jpg|js|png|swf|txt)$
-RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteRule ^$ public/ [L]
+	RewriteRule (.*) public/$1 [L]
+</IfModule>
