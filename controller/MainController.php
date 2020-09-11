@@ -1,4 +1,11 @@
 <?php
+/*
+ * MainController first and basic controller
+ *
+ * copyright wesley van der vliet
+*/
+
+require_once 'model/config.php';
 require_once 'model/MainLogic.php';
 class MainController {
 
@@ -35,6 +42,17 @@ class MainController {
 					case 'home':
 					case 'index':
 						$this->MainLogic->createView('home');
+					break;
+					case 'info':
+					case 'information':
+					case 'informatie':
+						$this->MainLogic->createView('info');
+					break;
+					case 'contact':
+						$this->MainLogic->createView('contact');
+					break;
+					case 'route':
+						$this->MainLogic->createView('route');
 					break;
 					default:
 						$this->displayError($url);

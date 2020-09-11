@@ -1,5 +1,9 @@
 <?php
-//require_once 'model/Database.php';
+/*
+ * MainLogic aka first and basic controller
+ *
+ * copyright wesley van der vliet
+*/
 
 class MainLogic {
 
@@ -11,53 +15,39 @@ class MainLogic {
 
 	public function createView($page){
 		$filename = 'view/' . $page . '.php';
-		include 'view/header.php';
+		include 'view/fragments/header.php';
 		if (file_exists($filename)) {
-		    include $filename;
+		  include $filename;
 		} else {
 			include 'view/error.php';
 		}
-		include 'view/footer.php';
+		include 'view/fragments/footer.php';
 	}
 
 	public function createViewComplex($header, $page, $footer){
 		if(empty($header)) {$header = 'empty';}
 		if(empty($page)) {$page = 'empty';}
 		if(empty($footer)) {$footer = 'empty';}
-		$header = 'view/' . $header . '.php';
+		$header = 'view/fragments/' . $header . '.php';
 		$page = 'view/' . $page . '.php';
-		$footer = 'view/' . $footer . '.php';
+		$footer = 'view/fragments/' . $footer . '.php';
 		if (file_exists($header) && file_exists($header) && file_exists($header)) {
 			include $header;
 			include $page;
 			include $footer;
 		} else {
-			include 'view/header.php';
-		    include 'view/error.php';
-			include 'view/footer.php';
+			include 'view/fragments/header.php';
+		  include 'view/error.php';
+			include 'view/fragments/footer.php';
 		}
 	}
 
 	public function readContact(){
-		//$query = "SELECT * ";
-        //$query .= "FROM users ";
-        //$this->database->prepare($query);
-        ///$this->database->bind(":radius", $radius);
-        //return $this->database->getArray();
+	//$query = "SELECT * ";
+    //$query .= "FROM users ";
+    //$this->database->prepare($query);
+    //$this->database->bind(":radius", $radius);
+    //return $this->database->getArray();
 	}
 
-	public function updateContact($name, $phone, $email, $address, $id){
-
-	}
-
-	public function write($array){
-		echo var_dump($array);
-		$myfile = fopen("saves.txt", "w") or die("Unable to open file!");
-		$length = count($array);
-		for ($i = 0; $i < count($array); $i++) {
-			$txt = "$array[$i]\n";
-			fwrite($myfile, $txt);
-		}
-		fclose($myfile);
-	}
 }

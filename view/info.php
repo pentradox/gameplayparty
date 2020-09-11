@@ -7,7 +7,7 @@
 ?>
 <div id="page-content">
   <div class="container-fluid text-center">
-    <h3>Welcome bij de dashboard.</h3>
-    <p>dit is de dashboard voor dingen...</p>
+    <h3>Welcome bij de info pagina.</h3>
+    <p>voor heel veel info...</p>
   </div>
 </div>

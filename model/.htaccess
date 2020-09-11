@@ -1,12 +1,11 @@
-<Files *.ss>
-Order deny,allow
-Deny from all
-</Files>
+RewriteEngine on
+RewriteCond %{HTTP_HOST} !^http://localhost/programming-school/backend-development/mvc/ [NC]
+RewriteRule ^(.*)$ http://localhost/programming-school/backend-development/mvc/$1 [L,R=301]
 
-RewriteEngine On
-RewriteBase /
 
-RewriteCond %{REQUEST_URI} ^(.*)$
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !.(css|gif|ico|jpg|js|png|swf|txt)$
-RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
+# werkt niet met mijn mvc methode ik snap alleen niet waarom. het is hetzlefde als in de app folder.
+# <IfModule mod_rewrite.c>
+#  RewriteEngine On
+#  RewriteRule ^$ model/ [L]
+#  RewriteRule (.*) model/$1 [L]
+# </IfModule
