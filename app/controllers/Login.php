@@ -5,18 +5,8 @@ class Login extends controller {
   }
 
   public function index() {
-    // Minimal radius
-    $minimalRadius = 80;
-
-    // Read matching bikesfrom the database
-    //$bikes = $this->bikesModel->getMinimalRadius($minimalRadius);
-
-    //$data = ["title" => "Overzicht fietsen",
-    //"minimalRadius" => $minimalRadius,
-    //"bikes" => $bikes];
-
-    //$this->view("pages/index" , $data);
-    $this->view("pages/index");
+    $this->viewSolo("fragments/header");
+    $this->viewSolo("pages/login");
   }
 }
 

@@ -27,8 +27,29 @@ class Controller {
     }
   }
 
-  // Load view with data
+  // Load view with data and fragments files
   public function view($view, $data = []) {
+
+  // Compose name
+  $viewName = "../app/views/" . $view . ".php";
+
+    // Check the view file
+    if (file_exists($viewName)) {
+
+      // Require the view to load
+      require_once '../app/views/fragments/header.php';
+      require_once '../app/views/fragments/navbar.php';
+      require_once $viewName;
+      require_once '../app/views/fragments/footer.php';
+
+    } else {
+      // No view exists
+      die("View " . $viewName . " does not exists");
+    }
+  }
+
+  // Load view with data
+  public function viewSolo($view, $data = []) {
 
   // Compose name
   $viewName = "../app/views/" . $view . ".php";
