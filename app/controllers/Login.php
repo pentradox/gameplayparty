@@ -1,8 +1,5 @@
 <?php
-
-// Create Pages class
-class Pages extends Controller {
-
+class Login extends controller {
   public function __construct() {
     //$this->bikesModel = $this->model("Bikes");
   }
@@ -22,3 +19,6 @@ class Pages extends Controller {
     $this->view("pages/index");
   }
 }
+
+
+ ?>
