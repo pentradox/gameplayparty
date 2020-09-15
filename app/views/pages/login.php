@@ -7,16 +7,18 @@
                         <form id="login-form" class="form" action="" method="post">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br>
+                                <label for="username" class="text-info">Username :</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
+                                <label for="password" class="text-info">Password :</label><br>
                                 <input type="text" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                                <a type="button" href="home" name="home pagina" class="btn btn-info btn-md float-right">Home pagina</a>
+                                <a href="home" name="wachtwoord_vergeten">Wachtwoord vergeten?</a>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
                             </div>
                         </form>
                     </div>
