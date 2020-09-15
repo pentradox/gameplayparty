@@ -1,7 +1,7 @@
 <?php
 // Autoload core libraries
 spl_autoload_register(function ($class) {
-    require_once "libraries/" . $class . ".php";
+  require_once "libraries/" . $class . ".php";
 });
 
 // Load config
