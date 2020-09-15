@@ -13,7 +13,9 @@ classes pascal casing |
 ## Documentation
 Document | Link
 --- | ---
-Programma van eisen | 
+Programma van eisen | [Download][1]
 Projectplan | 
 Functioneel ontwerp | 
 Technisch ontwerp | 
+
+[1]: https://github.com/pentradox/gameplayparty/blob/master/documentatie/Programma_van_Eisen.docx?raw=true "Download"
