@@ -20,3 +20,81 @@
   margin-top: -85px;
 }
 /*login page css end here*/
+
+
+/* Dashboard */
+/* Navbar - Dashboard */
+.nav-dashboard {
+  position: absolute;
+  left: 0;
+  min-width: 200px;
+  width: calc(200px - 1px);
+  height: 100vh;
+  background-color: #25252B;
+  border-right: 1px solid #34495E;
+  overflow: hidden;
+}
+
+.brand img {
+  width: 400px;
+}
+
+.nav-dashboard > ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.nav-dashboard > ul > a {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-dashboard > ul > a > li {
+  padding: 15px 0px;
+  border-bottom: 1px solid #34495E;
+}
+
+.nav-dashboard > ul > a > li:nth-child(1) {  
+  border-top: 1px solid #34495E;
+}
+
+.nav-dashboard > ul > a > li:hover {
+  background-color: #2C2C32;
+}
+
+/* Main - Dashboard */
+.container-dashboard {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #2C2C32;
+}
+
+main {
+  width: calc(100% - 200px);
+  margin-left: 200px;
+}
+
+.intro {
+  margin-top: 20px;
+  width: calc(96% - 2px);
+  margin-left: 2%;
+  background-color: #25252B;
+  border-radius: 10px;
+  border: 1px solid #34495E;
+}
+
+.text-container {
+  padding: 0px 10px;
+}
+
+.text-container h1 {
+  color: white;
+}
+
+/* Dashboard ends here */
