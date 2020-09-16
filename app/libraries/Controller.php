@@ -45,17 +45,17 @@ class Controller {
     }
   }
 
-  // Load view with data
-  public function viewSolo($view, $data = []) {
+  // Redirect view with clearing url
+  public function redirect($view, $data = []) {
 
   // Compose name
-  $viewName = "../app/views/" . $view . ".php";
+  $viewName = "../app/controllers/" . $view . ".php";
 
     // Check the view file
     if (file_exists($viewName)) {
 
       // Require the view to load
-      require_once $viewName;
+      header("Location: " . URLROOT . "/" . $view);
 
     } else {
       // No view exists
