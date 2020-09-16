@@ -10,5 +10,7 @@ Copyright ©2020
 // Include autoloader for libraries
 require_once "../app/autoloader.php";
 
+session_start();
+
 // Init Core library
 $core = new Core();
