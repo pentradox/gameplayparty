@@ -18,9 +18,10 @@ class Admin extends controller {
   }
 
   public function index() {
-    $this->view("pages/login");
+    $this->viewSolo("fragments/header");
+    $this->viewSolo("pages/login");
   }
-  
+
 }
 
 
