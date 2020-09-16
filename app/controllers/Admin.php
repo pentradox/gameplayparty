@@ -11,18 +11,17 @@ class Admin extends controller {
     $password = trim($_POST['password']);
     $login = $this->loginModel->LoginCheck($username, $password);
     if($login == true) {
-      $this->view("pages/index");
+      $this->redirect("home");
     } else {
-      $this->view("pages/login");
+      $this->redirect("admin");
     }
   }
 
   public function index() {
-    $this->viewSolo("fragments/header");
-    $this->viewSolo("pages/login");
+    $this->view("pages/login");
   }
 
 }
 
 
- ?>
+?>
