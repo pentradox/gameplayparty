@@ -9,9 +9,23 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo URLROOT; ?>/Pages">Home <span class="sr-only">(current)</span></a>
       </li>
+      <?php
+        if ($_SESSION != null) {
+          echo '<li class="nav-item">
+            <a class="nav-link" href="'. URLROOT .'/Admin/dashboard">Dashboard</a>
+          </li>';
+        }
+      ?>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo URLROOT; ?>/Admin">Login</a>
       </li>
+      <?php
+        if ($_SESSION != null) {
+          echo '<li class="nav-item">
+            <a class="nav-link" href="'. URLROOT .'/Admin/logout">Logout</a>
+          </li>';
+        }
+      ?>
     </ul>
   </div>
 </nav>

@@ -6,7 +6,6 @@ class Admin extends controller {
   }
 
   public function loginCheck() {
-    
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
     $login = $this->loginModel->LoginCheck($username, $password);
@@ -19,6 +18,19 @@ class Admin extends controller {
 
   public function index() {
     $this->view("pages/login");
+  }
+
+  public function logout() {
+    session_unset();
+    $this->redirect("home");
+  }
+
+  public function dashboard() {
+    if ($_SESSION["userid"] != null) {
+      $this->view("pages/dashboard");
+    } else {
+      $this->redirect("admin");
+    }
   }
 
 }
