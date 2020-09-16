@@ -12,17 +12,18 @@
       <?php
         if ($_SESSION != null) {
           echo '<li class="nav-item">
-            <a class="nav-link" href="'. URLROOT .'/Admin/dashboard">Dashboard</a>
+            <a class="nav-link" href="'. URLROOT .'/Dashboard">Dashboard</a>
           </li>';
         }
       ?>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo URLROOT; ?>/Admin">Login</a>
-      </li>
       <?php
         if ($_SESSION != null) {
           echo '<li class="nav-item">
             <a class="nav-link" href="'. URLROOT .'/Admin/logout">Logout</a>
+          </li>';
+        } else {
+          echo '<li class="nav-item">
+            <a class="nav-link" href="'. URLROOT .'/Admin">Login</a>
           </li>';
         }
       ?>
