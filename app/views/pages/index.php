@@ -1,6 +1,8 @@
 
 
-<?php include APPROOT."/views/fragments/header.php"; ?>
 
+<?php include APPROOT."/views/fragments/navbar.php"; ?>
+
+Hom
 
 <?php include APPROOT."/views/fragments/footer.php"; ?>
