@@ -37,10 +37,7 @@ class Controller {
     if (file_exists($viewName)) {
 
       // Require the view to load
-      require_once '../app/views/fragments/header.php';
-      require_once '../app/views/fragments/navbar.php';
       require_once $viewName;
-      require_once '../app/views/fragments/footer.php';
 
     } else {
       // No view exists
