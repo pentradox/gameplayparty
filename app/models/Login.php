@@ -15,6 +15,7 @@ class Login {
 			return false;
 		}
 		if($username == "test" && $password == 123) {
+			$_SESSION["userid"] = "test";
 			return true;
 		} else {
 			return false;
