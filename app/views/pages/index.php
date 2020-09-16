@@ -3,6 +3,6 @@
 
 <?php include APPROOT."/views/fragments/navbar.php"; ?>
 
-112
+Hom
 
 <?php include APPROOT."/views/fragments/footer.php"; ?>
