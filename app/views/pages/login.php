@@ -4,7 +4,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="<?php echo URLROOT?>/Admin/LoginCheck" method="post">
+                        <form id="login-form" class="form" action="<?php echo URLROOT?>/Admin/" method="post">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
                                 <label for="username" class="text-info">Username :</label><br>
@@ -14,6 +14,13 @@
                                 <label for="password" class="text-info">Password :</label><br>
                                 <input type="text" name="password" id="password" class="form-control">
                             </div>
+                            <?php
+                                if (isset($data["error"])) {
+                                    echo '<div class="form-group">
+                                    <p class="error-login">'.$data["error"].'</p>
+                                    </div>';
+                                }
+                            ?>
                             <div class="form-group">
                                 <a href="home" name="wachtwoord_vergeten">Wachtwoord vergeten?</a>
                             </div>

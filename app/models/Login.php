@@ -8,19 +8,23 @@ class Login {
 	}
 
 	public function LoginCheck($username, $password) {
+		if (($username == '') || ($password == '') || ($password == null) || ($password == null)) {
+			$error = "Please enter something!";
+			return $error;
+		}
 		$pattern = '/[0-9a-zA-Z-]{20}$/';
 		$username2 = preg_replace($pattern, '', $username);
 		$password2 = preg_replace($pattern, '', $password);
 		if(($username != $username2) || ($password != $password2)) {
-			return false;
+			$error = "Found forbidden characters!";
+			return $error;
 		}
 		if($username == "test" && $password == 123) {
 			$_SESSION["userid"] = "test";
-			return true;
+			return;
 		} else {
-			return false;
+			$error = "Wrong username or password!";
+			return $error;
 		}
-
-
 	}
 }
