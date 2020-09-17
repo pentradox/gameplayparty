@@ -1,3 +1,9 @@
+html,
+body {
+  padding: 0px !important;
+  margin: 0px;
+}
+
 /*login page css */
 .login-page {
   margin: 0;
