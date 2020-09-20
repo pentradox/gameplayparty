@@ -11,7 +11,7 @@ class Login {
 			$error = "Please enter something!";
 			return $error;
 		}
-		$pattern = '/[0-9a-zA-Z-]{20}$/';
+		$pattern = '/[^0-9a-zA-Z-]/';
 		$username2 = preg_replace($pattern, '', $username);
 		$password2 = preg_replace($pattern, '', $password);
 		if(($username != $username2) || ($password != $password2)) {
