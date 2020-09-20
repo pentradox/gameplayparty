@@ -2,13 +2,21 @@
 ---
 
 ## Rules
-Coding conventions|Coding languages
+Coding conventions |
 --- | ---
-2 tabs|HTML 5
-constante all uppercase | CSS 4
-variables all lowercase | PHP 7.4
-functions camel casing | Microsoft SQL Azure  - 12.0.2000.8
-classes pascal casing | 
+Spaces | 2 tabs
+Constants | all uppercase
+Variables | all lowercase
+Functions | camel casing
+Classes | pascal casing 
+
+Software | Version
+--- | ---
+HTML | 5
+CSS | 4
+PHP | 7.4
+mySQL | 8.0.21
+Apache | 2.4.41
 
 ## Documentation
 Document | Link
