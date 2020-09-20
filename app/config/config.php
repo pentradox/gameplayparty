@@ -1,10 +1,10 @@
 <?php
 
 // Database
-define("DBHOST","localhost");
-define("DBUSER","root");
-define("DBPASS","");
-define("DBNAME","mvc");
+define("DBHOST","188.166.81.76");
+define("DBUSER","bas");
+define("DBPASS","yE3tyeet");
+define("DBNAME","gameplayparty");
 
 // Sitename
 define ("SITENAME","gameplayparty");
