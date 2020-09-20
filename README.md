@@ -2,7 +2,7 @@
 ---
 
 ## Rules
-Coding conventions |
+coding | conventions
 --- | ---
 Spaces | 2 tabs
 Constants | all uppercase
