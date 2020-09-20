@@ -3,7 +3,6 @@
 class Login {
 	private $database;
 	public function __construct() {
-
 		$this->database = new Database;
 	}
 
@@ -19,7 +18,14 @@ class Login {
 			$error = "Found forbidden characters!";
 			return $error;
 		}
-		if($username == "test" && $password == 123) {
+
+		$query = "SELECT * FROM users WHERE username = :username AND password = :password";
+		$this->database->prepare($query);
+		$this->database->bind(":username", $username);
+		$this->database->bind(":password", $password);
+		$user = $this->database->getArray();
+
+		if(!empty($user)) {
 			$_SESSION["userid"] = "test";
 			return;
 		} else {
