@@ -17,6 +17,7 @@ CSS | 4
 PHP | 7.4
 mySQL | 8.0.21
 Apache | 2.4.41
+LAMP on Ubuntu | 20.04
 
 ## Documentation
 Document | Link
