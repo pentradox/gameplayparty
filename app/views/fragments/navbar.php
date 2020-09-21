@@ -1,6 +1,6 @@
 <?php include APPROOT."/views/fragments/header.php"; ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary p-0">
-  <a class="navbar-brand py-0" href="<?php echo URLROOT; ?>/Home"><img style="height: 100px;" src="<?php echo URLROOT; ?>../public/images/gpp.svg"></a>
+  <a class="navbar-brand py-0" href="<?php echo URLROOT; ?>/Home"><img style="height: 100px;" src="<?php echo URLROOT; ?>/public/images/gpp.svg"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

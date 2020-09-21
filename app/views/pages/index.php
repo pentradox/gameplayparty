@@ -20,7 +20,7 @@
   <div class="row justify-content-center">
     <div class="col-auto mb-3 ">
       <div class="card" style="width: 18rem; height: 25rem">
-        <img class="card-img-top" src="<?php echo URLROOT; ?>../public/images/bios1.jpg" /alt="Card> 
+        <img class="card-img-top" src="<?php echo URLROOT; ?>/public/images/bios1.jpg" /alt="Card> 
         image cap" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Utrecht</h5>
@@ -37,7 +37,7 @@
     </div>
     <div class="col-auto mb-3">
       <div class="card" style="width: 18rem; height: 25rem">
-        <img class="card-img-top" src="<?php echo URLROOT; ?>../public/images/bios1.jpg" /alt="Card> 
+        <img class="card-img-top" src="<?php echo URLROOT; ?>/public/images/bios1.jpg" /alt="Card> 
         image cap" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Utrecht</h5>
@@ -54,7 +54,7 @@
     </div>
     <div class="col-auto mb-3">
       <div class="card" style="width: 18rem; height: 25rem">
-        <img class="card-img-top" src="<?php echo URLROOT; ?>../public/images/bios1.jpg" /alt="Card> 
+        <img class="card-img-top" src="<?php echo URLROOT; ?>/public/images/bios1.jpg" /alt="Card> 
         image cap" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Utrecht</h5>
@@ -71,7 +71,7 @@
     </div>
     <div class="col-auto mb-3">
       <div class="card" style="width: 18rem; height: 25rem">
-        <img class="card-img-top" src="<?php echo URLROOT; ?>../public/images/bios1.jpg" /alt="Card> 
+        <img class="card-img-top" src="<?php echo URLROOT; ?>/public/images/bios1.jpg" /alt="Card> 
         image cap" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Utrecht</h5>
@@ -88,7 +88,7 @@
     </div>
     <div class="col-auto mb-3">
       <div class="card" style="width: 18rem; height: 25rem">
-        <img class="card-img-top" src="<?php echo URLROOT; ?>../public/images/bios1.jpg" /alt="Card> 
+        <img class="card-img-top" src="<?php echo URLROOT; ?>/public/images/bios1.jpg" /alt="Card> 
         image cap" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Utrecht</h5>
@@ -105,7 +105,7 @@
     </div>
     <div class="col-auto mb-3">
       <div class="card" style="width: 18rem; height: 25rem">
-        <img class="card-img-top" src="<?php echo URLROOT; ?>../public/images/bios1.jpg" /alt="Card> 
+        <img class="card-img-top" src="<?php echo URLROOT; ?>/public/images/bios1.jpg" /alt="Card> 
         image cap" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Utrecht</h5>
