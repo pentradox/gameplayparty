@@ -7,7 +7,7 @@
         <a href="">
             <li>Dashboard</li>
         </a>
-        <a href="<?php echo URLROOT; ?>/Dashboard/">
+        <a href="<?php echo URLROOT; ?>/Dashboard/addCinema">
             <li>Bioscoop toevoegen</li>
         </a>
         <a href="<?php echo URLROOT; ?>/Userlogin/logout">
