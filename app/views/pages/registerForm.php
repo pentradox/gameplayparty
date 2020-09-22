@@ -4,7 +4,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="<?php echo URLROOT?>/Register/add" method="post">
+                        <form id="login-form" class="form" method="post">
                             <h3 class="text-center text-info">Meld uw bioscoop aan</h3>
                             <div class="form-group">
                                 <label for="email" class="text-info">Email :</label><br>
@@ -30,10 +30,7 @@
                                 }
                             ?>
                             <div class="form-group">
-                                <a href="home" name="wachtwoord_vergeten">Wachtwoord vergeten?</a>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                                <input type="button" name="submit" class="btn btn-info btn-md" value="Submit" onclick="formCheck()">
                             </div>
                         </form>
                     </div>
