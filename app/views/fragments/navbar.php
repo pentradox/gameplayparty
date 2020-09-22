@@ -19,11 +19,11 @@
       <?php
         if ($_SESSION != null) {
           echo '<li class="nav-item">
-            <a class="nav-link" href="'. URLROOT .'/Admin/logout">Logout</a>
+            <a class="nav-link" href="'. URLROOT .'/Userlogin/logout">Logout</a>
           </li>';
         } else {
           echo '<li class="nav-item">
-            <a class="nav-link" href="'. URLROOT .'/Admin">Login</a>
+            <a class="nav-link" href="'. URLROOT .'/Userlogin">Login</a>
           </li>';
         }
       ?>

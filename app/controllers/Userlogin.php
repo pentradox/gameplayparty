@@ -1,5 +1,5 @@
 <?php
-class Admin extends controller {
+class Userlogin extends controller {
   
   public function __construct() {
     $this->loginModel = $this->model("Login");

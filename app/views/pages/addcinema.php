@@ -1,3 +1,4 @@
+<?php include APPROOT."/views/fragments/dashboardNav.php"; ?>
 <main>
   <form class="mx-sm-5" action="">
     <div class="form-row">
@@ -38,3 +39,4 @@
     <button type="submit" class="btn btn-primary mt-3">Bioscoop aanmaken</button>
   </form>
 </main>
+<?php include APPROOT."/views/fragments/footer.php"; ?>
