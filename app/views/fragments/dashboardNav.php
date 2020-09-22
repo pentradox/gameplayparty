@@ -7,10 +7,10 @@
         <a href="">
             <li>Dashboard</li>
         </a>
-        <a href="">
-            <li>Profile</li>
+        <a href="<?php echo URLROOT; ?>/Dashboard/">
+            <li>Bioscoop toevoegen</li>
         </a>
-        <a href="<?php echo URLROOT; ?>/Admin/logout">
+        <a href="<?php echo URLROOT; ?>/Userlogin/logout">
             <li>logout</li>
         </a>
     </ul>
