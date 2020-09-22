@@ -17,4 +17,13 @@ class Dashboard extends controller
       $this->redirect("Userlogin");
     }
   }
+
+  public function createCinema() {
+    if ($_SESSION["userid"]) {
+      $this->view("pages/addcinema");
+    } else {
+      $this->redirect("Userlogin");
+    }
+  }
+
 }

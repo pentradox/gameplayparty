@@ -26,7 +26,7 @@ class Login {
 		$user = $this->database->getArray();
 
 		if(!empty($user)) {
-			$_SESSION["userid"] = "test";
+			$_SESSION["userid"] = $username;
 			return;
 		} else {
 			$error = "Wrong username or password!";
