@@ -16,8 +16,31 @@ class Dashboard extends controller {
 
   public function halls() {
     if ($_SESSION["userid"] != null) {
-      $data = $this->hallsModel->getAllHalls();
+      $data["halls"] = $this->hallsModel->getAllHalls();
       $this->view("Pages/halls", $data);
+    }
+  }
+
+  public function updatehall($id = null) {
+    if ($_SESSION["userid"] != null) {
+      if (isset($id)) {
+        $data = $this->hallsModel->getHall($id);
+        if ($data["hall_error"] != null) {
+          $data["halls"] = $this->hallsModel->getAllHalls();
+          $this->view("pages/halls",$data);
+        } else {
+          $this->view("pages/updateHall",$data);
+        }
+      } else {
+        $data = $this->hallsModel->sendUpdateHall();
+        $data2 = $this->hallsModel->getHall($data["id"]);
+        $data["hall"] = $data2["hall"];
+        if ($data["success_message"] != null) {
+          $this->view("pages/updateHall",$data);
+        } else {
+          $this->view("pages/updateHall",$data);
+        }
+      }
     }
   }
 

@@ -14,17 +14,25 @@
         </thead>
         <tbody>
             <?php
-            foreach ($data as $hall) {
-                echo "<tr scope='row'>
-                <th>". $hall->id ."</th>
-                <td>". $hall->hall_number ."</td>
-                <td>". $hall->seats ."</td>
-                <td>". $hall->sound_system ."</td>
-                <td><i class='fas fa-trash'></i></td>
-                </tr>";
+            if (isset($data["halls"])) {
+                foreach ($data["halls"] as $hall) {
+                    echo "<tr scope='row'>
+                    <th>". $hall->id ."</th>
+                    <td>". $hall->hall_number ."</td>
+                    <td>". $hall->seats ."</td>
+                    <td>". $hall->sound_system ."</td>
+                    <td><a href='" . URLROOT . "/Dashboard/updatehall/". $hall->id ."'><i class='fas fa-cog'></i></a></td>
+                    <td><i class='fas fa-trash'></i></td>
+                    </tr>";
+                }
+            } else {
+                echo '<tr>
+                <td align="center" colspan="6">Geen Zaalen gevonden!</td>
+                </tr>'; 
             }
             ?>
         </tbody>
     </table>
+    <?php echo (isset($data["hall_error"]) ? '<small class="alert alert-danger position-absolute" style="right: 10px !important;bottom: 30px !important;">'.$data["hall_error"].'</small>' : null);?>
 </main>
 <?php include APPROOT . "/views/fragments/footer.php"; ?>
