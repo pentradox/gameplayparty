@@ -3,7 +3,7 @@
     <main>
         <div class="intro">
             <div class="text-container">
-                <h1>Welcome <?php echo $_SESSION["userid"] ?></h1>
+                <h1>Welcome <?php echo $_SESSION["username"] ?></h1>
             </div>
         </div>
     </main>

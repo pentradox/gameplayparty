@@ -3,7 +3,7 @@
 class Dashboard extends controller {
 
   public function __construct() {
-    $this->cinemaModel = $this->model("Cinema");
+    $this->hallsModel = $this->model("Halls");
   }
 
   public function index() {
@@ -14,28 +14,20 @@ class Dashboard extends controller {
     }
   }
 
-  public function addCinema() {
-    if ($_SESSION["userid"]) {
-      $this->view("pages/addcinema");
-    } else {
-      $this->redirect("Userlogin");
-    }
-  }
-
-  public function createCinema() {
-    if ($_SESSION["userid"]) {
-      if ((isset($_POST["company_name"])) && (isset($_POST["location"])) && (isset($_POST["company_logo"]))) {
-        $company_name = trim($_POST["company_name"]);
-        $location = trim($_POST["location"]);
-        $company_logo = trim($_POST["company_logo"]);
-
-        $message = $this->cinemaModel->createCinema($company_name,$location,$company_logo);
-        echo var_dump($message);
+  public function createhall() {
+    if ($_SESSION["userid"] != null) {
+      $data = [
+        "hall_number_error" => null,
+        "hall_seats_error" => null,
+        "hall_sound_error" => null,
+        "error" => null,
+        "success_message" => null
+      ];
+      if ((!isset($_POST["hall_number"])) && (!isset($_POST["hall_seats"])) && (!isset($_POST["hall_sound"]))) {
+        $this->view("pages/createHall",$data);
       } else {
-        $data = [
-          "error" => "unset"
-        ];
-        $this->view("pages/addcinema",$data);
+        $data = $this->hallsModel->createHall($data);
+        $this->view("pages/createHall",$data);
       }
     } else {
       $this->redirect("Userlogin");

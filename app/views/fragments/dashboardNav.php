@@ -7,8 +7,8 @@
         <a href="">
             <li>Dashboard</li>
         </a>
-        <a href="<?php echo URLROOT; ?>/Dashboard/addCinema">
-            <li>Bioscoop toevoegen</li>
+        <a href="<?php echo URLROOT; ?>/Dashboard/createHall">
+            <li>Bioscoopzaal toevoegen</li>
         </a>
         <a href="<?php echo URLROOT; ?>/Userlogin/logout">
             <li>logout</li>
