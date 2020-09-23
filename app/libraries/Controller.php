@@ -53,7 +53,7 @@ class Controller {
 
     // Check the view file
     if (file_exists($viewName)) {
-
+      $_POST["data"] = $data;
       // Require the view to load
       header("Location: " . URLROOT . "/" . $view);
 
