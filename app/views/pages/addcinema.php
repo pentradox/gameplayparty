@@ -1,6 +1,6 @@
 <?php include APPROOT."/views/fragments/dashboardNav.php"; ?>
 <main>
-  <form class="mx-sm-5" action="" method="POST">
+  <form class="mx-sm-5" action="<?php echo URLROOT?>/Dashboard/createCinema" method="POST">
     <div class="form-row">
 
       <div class="col-md-12 mb-3 mt-3">
