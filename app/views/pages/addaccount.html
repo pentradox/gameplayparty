@@ -1,0 +1,39 @@
+<main>
+  <form class="mx-sm-5" action="">
+    <div class="form-row">
+
+      <div class="col-md-6 mb-3 mt-3">
+        <label for="bedrijfsnaam">Gebruikersnaam</label>
+        <input type="text" class="form-control" id="username" placeholder="Gebruikersnaam" name="username" required>
+      </div>
+
+      <div class="col-md-6 mb-3 mt-3">
+        <label for="password">Wachtwoord</label>
+        <input type="password" class="form-control" id="password" placeholder="Wachtwoord" name="password" required>
+        <input type="checkbox" onclick="hideAndShowPW()"> Show Password
+
+        <!-- Show / Hide password function --START-- -->
+        <script>
+          function hideAndShowPW() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+        </script>
+        <!-- Show / Hide password function --END-- -->
+
+      </div>
+
+      <div class="col-md-12 mb-3 mt-3">
+        <label for="bioscoop">Bioscoop</label>
+        <input type="text" class="form-control" id="cinema" placeholder="Bioscoop" name="cinema" required>
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Toevoegen</button>
+  </form>
+</main>
