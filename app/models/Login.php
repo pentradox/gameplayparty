@@ -19,7 +19,7 @@ class Login {
 			return $error;
 		}
 
-		$query = "SELECT * FROM users WHERE username = :username AND password = :password";
+		$query = "SELECT * FROM cinema WHERE name = :username AND password = :password";
 		$this->database->prepare($query);
 		$this->database->bind(":username", $username);
 		$this->database->bind(":password", $password);
