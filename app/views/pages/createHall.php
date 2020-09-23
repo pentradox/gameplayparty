@@ -22,7 +22,7 @@
       } else {
         echo '<label class="text-danger" for="hall_seats">Zit Plaatsen*</label>
         <input type="number" name="hall_seats" class="is-invalid form-control" id="hall_seats" required>
-        <small class="text-danger">'.$data["hall_number_error"].'</small>';
+        <small class="text-danger">'.$data["hall_seats_error"].'</small>';
       }
       ?>
     </div>
@@ -34,7 +34,7 @@
       } else {
         echo '<label class="text-danger" for="hall_sound">Geluids Systeem*</label>
         <input type="text" name="hall_sound" class="is-invalid form-control" id="hall_sound" required>
-        <small class="text-danger">'.$data["hall_number_error"].'</small>';
+        <small class="text-danger">'.$data["hall_sound_error"].'</small>';
       }
       ?>
     </div>

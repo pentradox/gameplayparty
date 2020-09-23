@@ -6,6 +6,13 @@ class Halls {
 		$this->database = new Database;
     }
 
+    public function getAllHalls() {
+        $query = "SELECT * FROM halls";
+        $this->database->prepare($query);
+        $data = $this->database->getArray();
+        return $data;
+    }
+
     public function createHall($data) {
         // Checks if form data is there and stores error message
 		if (!isset($_POST["hall_number"])) {

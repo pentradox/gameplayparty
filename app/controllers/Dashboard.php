@@ -14,6 +14,13 @@ class Dashboard extends controller {
     }
   }
 
+  public function halls() {
+    if ($_SESSION["userid"] != null) {
+      $data = $this->hallsModel->getAllHalls();
+      $this->view("Pages/halls", $data);
+    }
+  }
+
   public function createhall() {
     if ($_SESSION["userid"] != null) {
       $data = [
