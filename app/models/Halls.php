@@ -7,6 +7,7 @@ class Halls {
     }
 
     public function getAllHalls() {
+		// Gets all rows by id and sorts them on hall_number
 		$cinema_id = $_SESSION['userid'];
         $query = "SELECT * FROM halls  WHERE cinema_id = $cinema_id ORDER BY hall_number";
         $this->database->prepare($query);
@@ -14,21 +15,22 @@ class Halls {
         return $data;
     }
 
-    public function getHall($id) {
-        $data = [
-            "hall_error" => null
-        ];
-        if (!isset($id)) {
-            $data["hall_error"] = "Error! fout zaal nummer!";
+    public function getHall($id,$data) {
+		// Check if the id is there and valid
+        if ((!isset($id)) || ($id == null)) {
+			$data["hall_message"] = "Error! fout zaal nummer!";
+			$data["hall_message_class"] = "alert-danger";
             return $data;
-        }
-
-        $query = "SELECT * FROM halls WHERE id=:id";
+		}
+		// Get the row with the matching id
+        $query = "SELECT * FROM halls WHERE id=:id LIMIT 1";
         $this->database->prepare($query);
         $this->database->bind(":id", $id);
-        $result = $this->database->getRow();
+		$result = $this->database->getRow();
+		// Check if sql returns any results
         if ($result == false) {
-            $data["hall_error"] = "Error die zaal bestaat niet!";
+			$data["hall_message"] = "Error die zaal bestaat niet!";
+			$data["hall_message_class"] = "alert-danger";
             return $data;
         } else {
             $data["hall"] = $result;
@@ -36,25 +38,18 @@ class Halls {
         }
     }
 
-    public function sendUpdateHall() {
-        $data = [
-            "hall_number_error" => null,
-            "hall_seats_error" => null,
-            "hall_sound_error" => null,
-            "error" => null,
-            "success_message" => null
-          ];
+    public function sendUpdateHall($data) {
         // Checks if form data is there and stores error message
-		if (!isset($_POST["hall_number"])) {
+		if ((!isset($_POST["hall_number"])) || ($_POST["hall_number"] == "")) {
 			$data["hall_number_error"] = "Error zaal nummer is leeg!";
 		}
-		if (!isset($_POST["hall_seats"])) {
+		if ((!isset($_POST["hall_seats"])) || ($_POST["hall_seats"] == "")) {
 			$data["hall_seats_error"] = "Error zit plaatsen is leeg!";
 		}
-		if (!isset($_POST["hall_sound"])) {
+		if ((!isset($_POST["hall_sound"])) || (($_POST["hall_sound"] == ""))) {
 			$data["hall_sound_error"] = "Error geluids systeem is leeg!";
         }
-        if (!isset($_POST["id"])) {
+        if ((!isset($_POST["id"])) || ($_POST["id"] == null)) {
 			$data["error"] = "Please do not edit the code!";
 		}
 
@@ -100,7 +95,8 @@ class Halls {
 				return $data;
 			}
         }
-        
+		
+		// Updateds row specified by id
 		$query = "UPDATE halls SET hall_number=:hall_number, seats=:seats, sound_system=:sound_system WHERE id=:id";
         $this->database->prepare($query);
 		$this->database->bind(":hall_number", $hall_number);
@@ -131,7 +127,7 @@ class Halls {
 		if ((!isset($_POST["hall_seats"])) || ($_POST["hall_seats"] == "")) {
 			$data["hall_seats_error"] = "Error zit plaatsen is leeg!";
 		}
-		if ((!isset($_POST["hall_sound"])) || (($_POST["hall_sound"]))) {
+		if ((!isset($_POST["hall_sound"])) || (($_POST["hall_sound"] == ""))) {
 			$data["hall_sound_error"] = "Error geluids systeem is leeg!";
 		}
 
@@ -197,15 +193,26 @@ class Halls {
 	}
 	
 	public function deletehall($id,$data) {
+		// Checks if the id is set
 		if (($id == null) || (!isset($id)) ) {
-			$data["hall_error"] = "Error zaal bestaat niet!";
+			$data["hall_message"] = "Error zaal bestaat niet!";
+			$data["hall_message_class"] = "alert-danger";
+			return $data;
 		}
-
+		// Deletes row at id
 		$query = "DELETE FROM halls WHERE id=:id LIMIT 1";
 		$this->database->prepare($query);
 		$this->database->bind(":id", $id);
-		$this->database->execute();
-		$data["hall_error"] = "Zaal succesvol verwijderd";
+		// checks if row is deleted succesfully
+		if ($this->database->execute()) {
+			$data["deleted"] = true;
+			$data["hall_message"] = "Zaal succesvol verwijderd";
+			$data["hall_message_class"] = "alert-success";
+		} else {
+			$data["deleted"] = false;
+			$data["hall_message"] = "Error kon niet verwijderen!";
+			$data["hall_message_class"] = "alert-danger";
+		}
 		return $data;
 	}
 }

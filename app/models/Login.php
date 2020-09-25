@@ -11,6 +11,7 @@ class Login {
 			$error = "Please enter something!";
 			return $error;
 		}
+		
 		$pattern = '/[^0-9a-zA-Z@.-]/';
 		$mail2 = preg_replace($pattern, '', $mail);
 		$password2 = preg_replace($pattern, '', $password);
