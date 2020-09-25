@@ -3,24 +3,30 @@
 class Login {
 	private $database;
 	public function __construct() {
-
 		$this->database = new Database;
 	}
 
-	public function LoginCheck($username, $password) {
-		if (($username == '') || ($password == '') || ($password == null) || ($password == null)) {
+	public function LoginCheck($mail, $password) {
+		if (($mail == '') || ($password == '') || ($mail == null) || ($password == null)) {
 			$error = "Please enter something!";
 			return $error;
 		}
-		$pattern = '/[0-9a-zA-Z-]{20}$/';
-		$username2 = preg_replace($pattern, '', $username);
+		$pattern = '/[^0-9a-zA-Z@.-]/';
+		$mail2 = preg_replace($pattern, '', $mail);
 		$password2 = preg_replace($pattern, '', $password);
-		if(($username != $username2) || ($password != $password2)) {
+		if(($mail != $mail2) || ($password != $password2)) {
 			$error = "Found forbidden characters!";
 			return $error;
 		}
-		if($username == "test" && $password == 123) {
-			$_SESSION["userid"] = "test";
+
+		$query = "SELECT * FROM cinema WHERE mail = :mail AND password = :password";
+		$this->database->prepare($query);
+		$this->database->bind(":mail", $mail);
+		$this->database->bind(":password", $password);
+		$user = $this->database->getRow();
+		if(!empty($user)) {
+			$_SESSION["username"] = $user->name . " " . $user->location;
+			$_SESSION["userid"] = $user->id;
 			return;
 		} else {
 			$error = "Wrong username or password!";

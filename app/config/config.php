@@ -6,6 +6,7 @@ define("DBUSER","root");
 define("DBPASS","yE3tyeet");
 define("DBNAME","mvc");
 
+
 // Sitename
 define ("SITENAME","gameplayparty");
 define ("APPVERSION","0.0.1");

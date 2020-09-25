@@ -31,5 +31,5 @@
     />
     <title><?php echo SITENAME; ?></title>
   </head>
-  <body></body>
-</html>
+  <body>
+
