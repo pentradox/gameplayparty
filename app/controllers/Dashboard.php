@@ -21,6 +21,10 @@ class Dashboard extends controller {
     }
   }
 
+  public function acounts() {
+    $this->view("Pages/acounts");
+  }
+
   public function updatehall($id = null) {
     if ($_SESSION["userid"] != null) {
       if (isset($id)) {

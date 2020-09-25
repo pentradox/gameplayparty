@@ -2,9 +2,9 @@
 
 // Database
 define("DBHOST","188.166.81.76");
-define("DBUSER","root");
+define("DBUSER","bas");
 define("DBPASS","yE3tyeet");
-define("DBNAME","mvc");
+define("DBNAME","gameplayparty");
 
 
 // Sitename

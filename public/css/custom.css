@@ -48,10 +48,6 @@ body {
 /* Dashboard */
 /* Navbar - Dashboard */
 .nav-dashboard {
-  position: absolute;
-  left: 0;
-  min-width: 200px;
-  width: calc(200px - 1px);
   height: 100vh;
   background-color: #25252b;
   border-right: 1px solid #34495e;
@@ -83,9 +79,7 @@ body {
 }
 
 .nav-dashboard > ul > a > li:nth-child(1) {
-
   border-top: 1px solid #34495e;
-
 }
 
 .nav-dashboard > ul > a > li:hover {
@@ -144,4 +138,13 @@ h4 {
   font-weight: 700;
   color: #17a2b8;
 }
+h1,
+a {
+  font-family: "Poppins", sans-serif;
+  margin: 0px;
+}
 
+html,
+body {
+  height: 100%;
+}

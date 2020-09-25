@@ -1,5 +1,5 @@
 <?php include APPROOT."/views/fragments/header.php"; ?>
-<nav class="nav-dashboard">
+<nav class="nav-dashboard p-0 ">
     <div class="brand">
         <img src="<?php echo URLROOT; ?>/public/graph/gpp.svg" alt="">
     </div>
@@ -8,10 +8,13 @@
             <li>Dashboard</li>
         </a>
         <a href="<?php echo URLROOT; ?>/Dashboard/halls">
-            <li>Bioscoop zaalen</li>
+            <li>Bioscoop zalen</li>
+        </a>
+        <a href="<?php echo URLROOT; ?>/Dashboard/acounts">
+            <li>Bioscopen</li>
         </a>
         <a href="<?php echo URLROOT; ?>/Userlogin/logout">
-            <li>logout</li>
+            <li>Uit loggen</li>
         </a>
     </ul>
 </nav>
