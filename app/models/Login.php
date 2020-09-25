@@ -11,6 +11,7 @@ class Login {
 			$error = "Please enter something!";
 			return $error;
 		}
+		
 		$pattern = '/[^0-9a-zA-Z@.-]/';
 		$mail2 = preg_replace($pattern, '', $mail);
 		$password2 = preg_replace($pattern, '', $password);
@@ -27,6 +28,7 @@ class Login {
 		if(!empty($user)) {
 			$_SESSION["username"] = $user->name . " " . $user->location;
 			$_SESSION["userid"] = $user->id;
+			$_SESSION["roles"] = $user->rights;
 			return;
 		} else {
 			$error = "Wrong username or password!";
