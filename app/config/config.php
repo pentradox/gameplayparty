@@ -1,9 +1,9 @@
 <?php
 
 // Database
-define("DBHOST","localhost");
+define("DBHOST","188.166.81.76");
 define("DBUSER","root");
-define("DBPASS","");
+define("DBPASS","yE3tyeet");
 define("DBNAME","mvc");
 
 // Sitename
