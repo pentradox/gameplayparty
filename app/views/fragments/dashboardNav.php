@@ -1,7 +1,9 @@
 <?php include APPROOT."/views/fragments/header.php"; ?>
 <nav class="nav-dashboard p-0">
-  <div class="brand">
-    <img src="<?php echo URLROOT; ?>/public/graph/gpp.svg" alt="" />
+  <div class="brand pl-2">
+    <a href="<?php echo URLROOT; ?>/"
+      ><img src="<?php echo URLROOT; ?>/public/graph/gpp.svg" alt=""
+    /></a>
   </div>
   <ul>
     <a href="<?php echo URLROOT; ?>/Dashboard">
