@@ -1,9 +1,10 @@
 html,
 body {
-  padding: 0px !important;
   font-family: "Poppins", sans-serif;
   margin: 0px;
   background-color: #ececec;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
 }
 
 /*login page css */
@@ -144,7 +145,8 @@ a {
   margin: 0px;
 }
 
-html,
-body {
+#dash-container {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }

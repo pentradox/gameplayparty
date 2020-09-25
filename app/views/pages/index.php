@@ -1,6 +1,6 @@
 <?php include APPROOT."/views/fragments/navbar.php"; ?>
 
-<div class="jumbotron h-100">
+<div class="jumbotron">
   <div id="hero-text">
     <h4 class="text-lg text-center text-uppercase font-weight-bold">
       Game Play Party

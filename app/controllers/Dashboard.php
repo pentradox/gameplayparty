@@ -58,14 +58,20 @@ class Dashboard extends controller {
         "success_message" => null
       ];
       if ((!isset($_POST["hall_number"])) && (!isset($_POST["hall_seats"])) && (!isset($_POST["hall_sound"]))) {
-        $this->view("pages/createHall",$data);
+        $this->view("pages/hall",$data);
       } else {
         $data = $this->hallsModel->createHall($data);
-        $this->view("pages/createHall",$data);
+        $this->view("pages/hall",$data);
       }
     } else {
       $this->redirect("Userlogin");
     }
   }
+
+
+  public function createPacket() {
+    $this->view("Pages/createPacket");
+  }
+
 
 }
