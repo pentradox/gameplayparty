@@ -21,8 +21,7 @@ class Halls {
 			$data["has_id"] = false;
             return $data;
 		}
-
-        if (($id == null) || (!is_int($id))) {
+        if ($id == null) {
 			$data["hall_message"] = "Error! fout zaal nummer!";
 			$data["hall_message_class"] = "alert-danger";
             return $data;
@@ -57,29 +56,22 @@ class Halls {
         if ((!isset($_POST["id"])) || ($_POST["id"] == null)) {
 			$data["error"] = "Please do not edit the code!";
 		}
-
-
 		// Checks if there are any error at the previous check
-		foreach ($data as $value) {
-			if ($value != null) {
-                $data["id"] = $_POST["id"];
-				unset($_POST);
-				return $data;
-			}
+		if (($data["hall_number_error"] != null) || ($data["hall_seats_error"] != null) || ($data["hall_sound_error"] != null) || ($data["error"] != null)) {
+			$data["id"] = $_POST["id"];
+			unset($_POST);
+			return $data;
 		}
-
 		// Trims all form data
 		$hall_number = trim($_POST["hall_number"]);
 		$hall_seats = trim($_POST["hall_seats"]);
         $hall_sound = trim($_POST["hall_sound"]);
         $id = trim($_POST["id"]);
-
 		// Validates form data against pattern
 		$pattern = '/[^0-9a-zA-Z., -]/';
 		$hall_number2 = preg_replace($pattern, '', $hall_number);
 		$hall_seats2 = preg_replace($pattern, '', $hall_seats);
 		$hall_sound2 = preg_replace($pattern, '', $hall_sound);
-
 		// Check if the validated form data still matches with the send data
 		// If it doesn't match it will store a error message
 		if ($hall_number != $hall_number2) {
@@ -91,16 +83,12 @@ class Halls {
 		if ($hall_sound != $hall_sound2) {
 			$data["hall_sound_error"] = "Foute karacters gevonden in geluids systeem!";
 		}
-
 		// Checks if there are any errors at the previous check
-		foreach ($data as $value) {
-			if ($value != null) {
-                $data["id"] = $_POST["id"];
-				unset($_POST);
-				return $data;
-			}
-        }
-		
+		if (($data["hall_number_error"] != null) || ($data["hall_seats_error"] != null) || ($data["hall_sound_error"] != null) || ($data["error"] != null)) {
+			$data["id"] = $_POST["id"];
+			unset($_POST);
+			return $data;
+		}
 		// Updateds row specified by id
 		$query = "UPDATE halls SET hall_number=:hall_number, seats=:seats, sound_system=:sound_system WHERE id=:id";
         $this->database->prepare($query);
@@ -109,12 +97,10 @@ class Halls {
         $this->database->bind(":sound_system", $hall_sound);
         $this->database->bind(":id", $id);
 		$result = $this->database->execute();
-		
 		// Unsets any post data so user doesn't get message on hard refresh
 		unset($_POST);
-
 		// Checks if it was succesful in storing the data
-		if ($result == true) {
+		if ($result) {
             $data["success_message"] = "Zaal succesvol Bijgewerkt!";
             $data["id"] = $id;
 			return $data;
@@ -203,7 +189,7 @@ class Halls {
 			$data["has_id"] = false;
 			return $data;
 		}
-		if (($id == null) || (!is_int($id))) {
+		if ($id == null) {
 			$data["hall_message"] = "Error zaal bestaat niet!";
 			$data["hall_message_class"] = "alert-danger";
 			return $data;
