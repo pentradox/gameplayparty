@@ -79,11 +79,11 @@ class Dashboard extends controller {
         "error" => null,
         "success_message" => null
       ];
-      if ((!isset($_POST["hall_number"])) && (!isset($_POST["hall_seats"])) && (!isset($_POST["hall_sound"]))) {
-        $this->view("pages/hall",$data);
-      } else {
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $data = $this->hallsModel->createHall($data);
-        $this->view("pages/hall",$data);
+        $this->view("pages/createHall",$data);
+      } else {
+        $this->view("pages/createHall",$data);
       }
     } else {
       $this->redirect("Userlogin");
