@@ -17,7 +17,12 @@ class Halls {
 
     public function getHall($id,$data) {
 		// Check if the id is there and valid
-        if ((!isset($id)) || ($id == null)) {
+		if (!isset($id)) {
+			$data["has_id"] = false;
+            return $data;
+		}
+
+        if (($id == null) || (!is_int($id))) {
 			$data["hall_message"] = "Error! fout zaal nummer!";
 			$data["hall_message_class"] = "alert-danger";
             return $data;
@@ -194,7 +199,11 @@ class Halls {
 	
 	public function deletehall($id,$data) {
 		// Checks if the id is set
-		if (($id == null) || (!isset($id)) ) {
+		if (!isset($id)) {
+			$data["has_id"] = false;
+			return $data;
+		}
+		if (($id == null) || (!is_int($id))) {
 			$data["hall_message"] = "Error zaal bestaat niet!";
 			$data["hall_message_class"] = "alert-danger";
 			return $data;
@@ -204,14 +213,17 @@ class Halls {
 		$this->database->prepare($query);
 		$this->database->bind(":id", $id);
 		// checks if row is deleted succesfully
-		if ($this->database->execute()) {
-			$data["deleted"] = true;
-			$data["hall_message"] = "Zaal succesvol verwijderd";
-			$data["hall_message_class"] = "alert-success";
-		} else {
-			$data["deleted"] = false;
+		if(!$this->database->execute()) {
 			$data["hall_message"] = "Error kon niet verwijderen!";
 			$data["hall_message_class"] = "alert-danger";
+		} else {
+			if ($this->database->rowCount() == 1) {
+				$data["hall_message"] = "Zaal succesvol verwijderd";
+				$data["hall_message_class"] = "alert-success";
+			} else {
+				$data["hall_message"] = "Error zaal bestaat niet!";
+				$data["hall_message_class"] = "alert-danger";
+			}
 		}
 		return $data;
 	}

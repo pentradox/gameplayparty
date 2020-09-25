@@ -11,7 +11,7 @@ class Dashboard extends controller {
     $this->view("pages/dashboard");
   }
 
-  public function halls($data = null) {
+  public function halls() {
     $this->sessionCheck();
     $data["halls"] = $this->hallsModel->getAllHalls();
     $this->view("Pages/halls", $data);
@@ -27,6 +27,7 @@ class Dashboard extends controller {
     $data = [
       "hall_message" => null,
       "hall_message_class" => null,
+      "has_id" => true,
       "hall" => null,
       "halls" => null,
       "hall_number_error" => null,
@@ -37,20 +38,20 @@ class Dashboard extends controller {
     ];
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
       $data = $this->hallsModel->getHall($id,$data);
-      if ($data["hall_message"] != null) {
-        $data["halls"] = $this->hallsModel->getAllHalls();
-        $this->view("pages/halls",$data);
+      if ($data["has_id"]) {
+        if ($data["hall_message"] != null) {
+          $data["halls"] = $this->hallsModel->getAllHalls();
+          $this->view("pages/halls",$data);
+        } else {
+          $this->view("pages/updateHall",$data);
+        }
       } else {
-        $this->view("pages/updateHall",$data);
+        $this->redirect("Dashboard/halls");
       }
     } else {
       $data = $this->hallsModel->sendUpdateHall($data);
       $data = $this->hallsModel->getHall($data["id"],$data);
-      if ($data["success_message"] != null) {
-        $this->view("pages/updateHall",$data);
-      } else {
-        $this->view("pages/updateHall",$data);
-      }
+      $this->view("pages/updateHall",$data);
     }
   }
 
@@ -60,14 +61,14 @@ class Dashboard extends controller {
       "hall_message" => null,
       "hall_message_class" => null,
       "halls" => null,
-      "deleted" => false
+      "has_id" => true
     ];
     $data = $this->hallsModel->deletehall($id,$data);
-    if ($data["deleted"]) {
+    if ($data["has_id"]) {
       $data["halls"] = $this->hallsModel->getAllHalls();
       $this->view("pages/halls",$data);
     } else {
-      $this->redirect("Dashboard/hall");
+      $this->redirect("Dashboard/halls");
     }
   }
 
