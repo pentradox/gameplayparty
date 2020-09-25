@@ -7,7 +7,7 @@ class Halls {
     }
 
     public function getAllHalls() {
-        $query = "SELECT * FROM halls";
+        $query = "SELECT * FROM halls ORDER BY hall_number";
         $this->database->prepare($query);
         $data = $this->database->getArray();
         return $data;
@@ -193,5 +193,12 @@ class Halls {
 			$data["error"] = "Er is iets fout gegaan bij het toevoegen!";
 			return $data;
 		}
-    }
+	}
+	
+	public function deletehall($id) {
+		$query = "DELETE FROM halls WHERE id=:id LIMIT 1";
+		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
+		return $this->database->execute();
+	}
 }
