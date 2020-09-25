@@ -7,7 +7,8 @@ class Halls {
     }
 
     public function getAllHalls() {
-        $query = "SELECT * FROM halls ORDER BY hall_number";
+		$cinema_id = $_SESSION['userid'];
+        $query = "SELECT * FROM halls  WHERE cinema_id = $cinema_id ORDER BY hall_number";
         $this->database->prepare($query);
         $data = $this->database->getArray();
         return $data;
@@ -196,9 +197,15 @@ class Halls {
 	}
 	
 	public function deletehall($id) {
+		if (($id == null) || (!isset($id)) ) {
+			$data["hall_error"] = "Error zaal bestaat niet!";
+		}
+
 		$query = "DELETE FROM halls WHERE id=:id LIMIT 1";
 		$this->database->prepare($query);
 		$this->database->bind(":id", $id);
-		return $this->database->execute();
+		$this->database->execute();
+		$data["hall_error"] = "Zaal succesvol verwijderd";
+		return $data;
 	}
 }

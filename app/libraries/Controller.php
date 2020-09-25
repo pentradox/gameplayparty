@@ -62,6 +62,12 @@ class Controller {
       die("View " . $viewName . " does not exists");
     }
   }
+
+  public function sessionCheck() {
+  if ($_SESSION["userid"] == null) {
+      $this->redirect("Userlogin");
+  }
+}
 }
 
 
