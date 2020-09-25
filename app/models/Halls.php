@@ -124,13 +124,13 @@ class Halls {
 
     public function createHall($data) {
         // Checks if form data is there and stores error message
-		if (!isset($_POST["hall_number"])) {
+		if ((!isset($_POST["hall_number"])) || ($_POST["hall_number"] == "")) {
 			$data["hall_number_error"] = "Error zaal nummer is leeg!";
 		}
-		if (!isset($_POST["hall_seats"])) {
+		if ((!isset($_POST["hall_seats"])) || ($_POST["hall_seats"] == "")) {
 			$data["hall_seats_error"] = "Error zit plaatsen is leeg!";
 		}
-		if (!isset($_POST["hall_sound"])) {
+		if ((!isset($_POST["hall_sound"])) || (($_POST["hall_sound"]))) {
 			$data["hall_sound_error"] = "Error geluids systeem is leeg!";
 		}
 
