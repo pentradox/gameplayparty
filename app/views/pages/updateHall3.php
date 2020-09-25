@@ -1,16 +1,6 @@
-
-
-<div class="row overflow-hidden">
-    <div class="col-sm-4 col-md-4 col-lg-2 p-0">
-      <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
-    </div>
-    <div class="col py-5 " id="dash-container">
-      
-      <div class="row justify-content-center">
-  
-  
-   
-      <form class="col-md-9 col-lg-8 col-xl-6 border border-light p-5" style=" !important;" action="<?php echo URLROOT ?>/Dashboard/updatehall" method="POST">
+<?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
+<main class="container d-flex justify-content-center align-items-center" style="height: 100vh">
+  <form class="col-sm-4 p-3 border border-dark" style=" !important;" action="<?php echo URLROOT ?>/Dashboard/updatehall" method="POST">
     <h3 class="text-center">Bioscoopzaal Aanpassen</h3>
     <div class="form-group">
       <?php
@@ -52,12 +42,5 @@
     <button type="submit" class="btn-block btn btn-primary">Toevoegen</button>
     <?php echo (isset($data["success_message"]) ? '<small class="text-center text-success">'.$data["success_message"].'</small>' : null); ?>
   </form>
-  
-      </div>
-      </div>
-  
-      
-    </div>
-  </div>
-  <?php include APPROOT . "/views/fragments/footer.php"; ?>
-  
+</main>
+<?php include APPROOT . "/views/fragments/footer.php"; ?>
