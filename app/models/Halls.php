@@ -196,7 +196,7 @@ class Halls {
 		}
 	}
 	
-	public function deletehall($id) {
+	public function deletehall($id,$data) {
 		if (($id == null) || (!isset($id)) ) {
 			$data["hall_error"] = "Error zaal bestaat niet!";
 		}
