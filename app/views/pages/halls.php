@@ -1,9 +1,14 @@
+<div class="row">
+    <div class="col-2 p-0">
 <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
-<main class="container" style="height: 100vh">
+</div>
+<div class="col p-0 ">
+    <div class="section px-5 py-5">
     <a class="btn btn-primary mt-3" href="<?php echo URLROOT ?>/Dashboard/createhall">Zaal Toevoegen</a>
     <table class="mt-3 table">
         <thead>
             <tr>
+
                 <th scope="col">Zaal nummer</th>
                 <th scope="col">Zit plaatsen</th>
                 <th scope="col">Geluids systeem</th>
@@ -16,7 +21,10 @@
             if (isset($data["halls"])) {
                 foreach ($data["halls"] as $hall) {
                     echo "<tr scope='row'>
-                    <th>". $hall->hall_number ."</th>
+
+                   
+                    <td>". $hall->hall_number ."</td>
+
                     <td>". $hall->seats ."</td>
                     <td>". $hall->sound_system ."</td>
                     <td><a href='" . URLROOT . "/Dashboard/updatehall/". $hall->id ."'><i class='fas fa-cog'></i></a></td>
@@ -31,6 +39,14 @@
             ?>
         </tbody>
     </table>
-    <?php echo (isset($data["hall_error"]) ? '<small class="alert alert-primary position-absolute" style="right: 10px !important;bottom: 30px !important;">'.$data["hall_error"].'</small>' : null);?>
-</main>
+
+    <?php echo (isset($data["hall_error"]) ? '<small class="alert alert-danger position-absolute" style="right: 10px !important;bottom: 30px !important;">'.$data["hall_error"].'</small>' : null);?>
+
+    </div>    
+    <div class="container-fluid p-0">
+
+</div>
+</div>
+</div>
+
 <?php include APPROOT . "/views/fragments/footer.php"; ?>
