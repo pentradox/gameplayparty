@@ -40,7 +40,7 @@
         </tbody>
     </table>
 
-    <?php echo (isset($data["hall_message"]) ? '<small class="alert '.$data["hall_message_class"].' position-absolute" style="right: 30px !important;bottom: 30px !important;">'.$data["hall_message"].'</small>' : null);?>
+    <?php echo (isset($data["hall_message"]) ? '<div><small class="alert '.$data["hall_message_class"].' position-absolute" style="right: 30px !important;bottom: 30px !important;"></div>'.$data["hall_message"].' </small>' : null);?>
 
     </div>    
     <div class="container-fluid p-0">

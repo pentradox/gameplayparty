@@ -47,20 +47,9 @@ class Controller {
 
   // Redirect view with clearing url
   public function redirect($view, $data = []) {
-
-  // Compose name
-  $viewName = "../app/controllers/" . $view . ".php";
-
-    // Check the view file
-    if (file_exists($viewName)) {
-      $_POST["data"] = $data;
-      // Require the view to load
-      header("Location: " . URLROOT . "/" . $view);
-
-    } else {
-      // No view exists
-      die("View " . $viewName . " does not exists");
-    }
+    $_POST["data"] = $data;
+    // Require the view to load
+    header("Location: " . URLROOT . "/" . $view);
   }
 
   public function sessionCheck() {
