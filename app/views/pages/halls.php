@@ -8,7 +8,7 @@
     <table class="mt-3 table">
         <thead>
             <tr>
-                
+
                 <th scope="col">Zaal nummer</th>
                 <th scope="col">Zit plaatsen</th>
                 <th scope="col">Geluids systeem</th>
@@ -21,12 +21,14 @@
             if (isset($data["halls"])) {
                 foreach ($data["halls"] as $hall) {
                     echo "<tr scope='row'>
+
                    
                     <td>". $hall->hall_number ."</td>
+
                     <td>". $hall->seats ."</td>
                     <td>". $hall->sound_system ."</td>
                     <td><a href='" . URLROOT . "/Dashboard/updatehall/". $hall->id ."'><i class='fas fa-cog'></i></a></td>
-                    <td><i class='fas fa-trash'></i></td>
+                    <td><a href='" . URLROOT . "/Dashboard/deletehall/". $hall->id ."'><i class='fas fa-trash'></i></a></td>
                     </tr>";
                 }
             } else {
@@ -37,6 +39,7 @@
             ?>
         </tbody>
     </table>
+
     <?php echo (isset($data["hall_error"]) ? '<small class="alert alert-danger position-absolute" style="right: 10px !important;bottom: 30px !important;">'.$data["hall_error"].'</small>' : null);?>
 
     </div>    
@@ -45,4 +48,5 @@
 </div>
 </div>
 </div>
+
 <?php include APPROOT . "/views/fragments/footer.php"; ?>

@@ -14,7 +14,7 @@ class Dashboard extends controller {
     }
   }
 
-  public function halls() {
+  public function halls($data = null) {
     if ($_SESSION["userid"] != null) {
       $data["halls"] = $this->hallsModel->getAllHalls();
       $this->view("Pages/halls", $data);
@@ -45,6 +45,28 @@ class Dashboard extends controller {
           $this->view("pages/updateHall",$data);
         }
       }
+    } else {
+      $this->redirect("Userlogin");
+    }
+  }
+
+  public function deletehall($id = null) {
+    if ($_SESSION["userid"] != null) {
+      if ($id != null) {
+        $delete = $this->hallsModel->deletehall($id);
+        $data["halls"] = $this->hallsModel->getAllHalls();
+        if ($delete) {
+          $data["hall_error"] = "Zaal succesvol verwijderd";
+          $this->view("pages/halls",$data);
+        } else {
+          $data["hall_error"] = "Error zaal bestaat niet!";
+          $this->updatehall("pages/halls",$data);
+        }
+      } else {
+        $this->redirect("Dashboard/halls");
+      }
+    } else {
+      $this->redirect("Userlogin");
     }
   }
 
