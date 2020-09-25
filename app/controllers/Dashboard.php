@@ -21,6 +21,10 @@ class Dashboard extends controller {
     }
   }
 
+  public function acounts() {
+    $this->view("Pages/acounts");
+  }
+
   public function updatehall($id = null) {
     if ($_SESSION["userid"] != null) {
       if (isset($id)) {
@@ -85,5 +89,11 @@ class Dashboard extends controller {
       $this->redirect("Userlogin");
     }
   }
+
+
+  public function createPacket() {
+    $this->view("Pages/createPacket");
+  }
+
 
 }
