@@ -27,6 +27,7 @@ class Login {
 		if(!empty($user)) {
 			$_SESSION["username"] = $user->name . " " . $user->location;
 			$_SESSION["userid"] = $user->id;
+			$_SESSION["roles"] = $user->rights;
 			return;
 		} else {
 			$error = "Wrong username or password!";
