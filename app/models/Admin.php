@@ -5,7 +5,7 @@ class Admin {
 	public function __construct() {
 		$this->database = new Database;
     }
-    
+
     public function getAllAccounts() {
 		// Gets all rows by id
         $query = "SELECT * FROM cinema";
@@ -18,7 +18,7 @@ class Admin {
 		// Check if file size is bigger then zero because it is empty otherwise
 		if($file['size'] !== 0) {
 			$name = $file['name'];
-			$target_dir = "view/assets/img/";
+			$target_dir = URLROOT . "/public/images/logos";
 			$target_file = $target_dir . basename($file["name"]);
 			// Select file type
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

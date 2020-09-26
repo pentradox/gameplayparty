@@ -13,7 +13,6 @@
                 <th scope="col">Zit plaatsen</th>
                 <th scope="col">Geluids systeem</th>
                 <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +26,8 @@
 
                     <td>". $hall->seats ."</td>
                     <td>". $hall->sound_system ."</td>
-                    <td><a href='" . URLROOT . "/Dashboard/updatehall/". $hall->id ."'><i class='fas fa-cog'></i></a></td>
-                    <td><a href='" . URLROOT . "/Dashboard/deletehall/". $hall->id ."'><i class='fas fa-trash'></i></a></td>
+                    <td><a href='" . URLROOT . "/Dashboard/updatehall/". $hall->id ."'><button type='button' class='btn btn-primary'><i class='fas fa-cog'></i></button></a>
+                    <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'><i class='fas fa-trash'></i></button></td>
                     </tr>";
                 }
             } else {
@@ -47,6 +46,25 @@
 
 </div>
 </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Weet U het zeker?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Als u deze bioscoop zaal verwijderd kunt u deze niet meer terug krijgen en hij verdwijnt ook uit onze shop!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Nee</button>
+        <a href="<?php echo URLROOT . "/Dashboard/deletehall/". $hall->id; ?>"><button type="button" class="btn btn-danger">Verwijder</button></a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php include APPROOT . "/views/fragments/footer.php"; ?>
