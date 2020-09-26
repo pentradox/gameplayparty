@@ -2,7 +2,7 @@
 <nav class="nav-dashboard p-0">
   <div class="brand pl-2">
     <a href="<?php echo URLROOT; ?>/"
-      ><img src="<?php echo URLROOT; ?>/public/graph/gpp.svg" alt=""
+      ><img src="<?php echo URLROOT; ?>/public/images/gpp.svg" alt=""
     /></a>
   </div>
   <ul>
