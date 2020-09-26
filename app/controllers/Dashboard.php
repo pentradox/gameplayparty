@@ -99,6 +99,24 @@ class Dashboard extends controller {
     $this->view("Pages/acounts",$data);
   }
 
+  public function updateaccount($id) {
+    $this->sessionCheck(1);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $this->view("Pages/editaccount");
+    } else {
+      $this->view("Pages/editaccount");
+    }
+  }
+
+  public function activate($id) {
+    $this->sessionCheck(1);
+    $data = [
+      
+    ];
+    $this->adminModel->activateAccount($id);
+    
+  }
+
   public function createPacket() {
     $this->sessionCheck(1);
     $this->view("Pages/createPacket");
