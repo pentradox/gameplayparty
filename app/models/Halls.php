@@ -175,7 +175,9 @@ class Halls {
 
 		// Checks if it was succesful in storing the data
 		if ($result == true) {
-			$data["success_message"] = "Zaal succesvol toegevoed!";
+			$data["hall_message"] = "Zaal succesvol toegevoed!";
+			$data["hall_message_class"] = "alert-success";
+			$_SERVER['REQUEST_METHOD'] = "GET";
 			return $data;
 		} else {
 			$data["error"] = "Er is iets fout gegaan bij het toevoegen!";

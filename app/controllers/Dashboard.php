@@ -4,6 +4,7 @@ class Dashboard extends controller {
 
   public function __construct() {
     $this->hallsModel = $this->model("Halls");
+    $this->adminModel = $this->model("Admin");
   }
 
   public function index() {
@@ -11,15 +12,11 @@ class Dashboard extends controller {
     $this->view("pages/dashboard");
   }
 
+  // Crud Cinema Halls - Start
   public function halls() {
     $this->sessionCheck();
     $data["halls"] = $this->hallsModel->getAllHalls();
     $this->view("Pages/halls", $data);
-  }
-
-  public function acounts() {
-    $this->sessionCheck();
-    $this->view("Pages/acounts");
   }
 
   public function updatehall($id = null) {
@@ -79,19 +76,31 @@ class Dashboard extends controller {
       "hall_seats_error" => null,
       "hall_sound_error" => null,
       "error" => null,
-      "success_message" => null
+      "hall_message" => null,
+      "hall_message_class" => null
     ];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $data = $this->hallsModel->createHall($data);
-      $this->view("pages/createHall",$data);
+      if ($data["hall_message"] != null) {
+        $data["halls"] = $this->hallsModel->getAllHalls();
+        $this->view("pages/halls",$data);
+      } else {
+        $this->view("pages/createHall",$data);
+      }
     } else {
       $this->view("pages/createHall",$data);
     }
   }
+  // Crud Cinema Halls - End
 
+  public function acounts() {
+    $this->sessionCheck(1);
+    $data["users"] = $this->adminModel->getAllAccounts();
+    $this->view("Pages/acounts",$data);
+  }
 
   public function createPacket() {
-    $this->sessionCheck();
+    $this->sessionCheck(1);
     $this->view("Pages/createPacket");
   }
 
