@@ -52,14 +52,16 @@ class Controller {
     header("Location: " . URLROOT . "/" . $view);
   }
 
-  public function sessionCheck() {
-  if ($_SESSION["userid"] == null) {
-      $this->redirect("Userlogin");
+  public function sessionCheck($role = 0) {
+    if ($_SESSION["userid"] == null) {
+        $this->redirect("Userlogin");
+    } else {
+      if ($role > 0) {
+        $user_role = $_SESSION["roles"];
+        if ($user_role != $role) {
+          $this->redirect("Dashboard");
+        }
+      }
+    }
   }
 }
-}
-
-
-
-
-?>

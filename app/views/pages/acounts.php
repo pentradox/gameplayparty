@@ -8,27 +8,38 @@
         
         <table class="mt-3 table">
           <thead>
-            <tr>
-              <th scope="col">Bioscoop</th>
-              <th scope="col">Gebruikersnaam</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
+              <tr>
+
+                  <th scope="col">Bioscoop</th>
+                  <th scope="col">Gebruikersnaam</th>
+                  <th scope="col">Mail</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+              </tr>
           </thead>
           <tbody>
-            <tr scope="row">
-              <td>Test Bios</td>
-              <td>Test Gebruikersnaam</td>
+              <?php
+              if (isset($data["users"])) {
+                  foreach ($data["users"] as $user) {
+                      echo "<tr scope='row'>
 
-              <td>
-                <a href='" . URLROOT . "/Dashboard/updatehall/". $hall->id ."'
-                  ><i class="fas fa-cog"></i
-                ></a>
-              </td>
-              <td><i class="fas fa-trash"></i></td>
-            </tr>
+                    
+                      <td>". $user->name ."</td>
+
+                      <td>". $user->name . " ". $user->location ."</td>
+                      <td>". $user->mail ."</td>
+                      <td><a href='#'><i class='fas fa-cog'></i></a></td>
+                      <td><a href='#'><i class='fas fa-trash'></i></a></td>
+                      </tr>";
+                  }
+              } else {
+                  echo '<tr>
+                  <td align="center" colspan="6">Geen gebruikers gevonden!</td>
+                  </tr>'; 
+              }
+              ?>
           </tbody>
-        </table>
+      </table>
       </div>
       <div class="container-fluid p-0 hidden"></div>
        

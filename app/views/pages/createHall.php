@@ -54,7 +54,7 @@
       ?>
     </div>
     <button type="submit" class="btn-block btn btn-primary">Toevoegen</button>
-    <?php echo ($data["success_message"] != null ? '<small class="text-center text-success">'.$data["success_message"].'</small>' : null); ?>
+    <?php echo ($data["error"] != null ? '<small class="text-center text-danger">'.$data["success_message"].'</small>' : null); ?>
   </form>
 
     </div>
