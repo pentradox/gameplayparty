@@ -11,7 +11,7 @@
         <!-- Grid column -->
         
       <!-- Grid column -->
-      <div class="col-4  mt-3">
+      <div class="col-4 mt-3">
   
         <!-- Links -->
         <h5 class="text-uppercase">Help</h5>
@@ -24,7 +24,7 @@
             <a href="#!">Extra informatie</a>
           </li>
           <li>
-            <a href="#!">Uw bioscoop toevoegen</a>
+            <a href="<?php echo URLROOT; ?>/Register">Uw bioscoop toevoegen</a>
           </li>
          
         </ul>
