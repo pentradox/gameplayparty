@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class=" mt-auto font-small bg-light bg-info pt-4 px-3 ">
+<footer class="font-small bg-light  pt-4 px-3 ">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
