@@ -3,8 +3,6 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0px;
   background-color: #ececec;
-  overflow-x: hidden !important;
-  box-sizing: border-box !important;
 }
 body {
   display: flex;
@@ -124,20 +122,26 @@ main {
 
 /* Dashboard ends here */
 
-nav {
-  background-color: #ececec;
-  background-color: rgba(136, 136, 136, 0);
-}
 #location {
   font-size: 44px;
   color: #17a2b8;
 }
-a {
+
+h1 {
+  font-size: 7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
   color: #17a2b8;
 }
-
+h2 {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #17a2b8;
+}
 h4 {
   font-size: 63px;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #17a2b8;
 }
@@ -164,4 +168,59 @@ footer {
 }
 .cinima-card {
   height: 30rem;
+}
+.second-title {
+  color: #ffc312;
+}
+
+.text-yellow {
+  color: #ffc312;
+}
+.text-blue {
+  color: #17a2b8;
+}
+link-blue {
+  color: #2980b9;
+}
+.btn-blue {
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+.btn-blue:hover {
+  color: #fff;
+  background-color: #1289a7;
+  border-color: #1289a7;
+}
+.btn-yellow {
+  color: #fff;
+  background-color: #ffc312;
+  border-color: #ffc312;
+}
+.btn-yellow:hover {
+  color: #fff;
+  background-color: #f79f1f;
+  border-color: #f79f1f;
+}
+
+#hero-text {
+  background-color: #ececec;
+  color: #34495e;
+}
+.cloud {
+  color: #ecf0f1;
+  text-shadow: #25252b;
+  box-shadow: #2c2c32;
+}
+.cloud:hover {
+  color: #dfdfdf;
+}
+.moon {
+  color: #0c0c0c;
+}
+.moon:hover {
+  color: #929292;
+}
+.text-green {
+  color: #2ecc71;
 }
