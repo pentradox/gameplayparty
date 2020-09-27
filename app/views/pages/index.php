@@ -2,19 +2,19 @@
 
 <div class="jumbotron rounded-0 border-0">
   <div id="hero-text " class=" mt-n4">
-    <h4 class="text-lg text-center text-uppercase font-weight-bold">
-      Game Play Party
-    </h4>
-    <p class="lead text-center font-weight-bold">Power to the players</p>
+    <h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">
+      Game <span class="text-blue">Play</span>  Party
+    </h1>
+    <h4 class="  text-blue text-center ">Power to the players</h5>
   </div>
 </div>
 
 
-<main class="container mt-5">
+<main class="container col-10 col-md-8 mt-5">
   <div class="card mb-5 bg-transparent border-0">
     <div class="row ">
 
-      <div class="col col-lg-5  px-3 ">
+      <div class="col col-md-12 col-xl-5  px-3 ">
         <div class="card-block px-6 pl-2 ">
           <h4 class="card-title mt-3">Welkom bij Game Play Party</h4>
           <p class="card-text">
@@ -22,12 +22,52 @@
           </p>
          
           <br>
-          <a href="#" class="mt-auto btn btn-primary  ">Dingen die je moet weten</a>
+          <a href="#" class="mt-auto btn btn-blue  ">Dingen die je moet weten</a>
         </div>
       </div>
       
-      <div class="col-sm-12 col-lg-7 py-5">
+      <div class="col-sm-12 col-xl-7 py-5">
         <img src="<?php echo URLROOT; ?>../public/images/mario_cart.png" class=" w-100">
+    </div>
+
+ 
+
+    </div>
+
+    <div class="row ">
+      <div class="col-sm-12 col-xl-7 py-5">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="<?php echo URLROOT; ?>../public/images/rush.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="<?php echo URLROOT; ?>../public/images/fn.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="<?php echo URLROOT; ?>../public/images/xbox-games.jpg" alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+    </div>
+    <div class="col col-md-12 col-xl-5  px-3 ">
+      <div class="card-block px-6 pl-2 ">
+        <h4 class="card-title mt-3 second-title">Hoe het werkt</h4>
+        <p class="card-text">
+          Neem je eigen favoriete Xbox One-spellen mee of kies uit het aanbod van je theater.
+        </p>
+       
+        <br>
+        <a href="#" class="mt-auto btn btn-yellow ">Dingen die je moet weten</a>
+      </div>
     </div>
 
  
