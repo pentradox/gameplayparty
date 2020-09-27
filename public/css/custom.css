@@ -6,6 +6,11 @@ body {
   overflow-x: hidden !important;
   box-sizing: border-box !important;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 /*login page css */
 .login-page {
@@ -121,6 +126,7 @@ main {
 
 nav {
   background-color: #ececec;
+  background-color: rgba(136, 136, 136, 0);
 }
 #location {
   font-size: 44px;
@@ -141,8 +147,21 @@ a {
   margin: 0px;
 }
 
-#dash-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+footer {
+  margin-top: auto;
+}
+.jumbotron {
+  height: 600px;
+}
+.navbar-brand {
+  width: 600px;
+}
+
+.navbar-toggler.navbar-toggler {
+  border-color: rgb(255, 255, 255);
+}
+.navbar-collapse {
+}
+.cinima-card {
+  height: 30rem;
 }
