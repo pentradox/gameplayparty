@@ -1,30 +1,43 @@
+
 <?php include APPROOT."/views/fragments/header.php"; ?>
-<nav class="nav-dashboard p-0">
-  <div class="brand pl-2">
-    <a href="<?php echo URLROOT; ?>/"
-      ><img src="<?php echo URLROOT; ?>/public/images/gpp.svg" alt=""
-    /></a>
-  </div>
-  <ul>
-    <a href="<?php echo URLROOT; ?>/Dashboard">
-      <li class="px-1">Dashboard</li>
-    </a>
-    <?php
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom px-5 mb-5">
+        <?php echo $_SESSION["username"] ?> | Beheerders Paneel
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="<?php echo URLROOT; ?>/home">Home</a>
+            </li>
+           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Acties
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <?php
     if ($_SESSION["roles"] == 1) {
-      echo '<a href="'. URLROOT .'/Dashboard/acounts">
-        <li>Bioscopen</li>
+      echo '<a class="dropdown-item" href="'. URLROOT .'/Dashboard/acounts">
+        Bioscopen
       </a>
-      <a href="'. URLROOT .'/Dashboard/createPacket">
-        <li>Pakket aanmaken</li>
+      <a class="dropdown-item" href="'. URLROOT .'/Dashboard/createPacket">
+        Pakket Aanmaken
       </a>';
     } else {
-      echo '<a href="'. URLROOT .'/Dashboard/halls">
-      <li>Bioscoop zalen</li>
+      echo '<a class="dropdown-item" href="'. URLROOT .'/Dashboard/halls">
+      Bioscoop zalen
       </a>';
     }
     ?>
-    <a href="<?php echo URLROOT; ?>/Userlogin/logout">
-      <li>Uitloggen</li>
-    </a>
-  </ul>
-</nav>
+                
+                
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo URLROOT; ?>/Userlogin/logout">Uitloggen</a>
+            </li>
+          </ul>
+        </div>
+      </nav>

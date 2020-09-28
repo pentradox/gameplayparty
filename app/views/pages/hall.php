@@ -1,9 +1,8 @@
 
 
-<div class="row overflow-hidden">
-  <div class="col-sm-4 col-md-4 col-lg-2 p-0">
+
     <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
-  </div>
+
   <div class="col py-5 " id="dash-container">
     
     <div class="row justify-content-center">
