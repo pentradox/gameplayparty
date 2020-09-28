@@ -1,8 +1,13 @@
+* {
+  overflow: hidden;
+}
+
 html,
 body {
   font-family: "Poppins", sans-serif;
   margin: 0px;
   background-color: #ececec;
+  width: 100%;
 }
 body {
   display: flex;
@@ -224,3 +229,6 @@ link-blue {
 .text-green {
   color: #2ecc71;
 }
+/* nav {
+  background-color: rgba(37, 37, 37, 0.123);
+} */

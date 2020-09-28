@@ -1,7 +1,7 @@
 <?php include APPROOT."/views/fragments/navbar.php"; ?>
 
 <div class="jumbotron rounded-0 border-0">
-  <div id="hero-text " class=" mt-n4">
+  <div id="hero-text " class=" ">
     <h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">
       Game <span class="text-blue">Play</span>  Party
     </h1>

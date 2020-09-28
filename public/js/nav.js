@@ -10,9 +10,3 @@ if (sPage == "Userlogin") {
   $(".navLinks").addClass("cloud");
   $("#home").addClass("nav nav-tabs");
 }
-
-if ($(document).offest().top) {
-  $("nav").addClass("bg-danger");
-} else {
-  $("nav").addClass("bg-info");
-}

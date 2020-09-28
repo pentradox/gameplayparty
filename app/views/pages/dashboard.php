@@ -1,7 +1,6 @@
-<div class="row overflow-hidden">
-  <div class="col-2 p-0">
+
     <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
-  </div>
+
   <div class="col flex-column p-0" id="dash-container">
     <div class="section px-4">
       <div class="intro">
