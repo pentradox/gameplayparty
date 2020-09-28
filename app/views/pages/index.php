@@ -82,33 +82,15 @@
 <section class="location-container mb-5">
 <p id="location" class="">Locaties<p/>
   <div class="row ">
-    
-   
-    <div class="col-sm-12 col-lg-6 col-xl-4 mb-3 ">
-      <div class="card cinima-card" >
-        <img class="card-img-top cinima-img" src="<?php echo URLROOT; ?>../public/images/almere.jpg"
-        /alt="Card> image cap" />
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Utrecht</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
-          <p class="card-text">
-            <i class="fas fa-check text-success"></i> Taart met slingers
-          </p>
-          <div class="link-container mt-auto d-inline">
-            <a href="#" class="card-link">Meer informatie</a>
-            <a href="#" class="card-link">Reserveer</a>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="col-sm-12 col-lg-6 col-xl-4 mb-3 ">
+  <?php
+    foreach ($data as $cinema) {
+      echo '<div class="col-sm-12 col-md-6 col-lg-4 mb-3">
         <div class="card cinima-card" >
-          <img class="card-img-top cinima-img" src="<?php echo URLROOT; ?>../public/images/almere.jpg"
+          <img class="card-img-top cinima-img" src="' . URLROOT . '/public/images/logos/'.$cinema->logo.'"
           /alt="Card> image cap" />
-  
+
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Almeren</h5>
+            <h5 class="card-title">'.$cinema->location.'</h5>
             <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
             <p class="card-text">
               <i class="fas fa-check text-success"></i> Taart met slingers
@@ -119,46 +101,9 @@
             </div>
           </div>
         </div>
-        </div>
-        <div class="col-sm-12 col-lg-6 col-xl-4 mb-3 ">
-          <div class="card cinima-card" >
-            <img class="card-img-top cinima-img" src="<?php echo URLROOT; ?>../public/images/almere.jpg"
-            /alt="Card> image cap" />
-    
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Groningen</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
-              <p class="card-text">
-                <i class="fas fa-check text-success"></i> Taart met slingers
-              </p>
-              <div class="link-container mt-auto d-inline">
-                <a href="#" class="card-link">Meer informatie</a>
-                <a href="#" class="card-link">Reserveer</a>
-              </div>
-            </div>
-          </div>
-          </div><div class="col-sm-12 col-lg-6 col-xl-4 mb-3 ">
-            <div class="card cinima-card" >
-              <img class="card-img-top cinima-img" src="<?php echo URLROOT; ?>../public/images/almere.jpg"
-              /alt="Card> image cap" />
-      
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Breda</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
-                <p class="card-text">
-                  <i class="fas fa-check text-success"></i> Taart met slingers
-                </p>
-                <div class="link-container mt-auto d-inline">
-                  <a href="#" class="card-link">Meer informatie</a>
-                  <a href="#" class="card-link">Reserveer</a>
-                </div>
-              </div>
-            </div>
-            </div>
-      
-    </div>
-    </div>
-    
+      </div>';
+    }
+    ?>
   </div>
   </section>
 </main>
