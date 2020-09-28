@@ -20,7 +20,6 @@ class Controller {
 
       // Instantiate the model
       return new $model();
-
     } else {
       // No model exists
       die("Model " . $modelName . " does not exists");
@@ -30,15 +29,14 @@ class Controller {
   // Load view with data and fragments files
   public function view($view, $data = []) {
 
-  // Compose name
-  $viewName = "../app/views/" . $view . ".php";
+    // Compose name
+    $viewName = "../app/views/" . $view . ".php";
 
     // Check the view file
     if (file_exists($viewName)) {
 
       // Require the view to load
       require_once $viewName;
-
     } else {
       // No view exists
       die("View " . $viewName . " does not exists");
@@ -53,15 +51,19 @@ class Controller {
   }
 
   public function sessionCheck($role = 0) {
-    if ($_SESSION["userid"] == null) {
-        $this->redirect("Userlogin");
+    $active = $_SESSION["active"];
+    if (($_SESSION["userid"] == null) || ($active == 0)) {
+      $this->redirect("Userlogin");
+      return false;
     } else {
-      if ($role > 0) {
+      if ($role != 0) {
         $user_role = $_SESSION["roles"];
         if ($user_role != $role) {
           $this->redirect("Dashboard");
+          return false;
         }
       }
     }
+    return true;
   }
 }
