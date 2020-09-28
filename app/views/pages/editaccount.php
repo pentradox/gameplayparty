@@ -1,5 +1,5 @@
 
-<?php include APPROOT . "/views/fragments/dashboardNav.php"; ?><link rel="stylesheet" href="croppie.css" />
+<?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
 <div class="row overflow-hidden">
   
   <div class="col py-5 " id="dash-container">
@@ -29,90 +29,72 @@
 
 			<hr>
 
-			<!-- <div class="custom-file mb-4">
-				<input type="file" class="custom-file-input" id="upload-demo" accept="image/*">
+			<div class="custom-file mb-4">
+				<input type="file" class="custom-file-input" id="croppie-input" accept="image/*">
 				<label class="custom-file-label" for="Logo">Choose file</label>
-			</div> -->
+			</div>
 
-			<!-- <button class="btn btn-info btn-block" type="submit">Opslaan</button> -->
+      <div>
+        <div id="croppie-demo"></div>
+      </div>
+      <div class="mb-4">
+        <div id="croppie-view"></div>
+      </div>
+
+			<hr>
+
+			<button class="btn btn-info btn-block" type="submit">Opslaan</button>
 
 		</form>
-			
-	  	<div class="col-5">
-				<strong>Select Image:</strong>
-				<br/>
-				<input type="file" id="upload">
-				<br/>
-				<button class="btn btn-success upload-result">Upload Image</button>
-			</div>
-			
-			<div class="col-5 text-center">
-				<div id="upload-demo-i" style="width:350px"></div>
-			</div>
-			
-			<div class="col-5 text-center">
-				<div id="yeet" style="width:350px"></div>
-	  	</div>
-
-		<script>
-			var resize = $('#upload-demo-i').croppie({
-					enableExif: true,
-					enableOrientation: true,    
-					viewport: { // Default { width: 100, height: 100, type: 'square' } 
-							width: 200,
-							height: 200,
-							type: 'square' //square
-					},
-					boundary: {
-							width: 300,
-							height: 300
-					}
-			});
-
-
-			$('#image').on('change', function () { 
-				var reader = new FileReader();
-					reader.onload = function (e) {
-						resize.croppie('bind',{
-							url: e.target.result
-						}).then(function(){
-							console.log('jQuery bind complete');
-						});
-					}
-					reader.readAsDataURL(this.files[0]);
-			});
-
-
-			$('.btn-upload-image').on('click', function (ev) {
-				resize.croppie('result', {
-					type: 'canvas',
-					size: 'viewport'
-				}).then(function (img) {
-					$.ajax({
-					  type: "POST",
-					  data: {"image":img},
-					  success: function (data) {
-					    html = '<img src="' + img + '" />';
-					    $("#yeet").html(html);
-					  }
-					});
-				});
-			});
-
-		</script>
 			
    		</div>
   	</div> 
   </div>
 </div>
 
+<script>
+	var croppieDemo = $('#croppie-demo').croppie({
+  enableOrientation: true,
+  viewport: {
+      width: 300,
+      height: 300,
+      type: 'square' // 'square' | 'circle'
+  },
+  boundary: {
+      width: 400,
+      height: 400
+  }
+});
 
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-	crossorigin="anonymous">
+$('#croppie-input').on('change', function () { 
+  var reader = new FileReader();
+  reader.onload = function (e) {
+      croppieDemo.croppie('bind', {
+          url: e.target.result
+      });
+  }
+  reader.readAsDataURL(this.files[0]);
+});
+
+$('.croppie-upload').on('click', function (ev) {
+  croppieDemo.croppie('result', {
+      type: 'canvas',
+      size: 'viewport'
+  }).then(function (image) {
+      $.ajax({
+          url: "/upload.php",
+          type: "POST",
+          data: {
+              "image" : image
+          },
+          success: function (data) {
+              html = '<img src="' + image + '" />';
+              $("#croppie-view").html(html);
+          }
+      });
+  });
+});
 </script>
 
-<script src="croppie.js"></script>
-  <?php include APPROOT . "/views/fragments/footer.php"; ?>
+<?php include APPROOT . "/views/fragments/footer.php"; ?>
   
