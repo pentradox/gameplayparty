@@ -29,6 +29,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,800;0,900;1,500;1,700&display=swap"
       rel="stylesheet"
     />
+
+    <link 
+      rel="stylesheet" 
+      href="http://demo.itsolutionstuff.com/plugin/croppie.css"
+    />
+    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+    <script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script>
     <title><?php echo SITENAME; ?></title>
   </head>
   <body>
