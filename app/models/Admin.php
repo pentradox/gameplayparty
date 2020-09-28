@@ -8,7 +8,7 @@ class Admin {
 
     public function getAllAccounts() {
 		// Gets all rows by id
-        $query = "SELECT * FROM cinema";
+        $query = "SELECT * FROM cinema WHERE id > 0";
         $this->database->prepare($query);
         $data = $this->database->getArray();
         return $data;
