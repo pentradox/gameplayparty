@@ -1,16 +1,14 @@
 
 
-<div class="row overflow-hidden">
-    <div class="col-sm-4 col-md-4 col-lg-2 p-0">
+
       <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
-    </div>
-    <div class="col py-5 " id="dash-container">
+   
       
       <div class="row justify-content-center">
   
   
    
-      <form class=" col-md-9 col-lg-8 col-xl-6 border border-light p-5" action="#!">
+      <form class=" col-md-9 col-lg-8 col-xl-6  " action="#!">
         <div class="text-info text-center mb-5">
         <h3 class="text-info  mb-4">Bioscoop zaal toevoegen
         </p>

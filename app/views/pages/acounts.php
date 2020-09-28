@@ -1,8 +1,6 @@
-<div id="content-wrap">
-  <div class="row" >
-    <div class="col-2 p-0">
+
       <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
-    </div>
+
     <div class="col p-0">
       <div class="section px-5 p-5">
         
@@ -52,7 +50,7 @@ if (isset($data["users"])) {
   foreach ($data["users"] as $user) {
 
     if ($user->active == 1) {
-      echo $user->id;
+     
       echo '<div class="modal fade" id="de-active'.$user->id.'" tabindex="-1" role="dialog" aria-labelledby="de-active'.$user->id.'" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
