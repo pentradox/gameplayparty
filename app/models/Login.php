@@ -36,4 +36,21 @@ class Login {
 			return $error;
 		}
 	}
+
+	public function register() {
+		$name = $_POST["username"];
+		$mail = $_POST["email"];
+		$password = $_POST["password"];
+		if (($name == '') || ($name == null) || ($mail == '') || ($password == '') || ($mail == null) || ($password == null)) {
+			$error = "Please enter something!";
+			return $error;
+		}
+		$query = "INSERT INTO cinema (name, mail, password) VALUES (:name, :mail, :password)";
+		$this->database->prepare($query);
+		$this->database->bind(":name", $name);
+		$this->database->bind(":mail", $mail);
+		$this->database->bind(":password", $password);
+		$this->database->execute();
+		return;
+	}
 }
