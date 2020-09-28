@@ -68,11 +68,15 @@
         <br>
         <a href="#" class="mt-auto btn btn-yellow ">Dingen die je moet weten</a>
       </div>
+      
+      <div class="col-sm-12 col-xl-7 py-5">
+        <img src="<?php echo URLROOT; ?>../public/images/mario_cart.png" class=" w-100">
     </div>
 
  
 
     </div>
+
   </div>
   <!-- End of card -->
 
@@ -97,65 +101,60 @@
             <a href="#" class="card-link">Meer informatie</a>
             <a href="#" class="card-link">Reserveer</a>
           </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-      </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-3 ">
-      <div class="card cinima-card" >
-        <img class="card-img-top cinima-img" src="<?php echo URLROOT; ?>../public/images/k-gr.jpg"
-        /alt="Card> image cap" />
 
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Groningen</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
-          <p class="card-text">
-            <i class="fas fa-check text-success"></i> Taart met slingers
-          </p>
-          <div class="link-container mt-auto d-inline">
-            <a href="#" class="card-link">Meer informatie</a>
-            <a href="#" class="card-link">Reserveer</a>
-          </div>
-        </div>
+    <div class="col col-md-12 col-xl-5  px-3 ">
+      <div class="card-block px-6 pl-2 ">
+        <h4 class="card-title mt-3 second-title">Hoe het werkt</h4>
+        <p class="card-text">
+          Neem je eigen favoriete Xbox One-spellen mee of kies uit het aanbod van je theater.
+        </p>
+       
+        <br>
+        <a href="#" class="mt-auto btn btn-yellow ">Dingen die je moet weten</a>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-3 ">
-      <div class="card cinima-card" >
-        <img class="card-img-top cinima-img" src="<?php echo URLROOT; ?>../public/images/breda.jpg"
-        /alt="Card> image cap" />
+    </div>
+  </div>
+  <!-- End of card -->
 
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Breda</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
-          <p class="card-text">
-            <i class="fas fa-check text-success"></i> Taart met slingers
-          </p>
-          <div class="link-container mt-auto d-inline">
-            <a href="#" class="card-link">Meer informatie</a>
-            <a href="#" class="card-link">Reserveer</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-3 ">
-      <div class="card cinima-card" >
-        <img class="card-img-top cinima-img" src="<?php echo URLROOT; ?>../public/images/almere.jpg"
-        /alt="Card> image cap" />
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Almeren</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
-          <p class="card-text">
-            <i class="fas fa-check text-success"></i> Taart met slingers
-          </p>
-          <div class="link-container mt-auto d-inline">
-            <a href="#" class="card-link">Meer informatie</a>
-            <a href="#" class="card-link">Reserveer</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
+</div>
+</div>
+<section class="location-container mb-5">
+<p id="location" class="">Locaties<p/>
+  <div class="row ">
     
+    <?php
+    foreach ($data as $cinema) {
+      echo '<div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+        <div class="card cinima-card" >
+          <img class="card-img-top cinima-img" src="' . URLROOT . '/public/images/logos/'.$cinema->logo.'"
+          /alt="Card> image cap" />
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">'.$cinema->location.'</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
+            <p class="card-text">
+              <i class="fas fa-check text-success"></i> Taart met slingers
+            </p>
+            <div class="link-container mt-auto d-inline">
+              <a href="#" class="card-link">Meer informatie</a>
+              <a href="#" class="card-link">Reserveer</a>
+            </div>
+          </div>
+        </div>
+      </div>';
+    }
+    ?>
   </div>
   </section>
 </main>
