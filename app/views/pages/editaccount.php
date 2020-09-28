@@ -1,13 +1,12 @@
-<link rel="stylesheet" href="croppie.css" />
+
+<?php include APPROOT . "/views/fragments/dashboardNav.php"; ?><link rel="stylesheet" href="croppie.css" />
 <div class="row overflow-hidden">
-  <div class="col-sm-4 col-md-4 col-lg-2 p-0">
-    <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
-  </div>
+  
   <div class="col py-5 " id="dash-container">
       
   <div class="row justify-content-center">
 
-		<form class=" col-md-9 col-lg-8 col-xl-6 border border-light p-5" action="#">
+		<form class=" col-10 border border-light p-5" action="#">
 			<div class="text-info text-center mb-5">
 				<h3 class="text-info  mb-4">Account instellingen
 				</p>
@@ -39,7 +38,7 @@
 
 		</form>
 			
-	  	<div class="col-md-4">
+	  	<div class="col-5">
 				<strong>Select Image:</strong>
 				<br/>
 				<input type="file" id="upload">
@@ -47,11 +46,11 @@
 				<button class="btn btn-success upload-result">Upload Image</button>
 			</div>
 			
-			<div class="col-md-4 text-center">
+			<div class="col-5 text-center">
 				<div id="upload-demo-i" style="width:350px"></div>
 			</div>
 			
-			<div class="col-md-4 text-center">
+			<div class="col-5 text-center">
 				<div id="yeet" style="width:350px"></div>
 	  	</div>
 
