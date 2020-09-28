@@ -8,33 +8,29 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="<?php echo URLROOT; ?>/home">Home</a>
             </li>
+           <?php if ($_SESSION["roles"] == 1) {
+              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/acounts">
+                Bioscopen
+              </a></li>';
+              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/createPacket">
+                Pakket maken
+              </a></li>';
+           }else{
+            echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/halls">
+              Bioscoop Zalen
+            </a></li>';
+           }
+           ?>
+            
+              
+  
+                
+                
+            
            
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Acties
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <?php
-    if ($_SESSION["roles"] == 1) {
-      echo '<a class="dropdown-item" href="'. URLROOT .'/Dashboard/acounts">
-        Bioscopen
-      </a>
-      <a class="dropdown-item" href="'. URLROOT .'/Dashboard/createPacket">
-        Pakket Aanmaken
-      </a>';
-    } else {
-      echo '<a class="dropdown-item" href="'. URLROOT .'/Dashboard/halls">
-      Bioscoop zalen
-      </a>';
-    }
-    ?>
-                
-                
-              </div>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo URLROOT; ?>/Userlogin/logout">Uitloggen</a>
             </li>
