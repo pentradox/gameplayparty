@@ -14,6 +14,24 @@ class Admin {
         return $data;
     }
 
+    public function activateAccount($id) {
+		$query = "SELECT active FROM cinema WHERE id=:id";
+		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
+		$data = $this->database->getRow();
+		if ($data->active) {
+			$active = 0;
+		} else {
+			$active = 1;
+		}
+		$query = "UPDATE cinema SET active=:active WHERE id=:id";
+		$this->database->prepare($query);
+		$this->database->bind(":active", $active);
+		$this->database->bind(":id", $id);
+		$this->database->execute();
+		return;
+	}
+
     public function uploadFile($file) {
 		// Check if file size is bigger then zero because it is empty otherwise
 		if($file['size'] !== 0) {
