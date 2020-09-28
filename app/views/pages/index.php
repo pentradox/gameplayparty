@@ -5,7 +5,7 @@
     <h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">
       Game <span class="text-blue">Play</span>  Party
     </h1>
-    <h4 class="  text-blue text-center ">Power to the players</h5>
+    <h2 class="  text-blue text-center ">Power to the players</h2>
   </div>
 </div>
 
@@ -106,7 +106,7 @@
         /alt="Card> image cap" />
 
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Utrecht</h5>
+          <h5 class="card-title">Groningen</h5>
           <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
           <p class="card-text">
             <i class="fas fa-check text-success"></i> Taart met slingers
@@ -124,7 +124,7 @@
         /alt="Card> image cap" />
 
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Utrecht</h5>
+          <h5 class="card-title">Breda</h5>
           <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
           <p class="card-text">
             <i class="fas fa-check text-success"></i> Taart met slingers
@@ -142,7 +142,7 @@
         /alt="Card> image cap" />
 
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Utrecht</h5>
+          <h5 class="card-title">Almeren</h5>
           <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
           <p class="card-text">
             <i class="fas fa-check text-success"></i> Taart met slingers
