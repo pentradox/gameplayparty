@@ -22,7 +22,7 @@
           </p>
          
           <br>
-          <a href="#" class="mt-auto btn btn-blue  ">Dingen die je moet weten</a>
+          <a href="#" class="mt-auto btn btn-blue">Dingen die je moet weten</a>
         </div>
       </div>
       
