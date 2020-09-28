@@ -123,6 +123,13 @@ class Dashboard extends controller {
     
   }
 
+  public function deleteUser($id) {
+    if ($this->sessionCheck(1)) {
+      $this->adminModel->deleteUser($id);
+      $this->redirect("Dashboard/acounts");
+    }
+  }
+
   public function createPacket() {
     if ($this->sessionCheck(1)) {
       $this->view("Pages/createPacket");

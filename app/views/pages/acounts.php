@@ -26,7 +26,7 @@
                       <td>". $user->mail ."</td>
                       ".($user->active ? "<td><button type='button' class='btn btn-success' data-toggle='modal' data-target='#de-active".$user->id."'><i class='fas fa-check'></i></button></td>" : "<td><button type='button' class='btn btn-danger' style='padding: 6px 14px 6px 14px' data-toggle='modal' data-target='#active'><i class='fas fa-times'></i></button></td>")."
                       <td><a href='" . URLROOT . "/Dashboard/updateaccount/". $user->id ."'><button type='button' class='btn btn-primary'><i class='fas fa-cog'></i></button></a></td>
-                      <td><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#delete'><i class='fas fa-trash '></i></button></td>
+                      <td><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#delete".$user->id."'><i class='fas fa-trash '></i></button></td>
                       </tr>";
                   }
               } else {
@@ -93,7 +93,7 @@ if (isset($data["users"])) {
         </div>
       </div>';
     }
-    '<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+    echo '<div class="modal fade" id="delete'.$user->id.'" tabindex="-1" role="dialog" aria-labelledby="delete'.$user->id.'" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -108,7 +108,7 @@ if (isset($data["users"])) {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Nee</button>
-            <a href="' . URLROOT . "/Dashboard/accounts/". $user->id . '"><button type="button" class="btn btn-danger">Verwijder</button></a>
+            <a href="' . URLROOT . "/Dashboard/deleteUser/". $user->id . '"><button type="button" class="btn btn-danger">Verwijder</button></a>
           </div>
         </div>
       </div>
