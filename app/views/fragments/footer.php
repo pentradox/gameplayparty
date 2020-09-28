@@ -1,45 +1,57 @@
 <!-- Footer -->
-<footer class=" mt-auto font-small bg-light bg-info pt-4 px-3 ">
+<footer class="font-small bg-light  pt-4 px-3 ">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
   
       <!-- Grid row -->
-      <div class="row justify-content-between text-center">
-  
+      
+        <div class="col-10 col-md-8 m-auto p-0 ">
+        <div class="row justify-content-between ">
         <!-- Grid column -->
-        <div class="col mt-md-0 mt-3">
+        
+      <!-- Grid column -->
+      <div class="col-4 mt-3">
   
-          <!-- Content -->
-          <h5 class="text-uppercase">Footer Content</h5>
-          <p>Here you can use rows and columns to organize your footer content.</p>
+        <!-- Links -->
+        <h5 class="text-uppercase">Help</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Hoe GamePlayParty Werkt</a>
+          </li>
+          <li>
+            <a href="#!">Extra informatie</a>
+          </li>
+          <li>
+            <a href="<?php echo URLROOT; ?>/Register">Uw bioscoop toevoegen</a>
+          </li>
+         
+        </ul>
+
+      </div>
   
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="clearfix w-100 d-md-none pb-3">
+      
   
       
   
         <!-- Grid column -->
-        <div class="col  mb-3">
+        <div class="col-4  mt-3">
   
           <!-- Links -->
-          <h5 class="text-uppercase">Links</h5>
+          <h5 class="text-uppercase">GamePlayParty</h5>
   
           <ul class="list-unstyled">
             <li>
-              <a href="#!">Link 1</a>
+              <a href="#!">Terms of Service</a>
             </li>
             <li>
-              <a href="#!">Link 2</a>
+              <a href="#!">Privacy Policy GamePlayParty.nl</a>
             </li>
             <li>
-              <a href="#!">Link 3</a>
+              <a href="#!">Cookies</a>
             </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
+           
           </ul>
   
         </div>
@@ -56,7 +68,7 @@
       <a href="#"> GamePlayParty</a>
     </div>
     <!-- Copyright -->
-  
+  </div>
   </footer>
   <!-- Footer -->
 
@@ -67,5 +79,6 @@
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" integrity="sha384-3Nqiqht3ZZEO8FKj7GR1upiI385J92VwWNLj+FqHxtLYxd9l+WYpeqSOrLh0T12c" crossorigin="anonymous"></script>
 <script src="<?php echo URLROOT; ?>/js/hideAndShowPW.js"></script>
 <script src="<?php echo URLROOT; ?>/js/register.js"></script>
+<script src="<?php echo URLROOT; ?>/js/nav.js"></script>
 </body>
 </html>

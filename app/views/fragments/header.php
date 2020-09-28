@@ -24,7 +24,7 @@
       rel="stylesheet"
       href="<?php echo URLROOT; ?>../bootstrap/css/bootstrap.css"
     />
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/custom.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>../css/custom.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,800;0,900;1,500;1,700&display=swap"
       rel="stylesheet"
@@ -32,5 +32,3 @@
     <title><?php echo SITENAME; ?></title>
   </head>
   <body>
-    
-
