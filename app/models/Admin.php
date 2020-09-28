@@ -8,11 +8,29 @@ class Admin {
 
     public function getAllAccounts() {
 		// Gets all rows by id
-        $query = "SELECT * FROM cinema";
+        $query = "SELECT * FROM cinema WHERE id > 0";
         $this->database->prepare($query);
         $data = $this->database->getArray();
         return $data;
     }
+
+    public function activateAccount($id) {
+		$query = "SELECT active FROM cinema WHERE id=:id";
+		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
+		$data = $this->database->getRow();
+		if ($data->active) {
+			$active = 0;
+		} else {
+			$active = 1;
+		}
+		$query = "UPDATE cinema SET active=:active WHERE id=:id";
+		$this->database->prepare($query);
+		$this->database->bind(":active", $active);
+		$this->database->bind(":id", $id);
+		$this->database->execute();
+		return;
+	}
 
     public function uploadFile($file) {
 		// Check if file size is bigger then zero because it is empty otherwise
