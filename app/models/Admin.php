@@ -66,4 +66,15 @@ class Admin {
 			return $result;
 		}
 	}
+
+	public function deleteUser($id) {
+		if (($id == null) || ($id == "")) {
+			return;
+		}
+		$query = "DELETE FROM cinema WHERE id=:id LIMIT 1";
+		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
+		$this->database->execute();
+		return;
+	}
 }
