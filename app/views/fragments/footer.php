@@ -80,5 +80,7 @@
 <script src="<?php echo URLROOT; ?>/js/hideAndShowPW.js"></script>
 <script src="<?php echo URLROOT; ?>/js/register.js"></script>
 <script src="<?php echo URLROOT; ?>/js/nav.js"></script>
+  <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+  <script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script>
 </body>
 </html>
