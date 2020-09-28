@@ -34,8 +34,15 @@
       rel="stylesheet" 
       href="http://demo.itsolutionstuff.com/plugin/croppie.css"
     />
-    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
-    <script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script>
+    
+    <script 
+      src="http://demo.itsolutionstuff.com/plugin/jquery.js">
+    </script>
+
+    <script 
+      src="http://demo.itsolutionstuff.com/plugin/croppie.js">
+    </script>
+    
     <title><?php echo SITENAME; ?></title>
   </head>
   <body>
