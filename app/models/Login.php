@@ -20,7 +20,7 @@ class Login {
 			return $error;
 		}
 
-		$query = "SELECT * FROM cinema WHERE mail = :mail AND password = :password";
+		$query = "SELECT * FROM cinema WHERE mail = :mail AND password = :password AND active > 0";
 		$this->database->prepare($query);
 		$this->database->bind(":mail", $mail);
 		$this->database->bind(":password", $password);
