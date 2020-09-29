@@ -52,7 +52,7 @@
             <a href="<?php echo URLROOT; ?>/Home/cookies">Cookies</a>
             </li>
             <li>
-            <a href="<?php echo URLROOT; ?>/Home/terms">Terms</a>
+            <a href="<?php echo URLROOT; ?>/Home/terms">Voorwaarden</a>
             </li>
            
           </ul>
