@@ -22,7 +22,7 @@
           </p>
          
           <br>
-          <a href="#" class="mt-auto btn btn-blue">Dingen die je moet weten</a>
+          <a href="<?php echo URLROOT; ?>/Home/info" class="mt-auto btn btn-blue">Dingen die je moet weten</a>
         </div>
       </div>
       
@@ -67,7 +67,7 @@
         </p>
        
         <br>
-        <a href="#" class="mt-auto btn btn-yellow ">Dingen die je moet weten</a>
+        <a href="<?php echo URLROOT; ?>/Home/info" class="mt-auto btn btn-yellow ">Dingen die je moet weten</a>
       </div>
     </div>
 
