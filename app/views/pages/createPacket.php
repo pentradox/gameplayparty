@@ -8,7 +8,7 @@
   
   
    
-      <form class=" col-md-9 col-lg-8 col-xl-6  " action="#!">
+      <form class=" col-11 col-md-9 col-lg-8 col-xl-6 mb-5 " action="#!">
         <div class="text-info text-center mb-5">
         <h3 class="text-info  mb-4">Pakketen toevoegen
         </p>
