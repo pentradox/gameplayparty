@@ -43,10 +43,10 @@
   
           <ul class="list-unstyled">
             <li>
-            <a href="<?php echo URLROOT; ?>/Home/return">Return Policy</a>
+            <a href="<?php echo URLROOT; ?>/Home/return">Retour voorwaarden</a>
             </li>
             <li>
-            <a href="<?php echo URLROOT; ?>/Home/privacy">Privacy Policy GamePlayParty</a>
+            <a href="<?php echo URLROOT; ?>/Home/privacy">Privacybeleid GamePlayParty</a>
             </li>
             <li>
             <a href="<?php echo URLROOT; ?>/Home/cookies">Cookies</a>
