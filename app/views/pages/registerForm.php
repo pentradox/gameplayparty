@@ -29,11 +29,6 @@
 							<p id="email_error" class="text-danger"></p>
 						</div>
 						<div class="form-group">
-							<label for="reason" class="text-info">Reden :</label><br>
-							<textarea type="text" name="reason" id="reason" class="form-control" cols="50" rows="4"></textarea>
-							<p id="reason_error" class="text-danger"></p>
-						</div>
-						<div class="form-group">
 							<input type="button" class="btn btn-success btn-md" value="Submit" onclick="formCheck()">
 						</div>
 					</form>
