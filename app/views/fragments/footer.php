@@ -21,7 +21,7 @@
             <a href="#!">Hoe GamePlayParty Werkt</a>
           </li>
           <li>
-            <a href="#!">Extra informatie</a>
+          <a href="<?php echo URLROOT; ?>/Home/info">Extra informatie</a>
           </li>
           <li>
             <a href="<?php echo URLROOT; ?>/Register">Uw bioscoop toevoegen</a>
@@ -43,13 +43,16 @@
   
           <ul class="list-unstyled">
             <li>
-              <a href="#!">Terms of Service</a>
+            <a href="<?php echo URLROOT; ?>/Home/return">Return Policy</a>
             </li>
             <li>
-              <a href="#!">Privacy Policy GamePlayParty.nl</a>
+            <a href="<?php echo URLROOT; ?>/Home/privacy">Privacy Policy GamePlayParty</a>
             </li>
             <li>
-              <a href="#!">Cookies</a>
+            <a href="<?php echo URLROOT; ?>/Home/cookies">Cookies</a>
+            </li>
+            <li>
+            <a href="<?php echo URLROOT; ?>/Home/terms">Terms</a>
             </li>
            
           </ul>
