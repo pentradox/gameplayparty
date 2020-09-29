@@ -10,7 +10,7 @@
    
       <form class=" col-md-9 col-lg-8 col-xl-6  " action="#!">
         <div class="text-info text-center mb-5">
-        <h3 class="text-info  mb-4">Bioscoop zaal toevoegen
+        <h3 class="text-info  mb-4">Pakketen toevoegen
         </p>
         
         
