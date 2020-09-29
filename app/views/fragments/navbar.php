@@ -13,7 +13,7 @@
       <?php
         if ($_SESSION != null) {
           echo '<li class="nav-item ml-3">
-            <a  class="navLinks text-xl  " href="'. URLROOT .'/Dashboard">Dashboard</a>
+            <a  class="navLinks text-xl  " href="'. URLROOT .'/Dashboard">Gebruikers portaal</a>
           </li>';
         }
       ?>
