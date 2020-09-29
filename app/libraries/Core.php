@@ -51,7 +51,6 @@ class Core {
 
     // Move other params from URL to params array
     $this->params = $url ? array_values($url) : [];
-
     call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
   }
 
