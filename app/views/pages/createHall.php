@@ -9,7 +9,7 @@
 
 
     <!-- Default form subscription -->
-    <form class="col-sm-11  col-lg-8 col-xl-6  " action="<?php echo URLROOT ?>/Dashboard/createhall" method="POST">
+    <form class="col-11 col-md-9 col-lg-8 col-xl-6 mb-5 " action="<?php echo URLROOT ?>/Dashboard/createhall" method="POST">
     <div class="text-info text-center mb-5">
     <h3 class="text-info  mb-4">Bioscoop zaal toevoegen</p>
 

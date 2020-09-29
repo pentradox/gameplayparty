@@ -10,4 +10,26 @@ class Home extends Controller {
     $data = $this->homeModel->cinema();
     $this->view("pages/index",$data);
   }
+  public function info() {
+    
+    $this->view("pages/info");
+  }
+
+  public function privacy() {
+    
+    $this->view("pages/privacy");
+  }
+  public function cookies() {
+    
+    $this->view("pages/cookies");
+  }
+  public function return() {
+    
+    $this->view("pages/return");
+  }
+  public function terms() {
+    
+    $this->view("pages/terms");
+  }
+ 
 }
