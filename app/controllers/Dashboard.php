@@ -98,6 +98,12 @@ class Dashboard extends controller {
   }
   // Crud Cinema Halls - End
 
+  public function profile() {
+    if ($this->sessionCheck()) {
+      $this->view("Pages/profile");
+    }
+  }
+
   public function acounts() {
     if ($this->sessionCheck(1)) {
       $data["users"] = $this->adminModel->getAllAccounts();
