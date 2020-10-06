@@ -25,9 +25,9 @@
         <input type="number"  class="form-control mb-4" placeholder="">
         
         <label class="text-info" for="packetDesription">Beschrijving</label>
-        <textarea  type="text"  class=" form-control mb-4" placeholder="" rows="4" ></textarea>
+        <textarea type="text" id="tinymce" class="mb-4"></textarea>
         
-        <button class="btn btn-info btn-block" type="submit">Toevoegen</button>
+        <button class="btn btn-info btn-block mt-5" type="submit">Toevoegen</button>
         
         
         </form>
