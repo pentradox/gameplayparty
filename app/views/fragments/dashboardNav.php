@@ -12,6 +12,9 @@
               <a class="nav-link" href="<?php echo URLROOT; ?>/home">Home</a>
             </li>
            <?php if ($_SESSION["roles"] == 1) {
+              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/profile">
+                Profiel
+              </a></li>';
               echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/acounts">
                 Bioscopen
               </a></li>';
@@ -24,13 +27,6 @@
             </a></li>';
            }
            ?>
-            
-              
-  
-                
-                
-            
-           
             <li class="nav-item">
               <a class="nav-link" href="<?php echo URLROOT; ?>/Userlogin/logout">Uitloggen</a>
             </li>

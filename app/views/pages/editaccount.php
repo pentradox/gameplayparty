@@ -31,14 +31,11 @@
 
 			<div class="custom-file mb-4">
 				<input type="file" class="custom-file-input" id="croppie-input" accept="image/*">
-				<label class="custom-file-label" for="Logo">Choose file</label>
+				<label class="custom-file-label" for="Logo">Kies afbeelding</label>
 			</div>
 
       <div>
         <div id="croppie-demo"></div>
-      </div>
-      <div class="mb-4">
-        <div id="croppie-view"></div>
       </div>
 
 			<hr>
