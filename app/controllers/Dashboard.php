@@ -51,7 +51,8 @@ class Dashboard extends controller {
         $error = true;
       }
       if($error === false) {
-        $update = $this->adminModel->contentupdate();
+        $update = $this->adminModel->contentupdate($data);
+        $this->redirect("Dashboard");
       } else {
         $this->redirect("Dashboard");
       }

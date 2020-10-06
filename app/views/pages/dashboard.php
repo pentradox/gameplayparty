@@ -42,7 +42,6 @@
         </div>
       </div>
       <?php
-      echo var_dump($data);
       if($_SESSION["roles"] == 1) {
         echo '<form action="' . URLROOT . '/Dashboard/updatecontent" method="POST">';
         echo '<div class="form-group">';

@@ -13,11 +13,24 @@ class Admin {
       return $data;
     }
 
-    public function contentupdate() {
-      $query = "UPDATE cinema SET active=:active WHERE id=:id";
+    public function contentupdate($data) {
+      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
       $this->database->prepare($query);
-      $this->database->bind(":active", $active);
-      $this->database->bind(":id", $id);
+      $this->database->bind(":title", $data['home_title']);
+      $this->database->bind(":text", $data['home_text']);
+      $this->database->bind(":id", 1);
+      $this->database->execute();
+      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":title", $data['section_1_title']);
+      $this->database->bind(":text", $data['section_1_text']);
+      $this->database->bind(":id", 2);
+      $this->database->execute();
+      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":title", $data['section_2_title']);
+      $this->database->bind(":text", $data['section_2_text']);
+      $this->database->bind(":id", 3);
       $this->database->execute();
     }
 

@@ -1,4 +1,4 @@
-<?php include APPROOT."/views/fragments/navbar.php"; ?>
+<?php include APPROOT."/views/fragments/navbar.php";?>
 
 <div class="jumbotron rounded-0 border-0">
   <div id="hero-text " class=" ">
@@ -9,32 +9,33 @@
   </div>
 </div>
 
-
 <main class="container col-10 col-md-8 mt-5">
   <div class="card mb-5 bg-transparent border-0">
     <div class="row ">
 
       <div class="col col-md-12 col-xl-5  px-3 ">
         <div class="card-block px-6 pl-2 ">
-          <h4 class="card-title mt-3">Welkom bij Game Play Party</h4>
-          <p class="card-text">
-            Breng jouw spel naar het volgende niveau op het grote scherm! Met een privé-theater dat speciaal voor jou en je crew is gereserveerd, heb je nog nooit eerder zo gespeeld. Maak er een toernooi van!
-          </p>
-         
+          <?php if(!empty($data[1][1])) {
+            echo '<h4 class="card-title mt-3">' . $data[1][1]->title . '</h4>';
+            echo '<p class="card-text">' . $data[1][1]->text . '</p>';
+          } else {
+            echo '<h4 class="card-title mt-3">Welkom bij Game Play Party</h4>';
+            echo '<p class="card-text">Breng jouw spel naar het volgende niveau op het grote scherm! Met een privé-theater dat speciaal voor jou en je crew is gereserveerd, heb je nog nooit eerder zo gespeeld. Maak er een toernooi van!</p>';
+          }?>
           <br>
           <a href="<?php echo URLROOT; ?>/Home/info" class="mt-auto btn btn-blue">Dingen die je moet weten</a>
         </div>
       </div>
-      
+
       <div class="col-sm-12 col-xl-7 py-5">
         <img src="<?php echo URLROOT; ?>../public/images/mario_cart.png" class=" w-100">
     </div>
 
- 
+
 
     </div>
 
-    
+
     <div class="row ">
       <div class="col-sm-12 col-xl-7 py-5">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -61,17 +62,19 @@
     </div>
     <div class="col col-md-12 col-xl-5  px-3 ">
       <div class="card-block px-6 pl-2 ">
-        <h4 class="card-title mt-3 second-title">Hoe het werkt</h4>
-        <p class="card-text">
-          Neem je eigen favoriete Xbox One-spellen mee of kies uit het aanbod van je theater.
-        </p>
-       
+        <?php if(!empty($data[1][2])) {
+          echo '<h4 class="card-title mt-3">' . $data[1][2]->title . '</h4>';
+          echo '<p class="card-text">' . $data[1][2]->text . '</p>';
+        } else {
+          echo '<h4 class="card-title mt-3">Hoe het werkt</h4>';
+          echo '<p class="card-text">Neem je eigen favoriete Xbox One-spellen mee of kies uit het aanbod van je theater.</p>';
+        }?>
         <br>
         <a href="<?php echo URLROOT; ?>/Home/info" class="mt-auto btn btn-yellow ">Dingen die je moet weten</a>
       </div>
     </div>
 
- 
+
 
     </div>
   </div>
@@ -83,7 +86,7 @@
 <p id="location" class="">Locaties</p>
   <div class="row ">
   <?php
-    foreach ($data as $cinema) {
+    foreach ($data[0] as $cinema) {
       if ($cinema->logo != null) {
         echo '<div class="col-sm-12 col-md-6 col-lg-4 mb-3">
           <div class="card cinima-card" >

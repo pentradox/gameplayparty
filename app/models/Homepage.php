@@ -12,4 +12,11 @@ class Homepage {
         $data = $this->database->getArray();
         return $data;
     }
+
+    public function fetchContent() {
+      $query = "SELECT * FROM pages";
+      $this->database->prepare($query);
+      $data = $this->database->getArray();
+      return $data;
+    }
 }
