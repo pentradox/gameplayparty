@@ -9,7 +9,8 @@ class Dashboard extends controller {
 
   public function index() {
     if ($this->sessionCheck()) {
-      $this->view("pages/dashboard");
+      $data = $this->adminModel->fetchContent();
+      $this->view("pages/dashboard", $data);
     }
   }
 
@@ -19,6 +20,41 @@ class Dashboard extends controller {
       $data["halls"] = $this->hallsModel->getAllHalls();
       $this->view("Pages/halls", $data);
     }
+  }
+
+  public function updatecontent() {
+    $error = false;
+    $data = [
+        "home_title"  => trim($_POST['home_title']),
+        "home_text" => trim($_POST['home_text']),
+        "section_1_title" => trim($_POST['section_1_title']),
+        "section_1_text" => trim($_POST['section_1_text']),
+        "section_2_title" => trim($_POST['section_2_title']),
+        "section_2_text" => trim($_POST['section_2_text'])
+      ];
+    if (empty($data['home_title'])) {
+        $error = true;
+      }
+      if (empty($data['home_text'])) {
+        $error = true;
+      }
+      if (empty($data['section_1_title'])) {
+        $error = true;
+      }
+      if (empty($data['section_1_text'])) {
+        $error = true;
+      }
+      if (empty($data['section_2_title'])) {
+        $error = true;
+      }
+      if (empty($data['section_2_text'])) {
+        $error = true;
+      }
+      if($error === false) {
+        $update = $this->adminModel->contentupdate();
+      } else {
+        $this->redirect("Dashboard");
+      }
   }
 
   public function updatehall($id = null) {
@@ -126,7 +162,7 @@ class Dashboard extends controller {
       $this->adminModel->activateAccount($id);
       $this->redirect("Dashboard/acounts");
     }
-    
+
   }
 
   public function deleteUser($id) {

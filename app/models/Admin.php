@@ -6,6 +6,21 @@ class Admin {
 		$this->database = new Database;
     }
 
+    public function fetchContent() {
+      $query = "SELECT * FROM pages";
+      $this->database->prepare($query);
+      $data = $this->database->getArray();
+      return $data;
+    }
+
+    public function contentupdate() {
+      $query = "UPDATE cinema SET active=:active WHERE id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":active", $active);
+      $this->database->bind(":id", $id);
+      $this->database->execute();
+    }
+
     public function getAllAccounts() {
 		// Gets all rows by id
         $query = "SELECT * FROM cinema WHERE id > 0";
