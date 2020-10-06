@@ -43,6 +43,15 @@
       src="http://demo.itsolutionstuff.com/plugin/croppie.js">
     </script>
     
+    <script 
+      src="https://cdn.tiny.cloud/1/t1us2j64dk33clrig30q0mbqju7fmy5pgro2a612tvmtyusw/tinymce/5/tinymce.min.js" 
+      referrerpolicy="origin">
+    </script>
+
+    <script 
+      src="<?php echo URLROOT; ?>/js/wysiwyg.js"> 
+    </script>
+
     <title><?php echo SITENAME; ?></title>
   </head>
   <body>
