@@ -31,5 +31,9 @@ class Home extends Controller {
     
     $this->view("pages/terms");
   }
+  public function cinima() {
+    
+    $this->view("pages/cinima");
+  }
  
 }
