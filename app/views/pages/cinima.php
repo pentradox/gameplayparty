@@ -66,7 +66,7 @@
                 <i class="fas fa-volume-up"></i> Bas die het schreeuwt
               </p>
               <div class="link-container mt-auto d-inline">
-                <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
                 
               </div>
               
@@ -88,7 +88,7 @@
                   <i class="fas fa-volume-up"></i> Bas die het schreeuwt
                 </p>
                 <div class="link-container mt-auto d-inline">
-                  <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                    <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
                   
                 </div>
                 
@@ -110,7 +110,7 @@
                   <i class="fas fa-volume-up"></i> Bas die het schreeuwt
                 </p>
                 <div class="link-container mt-auto d-inline">
-                  <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                  <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
                   
                 </div>
                 

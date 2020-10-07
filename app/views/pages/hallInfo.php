@@ -17,22 +17,88 @@
       <div class="col col-md-12 col-xl-5 px-3 ">
         <div class="card-body d-flex flex-column">
         <div class="card-block px-6 pl-2 ">
-          <h4 class="card-title mt-3">Kinopolis Breda</h4>
-          <p class="card-text">
-            Breng jouw spel naar het volgende niveau op het grote scherm! Met een privé-theater dat speciaal voor jou en je crew is gereserveerd, heb je nog nooit eerder zo gespeeld. Maak er een toernooi van!
-          </p>
+          <h4 class="card-title mt-3">Kinopolis Breda <br> zaal 1</h4>
+          <div class='table-responsive'>
+ <!--Table-->
+ <div class='table-responsive'>
+ <!--Table-->
+ <table id="tablePreview" class="table table-sm table-striped table-hover">
+ <!--Table head-->
+   <thead class="border-top-0">
+     <tr class=" ">
+       <th scope="row"></th>
+       <th colspan=3 scope="row">Beschikbare tijden</th>
+      </tr>
+   </thead>
+   <!--Table head-->
+   <!--Table body-->
+   <tbody>
+      <tr>
+       <th scope="row">Maandag</th>
+       <td>10-12</td>
+       <td>12-14</td>
+       <td>14-16</td>
+      
+     </tr>
+     <tr>
+       <th scope="row">Dinsdag</th>
+       <td>10-12</td>
+       <td>12-14</td>
+       <td>14-16</td>
+      
+     </tr>
+    <tr>
+       <th scope="row">Woensdag</th>
+       <td>10-12</td>
+       <td>12-14</td>
+       <td>14-16</td>
+      
+     </tr>
+      <tr>
+       <th scope="row">Donderdag</th>
+       <td>10-12</td>
+       <td>12-14</td>
+       <td>14-16</td>
+      
+     </tr>
+     <tr>
+       <th scope="row">Vrijdag</th>
+       <td>10-12</td>
+       <td>12-14</td>
+       <td>14-16</td>
+      
+     </tr>
+     <tr>
+       <th scope="row">Zaterdag</th>
+       <td>10-12</td>
+       <td>12-14</td>
+       <td>14-16</td>
+      
+     </tr>
+      <tr>
+       <th scope="row">Zondag</th>
+       <td>10-12</td>
+       <td>12-14</td>
+       <td>14-16</td>
+      
+     </tr>
+   </tbody>
+   <!--Table body-->
+ </table>
+ <!--Table-->
+</div>
+</div>
           <div class="mt-auto align-self-bottom">
-            <p class="my-0"><span class="font-weight-bold ">Telefoon nummer: </span> 0612345678
+            <p class="my-0"><span class="font-weight-bold ">Geluids systeem: </span> Bassinator 3000
             </p>
-            <p class="mb-4"><span class="font-weight-bold">Adress: </span> Bredastraat 3424PG Breda </p>
-            <a href="<?php echo URLROOT; ?>/Home/info" class="mt-auto card-link btn btn-blue">Dingen die je moet weten</a>
+            <p class="mb-4"><span class="font-weight-bold">Beeld: </span> Anthony zonder bril 4000 </p>
         </div>
     </div>
 </div>
 </div>
       
       <div class="col-sm-12 col-xl-7 py-5">
-        <img src="<?php echo URLROOT; ?>../public/images/breda.jpg" class=" w-100">
+        <img src="<?php echo URLROOT; ?>../public/images/001.jpg" class=" w-100">
     </div>
 
  
@@ -49,79 +115,7 @@
 <!-- Hals -->
 
   <!-- Hals -->
-<section class="location-container mb-5">
-<p id="location" class="">Zalen</p>
-  <div class="row ">
-  
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-          <div class="card cinima-card" >
-            <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/001.jpg"
-            /alt="Card> image cap" />
 
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Zaal 1</h5>
-              
-              <p class="card-text">
-                <i class="fas fa-users"></i> 66 plekken <br>
-                <i class="fas fa-volume-up"></i> Bas die het schreeuwt
-              </p>
-              <div class="link-container mt-auto d-inline">
-                <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
-                
-              </div>
-              
-              </div>
-            
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-            <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/002.jpg"
-              /alt="Card> image cap" />
-  
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Zaal 2</h5>
-                
-                <p class="card-text">
-                  <i class="fas fa-users"></i> 66 plekken <br>
-                  <i class="fas fa-volume-up"></i> Bas die het schreeuwt
-                </p>
-                <div class="link-container mt-auto d-inline">
-                  <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
-                  
-                </div>
-                
-                </div>
-              
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-            <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/003.jpg"
-              /alt="Card> image cap" />
-  
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Zaal 3</h5>
-                
-                <p class="card-text">
-                  <i class="fas fa-users"></i> 66 plekken <br>
-                  <i class="fas fa-volume-up"></i> Bas die het schreeuwt
-                </p>
-                <div class="link-container mt-auto d-inline">
-                  <a href="<?php echo URLROOT; ?>/Home/info" class="card-link">Meer informatie</a>
-                  
-                </div>
-                
-                </div>
-              
-            </div>
-          </div>
-    
-  </div>
-  
-  </section>
 </main>
 
 <?php include APPROOT."/views/fragments/footer.php"; ?>

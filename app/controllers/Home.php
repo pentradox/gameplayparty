@@ -69,7 +69,7 @@ class Home extends Controller {
 
   public function infoHall() {
     
-    $this->view("pages/infoHall");
+    $this->view("pages/hallInfo");
   }
  
 }
