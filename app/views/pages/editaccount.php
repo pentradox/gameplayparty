@@ -47,11 +47,11 @@
       }
       if (isset($data["description_error"])) {
         echo '<label class="text-danger" for="disc">Beschrijving</label>
-        <textarea class="form-control is-invalid mb-4" id="disc" name="description" id="" cols="30" rows="10">'. $data["user"]->description . '</textarea>
+        <textarea class="textEditor is-invalid mb-4" name="description">'. $data["user"]->description . '</textarea>
         <small class="text-danger">'.$data["description_error"].'</small><br>';
       } else {
         echo '<label class="text-info" for="disc">Beschrijving</label>
-        <textarea class="form-control mb-4" id="disc" name="description" id="" cols="30" rows="10">'. $data["user"]->description . '</textarea>';
+        <textarea class="textEditor mb-4" name="description">'. $data["user"]->description . '</textarea>';
       }
       ?>
 			<hr>
