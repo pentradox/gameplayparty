@@ -149,12 +149,6 @@ class Dashboard extends controller {
   }
   // Crud Cinema Halls - End
 
-  public function profile() {
-    if ($this->sessionCheck()) {
-      $this->view("Pages/profile");
-    }
-  }
-
   public function acounts() {
     if ($this->sessionCheck(1)) {
       $data["users"] = $this->adminModel->getAllAccounts();
@@ -162,12 +156,23 @@ class Dashboard extends controller {
     }
   }
 
-  public function updateaccount($id) {
-    if ($this->sessionCheck(1)) {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $this->view("Pages/editaccount");
+  public function updateaccount($id = null) {
+    if ($this->sessionCheck()) {
+      if ((isset($id)) || (isset($_POST["id"]))) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          $data = $this->adminModel->updateaccount();
+          $data["user"] = $this->adminModel->getaccount($_POST["id"]);
+          $this->view("Pages/editaccount",$data);
+        } else {
+          $data["user"] = $this->adminModel->getaccount($id);
+          if (!isset($data["user"]->message)) {
+            $this->view("Pages/editaccount",$data);
+          } else {
+            $this->redirect("Dashboard");
+          }
+        }
       } else {
-        $this->view("Pages/editaccount");
+        $this->redirect("Dashboard");
       }
     }
   }
@@ -216,6 +221,3 @@ class Dashboard extends controller {
   }
 
   // Page editor routing END
-
-
-}
