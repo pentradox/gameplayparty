@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <?php echo '<form class="p-5" action="' . URLROOT . '/home/sendmail" method="POST">'; ?>
+  <?php echo '<form class="p-5 text-left" action="' . URLROOT . '/home/sendmail" method="POST">'; ?>
     <label  class="text-info" for="">Voornaam</label>
     <input type="text" name="firstname" class="form-control mb-4" placeholder="" required>
 
@@ -39,7 +39,7 @@
     <input type="email" name="email" class="form-control mb-4" placeholder="" required>
 
     <label class="text-info" for="">Bericht</label>
-    <textarea name="message" class="form-control mb-4" placeholder="" required></textarea>
+    <textarea name="message" class="form-control mb-4 " rows="10" placeholder="" required></textarea>
 
     <button class="btn btn-info btn-block" type="submit">Verstuur</button>
 
