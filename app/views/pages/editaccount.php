@@ -6,34 +6,61 @@
       
   <div class="row justify-content-center">
 
-		<form class=" col-10 border border-light p-5" action="#">
+		<form class=" col-10 border border-light p-5" action="<?php echo URLROOT ?>/Dashboard/updateaccount" method="POST" enctype="multipart/form-data">
 			<div class="text-info text-center mb-5">
 				<h3 class="text-info  mb-4">Account instellingen
 				</p>
-			</div>
-
-			<label  class="text-info" for="">Naam</label>
-			<input type="text"  class="form-control mb-4" placeholder="">
-					
-			<label class="text-info" for="">Email</label>
-			<input type="email"  class="form-control mb-4" placeholder="">
-					
-			<label class="text-info" for="">Oud wachtwoord</label>
-			<input type="password"  class="form-control mb-4" placeholder="">
-
-			<label class="text-info" for="">Nieuw wachtwoord</label>
-			<input type="password"  class="form-control mb-4" placeholder="">
-
-			<label class="text-info" for="">Herhaal nieuw wachtwoord</label>
-			<input type="password"  class="form-control mb-4" placeholder="">
-
+      </div>
+      <input type="text" hidden name="id" value="<?php echo $data["user"]->id; ?>">
+      <?php
+      if (isset($data["name_error"])) {
+        echo '<label  class="text-danger" for="name">Naam</label>
+        <input type="text" name="name" id="name" class="form-control is-invalid mb-4" value="'. $data["user"]->name .'">
+        <small class="text-danger">'.$data["name_error"].'</small><br>';
+      } else {
+        echo '<label  class="text-info" for="name">Naam</label>
+        <input type="text" name="name" id="name" class="form-control mb-4" value="'. $data["user"]->name .'">';
+      }
+      if (isset($data["mail_error"])) {
+        echo '<label class="text-danger" for="mail">Email</label>
+        <input type="email" name="mail" id="mail" class="form-control is-invalid mb-4" value="'. $data["user"]->mail .'">
+        <small class="text-danger">'.$data["mail_error"].'</small><br>';
+      } else {
+        echo '<label class="text-info" for="mail">Email</label>
+        <input type="email" name="mail" id="mail" class="form-control mb-4" value="'. $data["user"]->mail .'">';
+      }
+      if (isset($data["locatie_error"])) {
+        echo '<label class="text-danger" for="loc">locatie</label>
+        <input type="text" name="location" id="loc" class="form-control is-invalid mb-4" value="'. $data["user"]->location .'">
+        <small class="text-danger">'.$data["locatie_error"].'</small><br>';
+      } else {
+        echo '<label class="text-info" for="loc">locatie</label>
+        <input type="text" name="location" id="loc" class="form-control mb-4" value="'. $data["user"]->location .'">';
+      }
+      if (isset($data["phone_error"])) {
+        echo '<label class="text-danger" for="phone">Telefoon</label>
+        <input type="text" name="phone" id="phone" class="form-control is-invalid mb-4" value="'.$data["user"]->phone.'">
+        <small class="text-danger">'.$data["phone_error"].'</small><br>';
+      } else {
+        echo '<label class="text-info" for="phone">Telefoon</label>
+			  <input type="text" name="phone" id="phone" class="form-control mb-4" value="'.$data["user"]->phone.'">';
+      }
+      if (isset($data["description_error"])) {
+        echo '<label class="text-danger" for="disc">Beschrijving</label>
+        <textarea class="textEditor is-invalid mb-4" name="description">'. $data["user"]->description . '</textarea>
+        <small class="text-danger">'.$data["description_error"].'</small><br>';
+      } else {
+        echo '<label class="text-info" for="disc">Beschrijving</label>
+        <textarea class="textEditor mb-4" name="description">'. $data["user"]->description . '</textarea>';
+      }
+      ?>
 			<hr>
 
 			<div class="custom-file mb-4">
-				<input type="file" class="custom-file-input" id="croppie-input" accept="image/*">
+				<input name="logo" type="file" class="custom-file-input" id="croppie-input" accept="image/*">
 				<label class="custom-file-label" for="Logo">Kies afbeelding</label>
-			</div>
-
+      </div>
+      
       <div>
         <div id="croppie-demo"></div>
       </div>
@@ -48,6 +75,12 @@
   	</div> 
   </div>
 </div>
+
+<?php
+      if (isset($data["message"])) {
+        echo "<small class='alert alert-primary' style='position:fixed; bottom:0; right:0;'>".$data["message"]."</small><br>";
+      }
+      ?>
 
 <script>
 	var croppieDemo = $('#croppie-demo').croppie({
@@ -76,7 +109,12 @@ $('#croppie-input').on('change', function () {
 $('.croppie-upload').on('click', function (ev) {
   croppieDemo.croppie('result', {
       type: 'canvas',
-      size: 'viewport'
+      size: 'viewport',
+      viewport: {
+        width: 300,
+        height: 300,
+        type: 'square', // 'square' | 'circle'
+    },
   }).then(function (image) {
       $.ajax({
           url: "/upload.php",

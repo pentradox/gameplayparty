@@ -11,12 +11,12 @@ class Home extends Controller {
     $data = array($data, $data2);
     $this->view("pages/index",$data);
   }
+
   public function contact() {
     $data = $this->homeModel->fetchcontent('contact');
     $this->view("pages/contact",$data);
   }
   public function info() {
-
     $this->view("pages/info");
   }
   public function sendmail() {
