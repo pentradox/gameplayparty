@@ -33,7 +33,7 @@
       </div>
 
       <div class="col-sm-12 col-xl-7 py-5">
-        <img src="<?php echo URLROOT; ?>../public/images/mario_cart.png" class=" w-100">
+        <img src="<?php echo URLROOT; ?>/images/mario_cart.png" class=" w-100">
     </div>
 
 
@@ -46,13 +46,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="<?php echo URLROOT; ?>../public/images/rush.jpg" alt="First slide">
+              <img class="d-block w-100" src="<?php echo URLROOT; ?>/images/rush.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="<?php echo URLROOT; ?>../public/images/fn.jpg" alt="Second slide">
+              <img class="d-block w-100" src="<?php echo URLROOT; ?>/images/fn.jpg" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="<?php echo URLROOT; ?>../public/images/xbox-games.jpg" alt="Third slide">
+              <img class="d-block w-100" src="<?php echo URLROOT; ?>/images/xbox-games.jpg" alt="Third slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -95,7 +95,7 @@
       if ($cinema->logo != null) {
         echo '<div class="col-sm-12 col-md-6 col-lg-4 mb-3">
           <div class="card cinima-card" >
-            <img class="card-img-top cinima-img" src="' . URLROOT . '/public/images/logos/'.$cinema->logo.'"
+            <img class="card-img-top cinima-img" src="' . URLROOT . '/images/logos/'.$cinema->logo.'"
             /alt="Card> image cap" />
 
             <div class="card-body d-flex flex-column">
@@ -105,7 +105,7 @@
                 <i class="fas fa-check text-success"></i> Taart met slingers
               </p>
               <div class="link-container mt-auto d-inline">
-                <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                <a href="'. URLROOT .'/Home/cinima/'.$cinema->id.'" class="card-link">Meer informatie</a>
                 <a href="#" class="card-link">Reserveer</a>
               </div>
             </div>
