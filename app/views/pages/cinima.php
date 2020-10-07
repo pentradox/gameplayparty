@@ -19,7 +19,7 @@
         <div class="card-block px-6 pl-2 ">
           <h4 class="card-title mt-3"><?php echo $data["cinema"]->name . " " . $data["cinema"]->location ?></h4>
           <p class="card-text">
-            Breng jouw spel naar het volgende niveau op het grote scherm! Met een privé-theater dat speciaal voor jou en je crew is gereserveerd, heb je nog nooit eerder zo gespeeld. Maak er een toernooi van!
+          <?php echo $data["cinema"]->description; ?>
           </p>
           <div class="mt-auto align-self-bottom">
             <p class="my-0"><span class="font-weight-bold ">Telefoon nummer: </span> <?php echo $data["cinema"]->phone; ?>
@@ -32,7 +32,7 @@
 </div>
       
       <div class="col-sm-12 col-xl-7 py-5">
-        <img src="<?php echo URLROOT; ?>/images/breda.jpg" class=" w-100">
+        <img src="<?php echo URLROOT . "/images/logos/" . $data["cinema"]->logo ?>" class=" w-100">
     </div>
 
  

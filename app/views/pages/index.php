@@ -95,7 +95,7 @@
       if ($cinema->logo != null) {
         echo '<div class="col-sm-12 col-md-6 col-lg-4 mb-3">
           <div class="card cinima-card" >
-            <img class="card-img-top cinima-img" src="' . URLROOT . '/images/logos/'.$cinema->logo.'"
+            <img class="card-img-top cinima-img" height="50%" src="' . URLROOT . '/images/logos/'.$cinema->logo.'"
             /alt="Card> image cap" />
 
             <div class="card-body d-flex flex-column">
