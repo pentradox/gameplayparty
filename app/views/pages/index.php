@@ -101,7 +101,6 @@
               </p>
               <div class="link-container mt-auto d-inline">
                 <a href="#" class="card-link">Meer informatie</a>
-                <a href="#" class="card-link">Reserveer</a>
               </div>
             </div>
           </div>
