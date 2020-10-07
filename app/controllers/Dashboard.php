@@ -9,7 +9,10 @@ class Dashboard extends controller {
 
   public function index() {
     if ($this->sessionCheck()) {
-      $this->view("pages/dashboard");
+      $data = $this->adminModel->fetchContent('home');
+      $data2 = $this->adminModel->fetchContent('contact');
+      $data = array($data, $data2);
+      $this->view("pages/dashboard", $data);
     }
   }
 
@@ -19,6 +22,35 @@ class Dashboard extends controller {
       $data["halls"] = $this->hallsModel->getAllHalls();
       $this->view("Pages/halls", $data);
     }
+  }
+
+  public function updatecontent() {
+    $error = false;
+    $data = [
+        "home_title"  => trim($_POST['home_title']),
+        "home_text" => trim($_POST['home_text']),
+        "home_section_1_title" => trim($_POST['home_section_1_title']),
+        "home_section_1_text" => trim($_POST['home_section_1_text']),
+        "home_section_2_title" => trim($_POST['home_section_2_title']),
+        "home_section_2_text" => trim($_POST['home_section_2_text']),
+        "contact_title"  => trim($_POST['contact_title']),
+        "contact_text" => trim($_POST['contact_text']),
+        "contact_section_1_title" => trim($_POST['contact_section_1_title']),
+        "contact_section_1_text" => trim($_POST['contact_section_1_text']),
+        "contact_section_2_title" => trim($_POST['contact_section_2_title']),
+        "contact_section_2_text" => trim($_POST['contact_section_2_text'])
+      ];
+      foreach ($data as $key => $value) {
+        if (empty($key)) {
+          $error = true;
+        }
+      }
+      if($error === false) {
+        $update = $this->adminModel->contentupdate($data);
+        $this->redirect("Dashboard");
+      } else {
+        $this->redirect("Dashboard");
+      }
   }
 
   public function updatehall($id = null) {
@@ -98,6 +130,12 @@ class Dashboard extends controller {
   }
   // Crud Cinema Halls - End
 
+  public function profile() {
+    if ($this->sessionCheck()) {
+      $this->view("Pages/profile");
+    }
+  }
+
   public function acounts() {
     if ($this->sessionCheck(1)) {
       $data["users"] = $this->adminModel->getAllAccounts();
@@ -120,7 +158,7 @@ class Dashboard extends controller {
       $this->adminModel->activateAccount($id);
       $this->redirect("Dashboard/acounts");
     }
-    
+
   }
 
   public function deleteUser($id) {
