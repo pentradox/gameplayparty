@@ -53,7 +53,7 @@
 <p id="location" class="">Zalen</p>
   <div class="row ">
   
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
           <div class="card cinima-card" >
             <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/001.jpg"
             /alt="Card> image cap" />
@@ -75,7 +75,7 @@
           </div>
         </div>
 
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div class="card cinima-card" >
               <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/002.jpg"
               /alt="Card> image cap" />
@@ -97,7 +97,7 @@
             </div>
           </div>
 
-          <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div class="card cinima-card" >
               <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/003.jpg"
               /alt="Card> image cap" />
