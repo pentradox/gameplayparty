@@ -221,3 +221,4 @@ class Dashboard extends controller {
   }
 
   // Page editor routing END
+}
