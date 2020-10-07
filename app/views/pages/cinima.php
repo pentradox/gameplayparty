@@ -17,14 +17,14 @@
       <div class="col col-md-12 col-xl-5 px-3 ">
         <div class="card-body d-flex flex-column">
         <div class="card-block px-6 pl-2 ">
-          <h4 class="card-title mt-3">Kinopolis Breda</h4>
+          <h4 class="card-title mt-3"><?php echo $data["cinema"]->name . " " . $data["cinema"]->location ?></h4>
           <p class="card-text">
             Breng jouw spel naar het volgende niveau op het grote scherm! Met een privé-theater dat speciaal voor jou en je crew is gereserveerd, heb je nog nooit eerder zo gespeeld. Maak er een toernooi van!
           </p>
           <div class="mt-auto align-self-bottom">
-            <p class="my-0"><span class="font-weight-bold ">Telefoon nummer: </span> 0612345678
+            <p class="my-0"><span class="font-weight-bold ">Telefoon nummer: </span> <?php echo $data["cinema"]->phone; ?>
             </p>
-            <p class="mb-4"><span class="font-weight-bold">Adress: </span> Bredastraat 3424PG Breda </p>
+            <p class="mb-4"><span class="font-weight-bold">Adress: </span> <?php echo $data["cinema"]->adress; ?> </p>
             <a href="<?php echo URLROOT; ?>/Home/info" class="mt-auto card-link btn btn-blue">Dingen die je moet weten</a>
         </div>
     </div>
@@ -99,7 +99,7 @@
 
           <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/003.jpg"
+              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>/images/003.jpg"
               /alt="Card> image cap" />
   
               <div class="card-body d-flex flex-column">

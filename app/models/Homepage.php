@@ -26,6 +26,7 @@ class Homepage {
       $this->database->prepare($query);
       $this->database->bind(":id", $id);
       $data["halls"] = $this->database->getArray();
+      return $data;
     }
 
     public function fetchContent($page) {
