@@ -179,5 +179,21 @@ class Dashboard extends controller {
     }
   }
 
+  // Page editor routing START
+
+  public function pageOverview() {
+    if ($this->sessionCheck(1)) {
+      $this->view("Pages/pageoverview");
+    }
+  }
+
+  public function frontpageEditor() {
+    if ($this->sessionCheck(1)) {
+      $this->view("Pages/homeeditor");
+    }
+  }
+
+  // Page editor routing END
+
 
 }

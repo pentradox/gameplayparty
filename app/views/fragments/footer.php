@@ -91,5 +91,6 @@
 	crossorigin="anonymous">
 </script>
 <script src="<?php echo URLROOT; ?>/js/wysiwyg.js"></script>
+<script src="<?php echo URLROOT; ?>/js/cardNav.js"></script>
 </body>
 </html>
