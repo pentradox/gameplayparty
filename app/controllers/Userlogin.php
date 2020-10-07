@@ -1,5 +1,5 @@
 <?php
-class Userlogin extends controller {
+class Userlogin extends Controller {
   
   public function __construct() {
     $this->loginModel = $this->model("Login");

@@ -32,7 +32,7 @@
 </div>
       
       <div class="col-sm-12 col-xl-7 py-5">
-        <img src="<?php echo URLROOT; ?>../public/images/breda.jpg" class=" w-100">
+        <img src="<?php echo URLROOT; ?>/images/breda.jpg" class=" w-100">
     </div>
 
  
@@ -55,7 +55,7 @@
   
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
           <div class="card cinima-card" >
-            <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/001.jpg"
+            <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>/images/001.jpg"
             /alt="Card> image cap" />
 
             <div class="card-body d-flex flex-column">
@@ -77,7 +77,7 @@
 
         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/002.jpg"
+              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>/images/002.jpg"
               /alt="Card> image cap" />
   
               <div class="card-body d-flex flex-column">

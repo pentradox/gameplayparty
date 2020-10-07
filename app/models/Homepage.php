@@ -13,6 +13,21 @@ class Homepage {
         return $data;
     }
 
+    public function oneCinema($id) {
+      if ((!isset($id)) || ($id == "")) {
+        $data["error"] = "Bioscoop bestaat niet!";
+      }
+      $query = "SELECT * FROM cinema WHERE id=:id LIMIT 1";
+      $this->database->prepare($query);
+      $this->database->bind(":id", $id);
+      $data["cinema"] = $this->database->getRow();
+      
+      $query = "SELECT * FROM halls WHERE cinema_id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":id", $id);
+      $data["halls"] = $this->database->getArray();
+    }
+
     public function fetchContent($page) {
       $query = "SELECT * FROM pages WHERE page_name=:page_name";
       $this->database->prepare($query);
