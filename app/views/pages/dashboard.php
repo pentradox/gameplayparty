@@ -11,37 +11,71 @@
       </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-5 mr-auto">
       <div class="col-md-8">
-        <h3>Test</h3>
+        <!--  Put analytics here -->
       </div>
+
       <div class="col-md-4">
         <div class="row">
           <div class="col-md-6">
 
-            <h3>
-              Test
-            </h3>
-
-            <button type="button" class="btn btn-lg btn-primary">
-              Button
-            </button>
+            <div class="card">
+              <div class="card-body">
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+                <p class="card-text">Pagina`s aanpassen</p>
+                <a href="<?php echo URLROOT ;?>/Dashboard/pageOverview" class="btn btn-primary">Klik hier</a>
+              </div>
+            </div>
 
           </div>
           <div class="col-md-6">
 
-            <h3>
-              Test
-            </h3>
-
-            <button type="button" class="btn btn-lg btn-primary">
-              Button
-            </button>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Test</h5>
+                <p class="card-text">Test2</p>
+                <a href="#" class="btn btn-primary">Test3</a>
+              </div>
+            </div>
 
           </div>
+
+
         </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Test</h5>
+                <p class="card-text">Test2</p>
+                <a href="#" class="btn btn-primary">Test3</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Test</h5>
+                <p class="card-text">Test2</p>
+                <a href="#" class="btn btn-primary">Test3</a>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
       </div>
-      <?php
+
+    </div>
+
+      <!-- <?php
       if($_SESSION["roles"] == 1) {
         echo '<form action="' . URLROOT . '/Dashboard/updatecontent" method="POST">';
         //home pagina
@@ -108,9 +142,9 @@
         echo '<button class="btn btn-info btn-block mt-5" type="submit">Update</button>';
         echo "</form>";
       }
-      ?>
+      ?> -->
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-4">
         <h3>HIER1</h3>
       </div>
@@ -123,7 +157,7 @@
         <h3>HIER3</h3>
       </div>
 
-    </div>
+    </div> -->
 
   </div>
 </div>
