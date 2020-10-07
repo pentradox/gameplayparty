@@ -9,7 +9,8 @@ class Dashboard extends controller {
 
   public function index() {
     if ($this->sessionCheck()) {
-      $data = $this->adminModel->fetchContent();
+      $page = 'home';
+      $data = $this->adminModel->fetchContent($page);
       $this->view("pages/dashboard", $data);
     }
   }

@@ -2,10 +2,15 @@
 
 <div class="jumbotron rounded-0 border-0">
   <div id="hero-text " class=" ">
-    <h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">
-      Game <span class="text-blue">Play</span>  Party
-    </h1>
-    <h2 class="  text-blue text-center ">Power to the players</h2>
+    <?php if(!empty($data[1][0])) {
+      echo '<h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">';
+      echo $data[1][0]->title . '</h1>';
+      echo '<h2 class="  text-blue text-center ">' . $data[1][0]->text . '</h2>';
+    } else {
+      echo '<h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">';
+      echo 'Game <span class="text-blue">Play</span>  Party</h1>';
+      echo '<h2 class="  text-blue text-center ">Power to the players</h2>';
+    }?>
   </div>
 </div>
 
