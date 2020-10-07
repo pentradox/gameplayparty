@@ -71,5 +71,9 @@ class Home extends Controller {
     
     $this->view("pages/hallInfo");
   }
+  public function packets() {
+    
+    $this->view("pages/packets");
+  }
  
 }
