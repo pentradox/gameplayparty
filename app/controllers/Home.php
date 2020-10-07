@@ -12,8 +12,8 @@ class Home extends Controller {
     $data = array($data, $data2);
     $this->view("pages/index",$data);
   }
-  public function info() {
 
+  public function info() {
     $this->view("pages/info");
   }
 
