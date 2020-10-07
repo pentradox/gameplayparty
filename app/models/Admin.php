@@ -86,30 +86,24 @@ class Admin {
     public function uploadFile($file) {
 		// Check if file size is bigger then zero because it is empty otherwise
 		if($file['size'] !== 0) {
-			$name = $file['name'];
-			$target_dir = URLROOT . "/public/images/logos";
-			$target_file = $target_dir . basename($file["name"]);
+			$target_dir = "./images/logos/";
+			$target_file = $target_dir . basename($_POST["id"] . ".jpg");
 			// Select file type
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 			// Valid file extensions
-			$extensions_arr = array("jpg","jpeg","png","gif");
+			$extensions_arr = array("jpg","jpeg","png");
 			// Check extension
 			if( in_array($imageFileType,$extensions_arr) ){
 				// Upload file
-				if(file_exists($target_file)) {
-					$result = array('upload' => 'false', 'message' => 'er is al een logo met deze naam, noem het bestand anders en probeer het opnieuw');
+				if(!move_uploaded_file($file['tmp_name'], $target_file)) {
+					$result = array('upload' => 'false', 'message' => 'er is een error opgetreden probeer het opnieuw');
 					return $result;
 				} else {
-					if(!move_uploaded_file($file['tmp_name'],$target_dir.$name)) {
-						$result = array('upload' => 'false', 'message' => 'er is een error opgetreden probeer het opnieuw');
-						return $result;
-					} else {
-						$result = array('upload' => 'true', 'message' => $target_file);
-						return $result;
-					}
+					$result = array('upload' => 'true', 'message' => $target_file, 'name' => $_POST["id"] . ".jpg");
+					return $result;
 				}
 			} else {
-				$result = array('upload' => 'false', 'message' => 'ongeldige bestand type alleen jpg, jprg, png, gif zijn toegestaan');
+				$result = array('upload' => 'false', 'message' => 'ongeldige bestand type alleen jpg, jprg, png zijn toegestaan');
 				return $result;
 			}
 		} else {
@@ -128,6 +122,95 @@ class Admin {
 		$this->database->execute();
 		return;
 	}
+  
+	public function getaccount($id) {
+		$id = intval($id);
+		if ((!is_int($id)) || ($id == 0)) {
+			$data["message"] = "Geen geldig account!";
+			return $data;
+		}
+		$query = "SELECT * FROM cinema WHERE id=:id AND id > 0";
+		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
+		$data = $this->database->getRow();
+		if (!$data) {
+			$data["message"] = "Dit account bestaat niet!";
+			return $data["message"];
+		} else {
+			return $data;
+		}
+	}
+
+	public function updateaccount() {
+		$data = [
+			"name_error" => null,
+			"mail_error" => null,
+			"locatie_error" => null,
+			"phone_error" => null,
+			"description_error" => null,
+			"logo_error" => null,
+			"error" => false,
+			"message" => null,
+			"id" => $_POST["id"]
+		];
+		if ((!isset($_POST["name"])) || ($_POST["name"] == "")) {
+			$data["name_error"] = "Error naam is leeg!";
+			$data["error"] = true;
+		}
+		if ((!isset($_POST["mail"])) || ($_POST["mail"] == "")) {
+			$data["mail_error"] = "Error email is leeg!";
+			$data["error"] = true;
+		}
+		if ((!isset($_POST["location"])) || ($_POST["location"] == "")) {
+			$data["locatie_error"] = "Error locatie is leeg!";
+			$data["error"] = true;
+		}
+		if ((!isset($_POST["phone"])) || ($_POST["phone"] == "")) {
+			$data["phone_error"] = "Error telefoon is leeg!";
+			$data["error"] = true;
+		}
+		if ((!isset($_POST["description"])) || ($_POST["description"] == "")) {
+			$data["description_error"] = "Error description is leeg!";
+			$data["error"] = true;
+		}
+
+		if ($data["error"]) {
+			return $data;
+		}
+		$name = trim($_POST["name"]);
+		$mail = trim($_POST["mail"]);
+		$location = trim($_POST["location"]);
+		$phone = trim($_POST["phone"]);
+		$description = trim($_POST["description"]);
+
+		if ((!isset($_FILES["logo"])) || ($_FILES["logo"]["size"] != 0)) {
+			$logo = $this->uploadFile($_FILES["logo"]);
+			if ($logo["upload"]) {
+				$query = "UPDATE cinema SET name=:name, mail=:mail, location=:location, logo=:logo, phone=:phone, description=:description WHERE id=:id";
+				$this->database->prepare($query);
+				$this->database->bind(":logo", $logo["name"]);
+			} else {
+				$data["logo_error"] = $logo["message"];
+				return $data;
+			}
+		} else {
+			$query = "UPDATE cinema SET name=:name, mail=:mail, location=:location, phone=:phone, description=:description WHERE id=:id";
+			$this->database->prepare($query);
+		}
+		$this->database->bind(":name", $name);
+		$this->database->bind(":mail", $mail);
+		$this->database->bind(":location", $location);
+		$this->database->bind(":phone", $phone);
+		$this->database->bind(":description", $description);
+		$this->database->bind(":id", $_POST["id"]);
+		if ($this->database->execute()) {
+			$data["message"] = "Account bijgewerkt!";
+		} else {
+			$data["message"] = "Er ging iets fout bij het toevoegen!";
+		}
+		return $data;
+	}
+
   public function addPacket($data) {
     $query = "INSERT INTO packages (name, price, description) VALUES (:name, :price, :description)";
     $this->database->prepare($query);
