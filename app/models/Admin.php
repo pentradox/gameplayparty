@@ -23,15 +23,33 @@ class Admin {
       $this->database->execute();
       $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
       $this->database->prepare($query);
-      $this->database->bind(":title", $data['section_1_title']);
-      $this->database->bind(":text", $data['section_1_text']);
+      $this->database->bind(":title", $data['home_section_1_title']);
+      $this->database->bind(":text", $data['home_section_1_text']);
       $this->database->bind(":id", 2);
       $this->database->execute();
       $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
       $this->database->prepare($query);
-      $this->database->bind(":title", $data['section_2_title']);
-      $this->database->bind(":text", $data['section_2_text']);
+      $this->database->bind(":title", $data['home_section_2_title']);
+      $this->database->bind(":text", $data['home_section_2_text']);
       $this->database->bind(":id", 3);
+      $this->database->execute();
+      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":title", $data['contact_title']);
+      $this->database->bind(":text", $data['contact_text']);
+      $this->database->bind(":id", 4);
+      $this->database->execute();
+      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":title", $data['contact_section_1_title']);
+      $this->database->bind(":text", $data['contact_section_1_text']);
+      $this->database->bind(":id", 5);
+      $this->database->execute();
+      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":title", $data['contact_section_2_title']);
+      $this->database->bind(":text", $data['contact_section_2_text']);
+      $this->database->bind(":id", 6);
       $this->database->execute();
     }
 
