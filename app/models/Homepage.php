@@ -13,9 +13,10 @@ class Homepage {
         return $data;
     }
 
-    public function fetchContent() {
-      $query = "SELECT * FROM pages";
+    public function fetchContent($page) {
+      $query = "SELECT * FROM pages WHERE page_name=:page_name";
       $this->database->prepare($query);
+      $this->database->bind(":page_name", $page);
       $data = $this->database->getArray();
       return $data;
     }

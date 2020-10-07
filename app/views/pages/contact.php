@@ -1,11 +1,11 @@
 <?php include APPROOT."/views/fragments/navbar.php";?>
 
-<div class="jumbotron rounded-0 border-0" style="height:300px">
+<div class="jumbotron rounded-0 border-0">
   <div id="hero-text " class=" ">
-    <?php if(!empty($data[1][0])) {
+    <?php if(!empty($data[0])) {
       echo '<h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">';
-      echo $data[1][0]->title . '</h1>';
-      echo '<h2 class="  text-blue text-center ">' . $data[1][0]->text . '</h2>';
+      echo $data[0]->title . '</h1>';
+      echo '<h2 class="  text-blue text-center ">' . $data[0]->text . '</h2>';
     } else {
       echo '<h1 class="text-xl text-center  text-light text-uppercase mb-0 font-weight-bold">';
       echo 'Neem <span class="text-blue">Contact</span>  op</h1>';
@@ -19,9 +19,9 @@
     <div>
       <div>
         <div class="card-block px-6 pl-2 ">
-          <?php if(!empty($data[1][2])) {
-            echo '<h4 class="card-title mt-3">' . $data[1][2]->title . '</h4>';
-            echo '<p class="card-text">' . $data[1][2]->text . '</p>';
+          <?php if(!empty($data[1])) {
+            echo '<h4 class="card-title mt-3">' . $data[1]->title . '</h4>';
+            echo '<p class="card-text">' . $data[1]->text . '</p>';
           } else {
             echo '<h4 class="card-title mt-3">Dingen die je moet weten</h4>';
             echo '<p class="card-text"> ' . "Er is geen minimum voor groepen, maar het wordt aanbevolen dat de groepsgrootte tussen de 8 en 12 personen is. Dit zal de speeltijd voor elke speler maximaliseren.
@@ -68,9 +68,9 @@
   <div>
     <div>
       <div class="card-block px-6 pl-2 ">
-        <?php if(!empty($data[1][2])) {
-          echo '<h4 class="card-title mt-3">' . $data[1][2]->title . '</h4>';
-          echo '<p class="card-text">' . $data[1][2]->text . '</p>';
+        <?php if(!empty($data[2])) {
+          echo '<h4 class="card-title mt-3">' . $data[2]->title . '</h4>';
+          echo '<p class="card-text">' . $data[2]->text . '</p>';
         } else {
           echo '<h4 class="card-title mt-3">Neem Contact op</h4>';
           echo '<p class="card-text">vul het onderste formulier in om contact op te nemen alle velden zijn vereist en moeten ingevuld worden.</p>';

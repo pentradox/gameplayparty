@@ -7,13 +7,13 @@ class Home extends Controller {
   }
   public function index() {
     $data = $this->homeModel->cinema();
-    $data2 = $this->homeModel->fetchcontent();
+    $data2 = $this->homeModel->fetchcontent('home');
     $data = array($data, $data2);
     $this->view("pages/index",$data);
   }
   public function contact() {
-
-    $this->view("pages/contact");
+    $data = $this->homeModel->fetchcontent('contact');
+    $this->view("pages/contact",$data);
   }
   public function info() {
 
