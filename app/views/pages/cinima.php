@@ -53,7 +53,7 @@
 <p id="location" class="">Zalen</p>
   <div class="row ">
   
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
           <div class="card cinima-card" >
             <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/001.jpg"
             /alt="Card> image cap" />
@@ -66,7 +66,7 @@
                 <i class="fas fa-volume-up"></i> Bas die het schreeuwt
               </p>
               <div class="link-container mt-auto d-inline">
-                <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
                 
               </div>
               
@@ -75,7 +75,7 @@
           </div>
         </div>
 
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div class="card cinima-card" >
               <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/002.jpg"
               /alt="Card> image cap" />
@@ -88,7 +88,7 @@
                   <i class="fas fa-volume-up"></i> Bas die het schreeuwt
                 </p>
                 <div class="link-container mt-auto d-inline">
-                  <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                    <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
                   
                 </div>
                 
@@ -97,7 +97,7 @@
             </div>
           </div>
 
-          <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
             <div class="card cinima-card" >
               <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/003.jpg"
               /alt="Card> image cap" />
@@ -110,7 +110,7 @@
                   <i class="fas fa-volume-up"></i> Bas die het schreeuwt
                 </p>
                 <div class="link-container mt-auto d-inline">
-                  <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                  <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
                   
                 </div>
                 

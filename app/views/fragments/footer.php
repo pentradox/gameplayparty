@@ -11,7 +11,7 @@
         <!-- Grid column -->
         
       <!-- Grid column -->
-      <div class="col-4 mt-3">
+      <div class="col-md-4 col-sm-12   mt-3">
   
         <!-- Links -->
         <h5 class="text-uppercase">Help</h5>
@@ -36,7 +36,7 @@
       
   
         <!-- Grid column -->
-        <div class="col-4  mt-3">
+        <div class="col-sm-12 col-md-4    mt-3">
   
           <!-- Links -->
           <h5 class="text-uppercase">GamePlayParty</h5>
