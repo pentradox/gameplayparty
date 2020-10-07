@@ -6,32 +6,55 @@ class Admin {
 		$this->database = new Database;
     }
 
-    public function fetchContent() {
-      $query = "SELECT * FROM pages";
+    public function fetchContent($page) {
+      $query = "SELECT * FROM pages WHERE page_name=:page_name";
       $this->database->prepare($query);
+      $this->database->bind(":page_name", $page);
       $data = $this->database->getArray();
       return $data;
     }
 
     public function contentupdate($data) {
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['home_title']);
-      $this->database->bind(":text", $data['home_text']);
-      $this->database->bind(":id", 1);
-      $this->database->execute();
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['section_1_title']);
-      $this->database->bind(":text", $data['section_1_text']);
-      $this->database->bind(":id", 2);
-      $this->database->execute();
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['section_2_title']);
-      $this->database->bind(":text", $data['section_2_text']);
-      $this->database->bind(":id", 3);
-      $this->database->execute();
+      if($data[0] == 'home') {
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['home_title']);
+        $this->database->bind(":text", $data[1]['home_text']);
+        $this->database->bind(":id", 1);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['home_section_1_title']);
+        $this->database->bind(":text", $data[1]['home_section_1_text']);
+        $this->database->bind(":id", 2);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['home_section_2_title']);
+        $this->database->bind(":text", $data[1]['home_section_2_text']);
+        $this->database->bind(":id", 3);
+        $this->database->execute();
+      }
+      if($data[0] == 'contact') {
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['contact_title']);
+        $this->database->bind(":text", $data[1]['contact_text']);
+        $this->database->bind(":id", 4);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['contact_section_1_title']);
+        $this->database->bind(":text", $data[1]['contact_section_1_text']);
+        $this->database->bind(":id", 5);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['contact_section_2_title']);
+        $this->database->bind(":text", $data[1]['contact_section_2_text']);
+        $this->database->bind(":id", 6);
+        $this->database->execute();
+      }
     }
 
     public function getAllAccounts() {
@@ -99,7 +122,7 @@ class Admin {
 		$this->database->execute();
 		return;
 	}
-
+  
 	public function getaccount($id) {
 		$id = intval($id);
 		if ((!is_int($id)) || ($id == 0)) {
@@ -187,4 +210,14 @@ class Admin {
 		}
 		return $data;
 	}
+
+  public function addPacket($data) {
+    $query = "INSERT INTO packages (name, price, description) VALUES (:name, :price, :description)";
+    $this->database->prepare($query);
+    $this->database->bind(":name", $data['packet_name']);
+    $this->database->bind(":price", $data['packet_price']);
+    $this->database->bind(":description", $data['packet_description']);
+    $result = $this->database->execute();
+    return $result;
+  }
 }

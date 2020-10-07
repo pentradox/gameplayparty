@@ -9,7 +9,9 @@ class Dashboard extends controller {
 
   public function index() {
     if ($this->sessionCheck()) {
-      $data = $this->adminModel->fetchContent();
+      $data = $this->adminModel->fetchContent('home');
+      $data2 = $this->adminModel->fetchContent('contact');
+      $data = array($data, $data2);
       $this->view("pages/dashboard", $data);
     }
   }
@@ -22,39 +24,51 @@ class Dashboard extends controller {
     }
   }
 
-  public function updatecontent() {
+  public function updatecontent($page) {
     $error = false;
-    $data = [
-        "home_title"  => trim($_POST['home_title']),
-        "home_text" => trim($_POST['home_text']),
-        "section_1_title" => trim($_POST['section_1_title']),
-        "section_1_text" => trim($_POST['section_1_text']),
-        "section_2_title" => trim($_POST['section_2_title']),
-        "section_2_text" => trim($_POST['section_2_text'])
-      ];
-    if (empty($data['home_title'])) {
-        $error = true;
+    if($page == 'home') {
+      $data1 = [
+          "home_title"  => trim($_POST['home_title']),
+          "home_text" => trim($_POST['home_text']),
+          "home_section_1_title" => trim($_POST['home_section_1_title']),
+          "home_section_1_text" => trim($_POST['home_section_1_text']),
+          "home_section_2_title" => trim($_POST['home_section_2_title']),
+          "home_section_2_text" => trim($_POST['home_section_2_text']),
+
+        ];
+        $data = array('home', $data1);
+    } else {
+      if($page == 'contact') {
+        $data1 = [
+          "contact_title"  => trim($_POST['contact_title']),
+          "contact_text" => trim($_POST['contact_text']),
+          "contact_section_1_title" => trim($_POST['contact_section_1_title']),
+          "contact_section_1_text" => trim($_POST['contact_section_1_text']),
+          "contact_section_2_title" => trim($_POST['contact_section_2_title']),
+          "contact_section_2_text" => trim($_POST['contact_section_2_text'])
+        ];
+        $data = array('contact', $data1);
       }
-      if (empty($data['home_text'])) {
-        $error = true;
+    }
+      foreach ($data[1] as $key => $value) {
+        if (empty($key)) {
+          $error = true;
+        }
       }
-      if (empty($data['section_1_title'])) {
-        $error = true;
-      }
-      if (empty($data['section_1_text'])) {
-        $error = true;
-      }
-      if (empty($data['section_2_title'])) {
-        $error = true;
-      }
-      if (empty($data['section_2_text'])) {
-        $error = true;
-      }
+      $page = $data[0];
       if($error === false) {
         $update = $this->adminModel->contentupdate($data);
-        $this->redirect("Dashboard");
+        if($page == 'home') {
+          $this->redirect("Dashboard/frontpageEditor");
+        } else if($page == 'contact'){
+          $this->redirect("Dashboard/contentPageEditor");
+        }
       } else {
-        $this->redirect("Dashboard");
+        if($page == 'home') {
+          $this->redirect("Dashboard/frontpageEditor");
+        } else if($page == 'contact'){
+          $this->redirect("Dashboard/contentpageEditor");
+        }
       }
   }
 
@@ -184,6 +198,26 @@ class Dashboard extends controller {
     }
   }
 
-  
+  // Page editor routing START
 
-}
+  public function pageOverview() {
+    if ($this->sessionCheck(1)) {
+      $this->view("Pages/pageoverview");
+    }
+  }
+
+  public function frontpageEditor() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->adminModel->fetchContent('home');
+      $this->view("Pages/homeeditor", $data);
+    }
+  }
+
+  public function contactPageEditor() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->adminModel->fetchContent('contact');
+      $this->view("Pages/contacteditor", $data);
+    }
+  }
+
+  // Page editor routing END
