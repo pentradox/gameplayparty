@@ -22,7 +22,7 @@ class Homepage {
       $this->database->bind(":id", $id);
       $data["cinema"] = $this->database->getRow();
       
-      $query = "SELECT * FROM halls WHERE cinema_id=:id";
+      $query = "SELECT * FROM halls WHERE cinema_id=:id ORDER BY hall_number";
       $this->database->prepare($query);
       $this->database->bind(":id", $id);
       $data["halls"] = $this->database->getArray();

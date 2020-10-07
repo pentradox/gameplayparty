@@ -52,73 +52,31 @@
 <section class="location-container mb-5">
 <p id="location" class="">Zalen</p>
   <div class="row ">
-  
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
+  <?php
+  foreach ($data["halls"] as $hall) {  
+      echo '<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
           <div class="card cinima-card" >
-            <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>/images/001.jpg"
+            <img class="card-img-top cinima-img h-50" src="'. URLROOT .'/images/001.jpg"
             /alt="Card> image cap" />
 
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Zaal 1</h5>
+              <h5 class="card-title">Zaal '.$hall->hall_number.'</h5>
               
               <p class="card-text">
-                <i class="fas fa-users"></i> 66 plekken <br>
-                <i class="fas fa-volume-up"></i> Bas die het schreeuwt
+                <i class="fas fa-users"></i> '.$hall->seats.' plekken <br>
+                <i class="fas fa-volume-up"></i> '.$hall->sound_system.'
               </p>
               <div class="link-container mt-auto d-inline">
-                <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
+                <a href="' .URLROOT. '/Home/hallInfo" class="card-link">Bekijken</a>
                 
               </div>
               
               </div>
             
           </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-            <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>/images/002.jpg"
-              /alt="Card> image cap" />
-  
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Zaal 2</h5>
-                
-                <p class="card-text">
-                  <i class="fas fa-users"></i> 66 plekken <br>
-                  <i class="fas fa-volume-up"></i> Bas die het schreeuwt
-                </p>
-                <div class="link-container mt-auto d-inline">
-                    <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
-                  
-                </div>
-                
-                </div>
-              
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-            <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>/images/003.jpg"
-              /alt="Card> image cap" />
-  
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Zaal 3</h5>
-                
-                <p class="card-text">
-                  <i class="fas fa-users"></i> 66 plekken <br>
-                  <i class="fas fa-volume-up"></i> Bas die het schreeuwt
-                </p>
-                <div class="link-container mt-auto d-inline">
-                  <a href="<?php echo URLROOT; ?>/Home/infoHall" class="card-link">Bekijken</a>
-                  
-                </div>
-                
-                </div>
-              
-            </div>
-          </div>
-    
+        </div>';
+      }
+    ?>
   </div>
   
   </section>
