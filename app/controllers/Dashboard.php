@@ -24,32 +24,51 @@ class Dashboard extends controller {
     }
   }
 
-  public function updatecontent() {
+  public function updatecontent($page) {
     $error = false;
-    $data = [
-        "home_title"  => trim($_POST['home_title']),
-        "home_text" => trim($_POST['home_text']),
-        "home_section_1_title" => trim($_POST['home_section_1_title']),
-        "home_section_1_text" => trim($_POST['home_section_1_text']),
-        "home_section_2_title" => trim($_POST['home_section_2_title']),
-        "home_section_2_text" => trim($_POST['home_section_2_text']),
-        "contact_title"  => trim($_POST['contact_title']),
-        "contact_text" => trim($_POST['contact_text']),
-        "contact_section_1_title" => trim($_POST['contact_section_1_title']),
-        "contact_section_1_text" => trim($_POST['contact_section_1_text']),
-        "contact_section_2_title" => trim($_POST['contact_section_2_title']),
-        "contact_section_2_text" => trim($_POST['contact_section_2_text'])
-      ];
-      foreach ($data as $key => $value) {
+    if($page == 'home') {
+      $data1 = [
+          "home_title"  => trim($_POST['home_title']),
+          "home_text" => trim($_POST['home_text']),
+          "home_section_1_title" => trim($_POST['home_section_1_title']),
+          "home_section_1_text" => trim($_POST['home_section_1_text']),
+          "home_section_2_title" => trim($_POST['home_section_2_title']),
+          "home_section_2_text" => trim($_POST['home_section_2_text']),
+
+        ];
+        $data = array('home', $data1);
+    } else {
+      if($page == 'contact') {
+        $data1 = [
+          "contact_title"  => trim($_POST['contact_title']),
+          "contact_text" => trim($_POST['contact_text']),
+          "contact_section_1_title" => trim($_POST['contact_section_1_title']),
+          "contact_section_1_text" => trim($_POST['contact_section_1_text']),
+          "contact_section_2_title" => trim($_POST['contact_section_2_title']),
+          "contact_section_2_text" => trim($_POST['contact_section_2_text'])
+        ];
+        $data = array('contact', $data1);
+      }
+    }
+      foreach ($data[1] as $key => $value) {
         if (empty($key)) {
           $error = true;
         }
       }
+      $page = $data[0];
       if($error === false) {
         $update = $this->adminModel->contentupdate($data);
-        $this->redirect("Dashboard");
+        if($page == 'home') {
+          $this->redirect("Dashboard/frontpageEditor");
+        } else if($page == 'contact'){
+          $this->redirect("Dashboard/contentPageEditor");
+        }
       } else {
-        $this->redirect("Dashboard");
+        if($page == 'home') {
+          $this->redirect("Dashboard/frontpageEditor");
+        } else if($page == 'contact'){
+          $this->redirect("Dashboard/contentpageEditor");
+        }
       }
   }
 
@@ -184,7 +203,15 @@ class Dashboard extends controller {
 
   public function frontpageEditor() {
     if ($this->sessionCheck(1)) {
-      $this->view("Pages/homeeditor");
+      $data = $this->adminModel->fetchContent('home');
+      $this->view("Pages/homeeditor", $data);
+    }
+  }
+
+  public function contactPageEditor() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->adminModel->fetchContent('contact');
+      $this->view("Pages/contacteditor", $data);
     }
   }
 

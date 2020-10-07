@@ -36,36 +36,35 @@
         </div>
         <!-- .card-body.tab-content  -->
         <div class="card-body tab-content">
-
           <div class="tab-pane fade active" id="tab1">
-            <form action="<?php echo URLROOT; ?>/Dashboard/updatecontent/home" method="POST">
-              <textarea type="text" name="home_title" class="textEditor"><?php echo $data[0]->title;?></textarea>
+            <form action="<?php echo URLROOT; ?>/Dashboard/updatecontent/contact" method="POST">
+              <textarea type="text" name="contact_title" class="textEditor"><?php echo $data[0]->title;?></textarea>
               <button class="btn btn-primary btn-block mt-4">Update</button>
           </div>
 
           <div class="tab-pane fade" id="tab2">
-              <textarea type="text" name="home_text" class="textEditor"><?php echo $data[0]->text;?></textarea>
+              <textarea type="text" name="contact_text" class="textEditor"><?php echo $data[0]->text;?></textarea>
               <button class="btn btn-primary btn-block mt-4">Update</button>
           </div>
 
           <div class="tab-pane fade" id="tab3">
-              <textarea type="text" name="home_section_1_title" class="textEditor"><?php echo $data[1]->title;?></textarea>
+              <textarea type="text" name="contact_section_1_title" class="textEditor"><?php echo $data[1]->title;?></textarea>
               <button class="btn btn-primary btn-block mt-4">Update</button>
           </div>
 
 
           <div class="tab-pane fade" id="tab4">
-            <textarea type="text" name="home_section_1_text" class="textEditor"><?php echo $data[1]->text;?></textarea>
+            <textarea type="text" name="contact_section_1_text" class="textEditor"><?php echo $data[1]->text;?></textarea>
             <button class="btn btn-primary btn-block mt-4">Update</button>
           </div>
 
           <div class="tab-pane fade" id="tab5">
-            <textarea type="text" name="home_section_2_title" class="textEditor"><?php echo $data[2]->title;?></textarea>
+            <textarea type="text" name="contact_section_2_title" class="textEditor"><?php echo $data[2]->title;?></textarea>
             <button class="btn btn-primary btn-block mt-4">Update</button>
           </div>
 
           <div class="tab-pane fade" id="tab6">
-            <textarea type="text" name="home_section_2_text" class="textEditor"><?php echo $data[2]->text;?></textarea>
+            <textarea type="text" name="contact_section_2_text" class="textEditor"><?php echo $data[2]->text;?></textarea>
             <button class="btn btn-primary btn-block mt-4">Update</button>
           </div>
           </form

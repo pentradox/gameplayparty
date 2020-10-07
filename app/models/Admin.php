@@ -15,42 +15,46 @@ class Admin {
     }
 
     public function contentupdate($data) {
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['home_title']);
-      $this->database->bind(":text", $data['home_text']);
-      $this->database->bind(":id", 1);
-      $this->database->execute();
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['home_section_1_title']);
-      $this->database->bind(":text", $data['home_section_1_text']);
-      $this->database->bind(":id", 2);
-      $this->database->execute();
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['home_section_2_title']);
-      $this->database->bind(":text", $data['home_section_2_text']);
-      $this->database->bind(":id", 3);
-      $this->database->execute();
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['contact_title']);
-      $this->database->bind(":text", $data['contact_text']);
-      $this->database->bind(":id", 4);
-      $this->database->execute();
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['contact_section_1_title']);
-      $this->database->bind(":text", $data['contact_section_1_text']);
-      $this->database->bind(":id", 5);
-      $this->database->execute();
-      $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
-      $this->database->prepare($query);
-      $this->database->bind(":title", $data['contact_section_2_title']);
-      $this->database->bind(":text", $data['contact_section_2_text']);
-      $this->database->bind(":id", 6);
-      $this->database->execute();
+      if($data[0] == 'home') {
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['home_title']);
+        $this->database->bind(":text", $data[1]['home_text']);
+        $this->database->bind(":id", 1);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['home_section_1_title']);
+        $this->database->bind(":text", $data[1]['home_section_1_text']);
+        $this->database->bind(":id", 2);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['home_section_2_title']);
+        $this->database->bind(":text", $data[1]['home_section_2_text']);
+        $this->database->bind(":id", 3);
+        $this->database->execute();
+      }
+      if($data[0] == 'contact') {
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['contact_title']);
+        $this->database->bind(":text", $data[1]['contact_text']);
+        $this->database->bind(":id", 4);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['contact_section_1_title']);
+        $this->database->bind(":text", $data[1]['contact_section_1_text']);
+        $this->database->bind(":id", 5);
+        $this->database->execute();
+        $query = "UPDATE pages SET title=:title, text=:text WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":title", $data[1]['contact_section_2_title']);
+        $this->database->bind(":text", $data[1]['contact_section_2_text']);
+        $this->database->bind(":id", 6);
+        $this->database->execute();
+      }
     }
 
     public function getAllAccounts() {
@@ -124,4 +128,13 @@ class Admin {
 		$this->database->execute();
 		return;
 	}
+  public function addPacket($data) {
+    $query = "INSERT INTO packages (name, price, description) VALUES (:name, :price, :description)";
+    $this->database->prepare($query);
+    $this->database->bind(":name", $data['packet_name']);
+    $this->database->bind(":price", $data['packet_price']);
+    $this->database->bind(":description", $data['packet_description']);
+    $result = $this->database->execute();
+    return $result;
+  }
 }
