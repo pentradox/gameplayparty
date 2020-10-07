@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<main class="container col-10 col-md-8 mt-5">
+<main class="container col-10 col-md-8 mt-5 text-center">
   <div class="card mb-5 bg-transparent border-0">
 
     <div>
@@ -38,12 +38,9 @@
           <br>
         </div>
       </div>
-
-
-
     </div>
 
-    <div class="row">
+    <div>
       <div style="width: 100%;">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -68,6 +65,36 @@
         </div>
     </div>
   </div>
+  <div>
+    <div>
+      <div class="card-block px-6 pl-2 ">
+        <?php if(!empty($data[1][2])) {
+          echo '<h4 class="card-title mt-3">' . $data[1][2]->title . '</h4>';
+          echo '<p class="card-text">' . $data[1][2]->text . '</p>';
+        } else {
+          echo '<h4 class="card-title mt-3">Neem Contact op</h4>';
+          echo '<p class="card-text">vul het onderste formulier in om contact op te nemen alle velden zijn vereist en moeten ingevuld worden.</p>';
+        }?>
+        <br>
+      </div>
+    </div>
+  </div>
+  <?php echo '<form class="p-5" action="' . URLROOT . '/home/sendmail" method="POST">'; ?>
+    <label  class="text-info" for="">Voornaam</label>
+    <input type="text" name="firstname" class="form-control mb-4" placeholder="" required>
+
+    <label  class="text-info" for="">Achternaam</label>
+    <input type="text" name="lastname" class="form-control mb-4" placeholder="" required>
+
+    <label class="text-info" for="">Email</label>
+    <input type="email" name="email" class="form-control mb-4" placeholder="" required>
+
+    <label class="text-info" for="">Bericht</label>
+    <textarea name="message" class="form-control mb-4" placeholder="" required></textarea>
+
+    <button class="btn btn-info btn-block" type="submit">Verstuur</button>
+
+  </form>
 </div>
   <!-- End of card -->
 

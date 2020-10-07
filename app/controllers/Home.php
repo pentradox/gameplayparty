@@ -19,6 +19,33 @@ class Home extends Controller {
 
     $this->view("pages/info");
   }
+  public function sendmail() {
+    $error = false;
+    $data = [
+      "firstname"  => trim($_POST['firstname']),
+      "lastname" => trim($_POST['lastname']),
+      "email" => trim($_POST['email']),
+      "message" => trim($_POST['message']),
+    ];
+    if (empty($data['firstname'])) {
+      $error = true;
+    }
+    if (empty($data['lastname'])) {
+      $error = true;
+    }
+    if (empty($data['email'])) {
+      $error = true;
+    }
+    if (empty($data['message'])) {
+      $error = true;
+    }
+    if($error === false) {
+      $sendmail = $this->homeModel->sendmail($data);
+      $this->redirect("Home/Conatct");
+    } else {
+      $this->redirect("Home/Conatct");
+    }
+  }
   public function privacy() {
 
     $this->view("pages/privacy");
