@@ -9,7 +9,9 @@ class Dashboard extends controller {
 
   public function index() {
     if ($this->sessionCheck()) {
-      $data = $this->adminModel->fetchContent();
+      $data = $this->adminModel->fetchContent('home');
+      $data2 = $this->adminModel->fetchContent('contact');
+      $data = array($data, $data2);
       $this->view("pages/dashboard", $data);
     }
   }
@@ -27,28 +29,21 @@ class Dashboard extends controller {
     $data = [
         "home_title"  => trim($_POST['home_title']),
         "home_text" => trim($_POST['home_text']),
-        "section_1_title" => trim($_POST['section_1_title']),
-        "section_1_text" => trim($_POST['section_1_text']),
-        "section_2_title" => trim($_POST['section_2_title']),
-        "section_2_text" => trim($_POST['section_2_text'])
+        "home_section_1_title" => trim($_POST['home_section_1_title']),
+        "home_section_1_text" => trim($_POST['home_section_1_text']),
+        "home_section_2_title" => trim($_POST['home_section_2_title']),
+        "home_section_2_text" => trim($_POST['home_section_2_text']),
+        "contact_title"  => trim($_POST['contact_title']),
+        "contact_text" => trim($_POST['contact_text']),
+        "contact_section_1_title" => trim($_POST['contact_section_1_title']),
+        "contact_section_1_text" => trim($_POST['contact_section_1_text']),
+        "contact_section_2_title" => trim($_POST['contact_section_2_title']),
+        "contact_section_2_text" => trim($_POST['contact_section_2_text'])
       ];
-    if (empty($data['home_title'])) {
-        $error = true;
-      }
-      if (empty($data['home_text'])) {
-        $error = true;
-      }
-      if (empty($data['section_1_title'])) {
-        $error = true;
-      }
-      if (empty($data['section_1_text'])) {
-        $error = true;
-      }
-      if (empty($data['section_2_title'])) {
-        $error = true;
-      }
-      if (empty($data['section_2_text'])) {
-        $error = true;
+      foreach ($data as $key => $value) {
+        if (empty($key)) {
+          $error = true;
+        }
       }
       if($error === false) {
         $update = $this->adminModel->contentupdate($data);
