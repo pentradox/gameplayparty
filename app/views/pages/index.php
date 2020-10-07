@@ -105,7 +105,8 @@
                 <i class="fas fa-check text-success"></i> Taart met slingers
               </p>
               <div class="link-container mt-auto d-inline">
-                <a href="#" class="card-link">Meer informatie</a>
+                <a href="'. URLROOT .'/Home/cinima" class="card-link">Meer informatie</a>
+                <a href="#" class="card-link">Reserveer</a>
               </div>
             </div>
           </div>
