@@ -10,6 +10,9 @@
       <li class="nav-item ml-3 align-right ">
         <a   class="navLinks text-xl    " href="<?php echo URLROOT; ?>/home">Home</a>
       </li>
+      <li class="nav-item ml-3 align-right ">
+        <a   class="navLinks text-xl    " href="<?php echo URLROOT; ?>/Home/Contact">Contact</a>
+      </li>
       <?php
         if ($_SESSION != null) {
           echo '<li class="nav-item ml-3">
@@ -31,4 +34,3 @@
     </ul>
   </div>
 </nav>
-
