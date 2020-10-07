@@ -1,9 +1,9 @@
 <?php
 
 // Database
-define("DBHOST","188.166.81.76");
-define("DBUSER","bas");
-define("DBPASS","yE3tyeet");
+define("DBHOST","142.93.226.230");
+define("DBUSER","root");
+define("DBPASS","password");
 define("DBNAME","gameplayparty");
 
 
