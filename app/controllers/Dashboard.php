@@ -174,32 +174,21 @@ class Dashboard extends controller {
     }
   }
 
-  //crud packeten
-  public function addpacket() {
-    $error = false;
-    $data = [
-      "packet_name"  => trim($_POST['packet_name']),
-      "packet_price" => trim($_POST['packet_price']),
-      "packet_description" => trim($_POST['packet_description'])
-    ];
-    foreach ($data as $key => $value) {
-      if (empty($key)) {
-        $error = true;
-      }
-    }
-    if($error === false) {
-      $add = $this->adminModel->addPacket($data);
-      if($add === true) {
-        unset($_POST['packet_name']);
-        unset($_POST['packet_price']);
-        unset($_POST['packet_description']);
-        $data = 'packet is toegevoegd!';
-      } else {
-        $data = 'fout in systeem packet is niet toegevoegd';
-      }
-      $this->view("pages/createPacket", $data);
-    } else {
-      $this->redirect("Dashboard");
+  // Page editor routing START
+
+  public function pageOverview() {
+    if ($this->sessionCheck(1)) {
+      $this->view("Pages/pageoverview");
     }
   }
+
+  public function frontpageEditor() {
+    if ($this->sessionCheck(1)) {
+      $this->view("Pages/homeeditor");
+    }
+  }
+
+  // Page editor routing END
+
+
 }
