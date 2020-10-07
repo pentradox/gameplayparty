@@ -124,4 +124,13 @@ class Admin {
 		$this->database->execute();
 		return;
 	}
+  public function addPacket($data) {
+    $query = "INSERT INTO packages (name, price, description) VALUES (:name, :price, :description)";
+    $this->database->prepare($query);
+    $this->database->bind(":name", $data['packet_name']);
+    $this->database->bind(":price", $data['packet_price']);
+    $this->database->bind(":description", $data['packet_description']);
+    $result = $this->database->execute();
+    return $result;
+  }
 }
