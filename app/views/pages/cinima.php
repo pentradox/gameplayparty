@@ -53,9 +53,7 @@
 <p id="location" class="">Zalen</p>
   <div class="row ">
   <?php
-  if ($data["halls"] == 0) {
-    echo "hallo";
-    exit;
+  if (!empty($data["halls"])) {
     foreach ($data["halls"] as $hall) {  
       echo '<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
           <div class="card cinima-card" >
