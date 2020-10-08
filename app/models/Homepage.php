@@ -29,6 +29,18 @@ class Homepage {
       return $data;
     }
 
+    public function getInfoHall($id) {
+      if ((!isset($id)) || ($id == "")) {
+        $data["error"] = "Bioscoopzaal bestaat niet!";
+      }
+
+      $query = "SELECT halls.*, cinema.* FROM halls INNER JOIN cinema ON cinema.id = halls.cinema_id WHERE halls.id=:id";
+      $this->database->prepare($query);
+      $this->database->bind(":id", $id);
+      $data["hall"] = $this->database->getRow();
+      return $data;
+    }
+
     public function fetchContent($page) {
       $query = "SELECT * FROM pages WHERE page_name=:page_name";
       $this->database->prepare($query);
