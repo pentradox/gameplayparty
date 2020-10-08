@@ -64,8 +64,13 @@ class Home extends Controller {
     $this->view("pages/terms");
   }
   public function cinima($id = null) {
-    $data = $this->homeModel->oneCinema($id);
-    $this->view("pages/cinima",$data);
+    if ($id != null) {
+      $data = $this->homeModel->oneCinema($id);
+      $this->view("pages/cinima",$data);
+    } else {
+      $this->redirect("Home");
+    }
+    
   }
 
   public function hallInfo($id = null) {
