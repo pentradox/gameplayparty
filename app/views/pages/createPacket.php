@@ -14,7 +14,7 @@
         if(!empty($data)) {
           echo "<h3>" . $data . "</p>";
         } else {
-          echo "<h3 class='text-info  mb-4'>Pakketen toevoegen";
+          echo "<h3 class='text-info  mb-4'>Pakketten toevoegen";
         }
         ?>
         </p>

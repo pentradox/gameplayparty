@@ -22,7 +22,7 @@
           <?php echo $data["cinema"]->description; ?>
           </p>
           <div class="mt-auto align-self-bottom">
-            <p class="my-0"><span class="font-weight-bold ">Telefoon nummer: </span> <?php echo $data["cinema"]->phone; ?>
+            <p class="my-0"><span class="font-weight-bold ">Telefoonnummer: </span> <?php echo $data["cinema"]->phone; ?>
             </p>
             <p class="mb-4"><span class="font-weight-bold">Adress: </span> <?php echo $data["cinema"]->adress; ?> </p>
             <a href="<?php echo URLROOT; ?>/Home/info" class="mt-auto card-link btn btn-blue">Dingen die je moet weten</a>

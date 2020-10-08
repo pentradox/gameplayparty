@@ -61,7 +61,7 @@ if (isset($data["users"])) {
               </button>
             </div>
             <div class="modal-body">
-              Als u deze bioscoop deactiveert dan kan de gebruiker geen zaalen en producten op de website aanmaken!
+              Als u deze bioscoop deactiveert dan kan de gebruiker geen zalen en producten op de website aanmaken!
               Dus weet het zeker dat dit het juiste account is? 
             </div>
             <div class="modal-footer">
