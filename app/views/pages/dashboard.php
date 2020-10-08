@@ -29,7 +29,7 @@
             </div>
 
           </div>
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
 
             <div class="card">
               <div class="card-body">
@@ -39,11 +39,11 @@
               </div>
             </div>
 
-          </div>
+          </div> -->
 
 
         </div>
-
+<!-- 
         <div class="row mt-3">
           <div class="col-md-6">
 
@@ -53,10 +53,10 @@
                 <p class="card-text">Test2</p>
                 <a href="#" class="btn btn-primary">Test3</a>
               </div>
-            </div>
+            </div> -->
 
           </div>
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
 
             <div class="card">
               <div class="card-body">
@@ -64,7 +64,7 @@
                 <p class="card-text">Test2</p>
                 <a href="#" class="btn btn-primary">Test3</a>
               </div>
-            </div>
+            </div> -->
 
           </div>
 
