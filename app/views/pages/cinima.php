@@ -53,7 +53,10 @@
 <p id="location" class="">Zalen</p>
   <div class="row ">
   <?php
-  foreach ($data["halls"] as $hall) {  
+  if ($data["halls"] == 0) {
+    echo "hallo";
+    exit;
+    foreach ($data["halls"] as $hall) {  
       echo '<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
           <div class="card cinima-card" >
             <img class="card-img-top cinima-img h-50" src="'. URLROOT .'/images/001.jpg"
@@ -67,7 +70,7 @@
                 <i class="fas fa-volume-up"></i> '.$hall->sound_system.'
               </p>
               <div class="link-container mt-auto d-inline">
-                <a href="' .URLROOT. '/Home/hallInfo" class="card-link">Bekijken</a>
+                <a href="' .URLROOT. '/Home/hallInfo/'.$hall->id.'" class="card-link">Bekijken</a>
                 
               </div>
               
@@ -76,6 +79,9 @@
           </div>
         </div>';
       }
+    } else {
+      echo "<h3 class='text-center'>Er zijn op dit moment geen zalen te huur kijk later nog eens!</h3>";
+    }
     ?>
   </div>
   

@@ -68,9 +68,9 @@ class Home extends Controller {
     $this->view("pages/cinima",$data);
   }
 
-  public function infoHall() {
-    
-    $this->view("pages/hallInfo");
+  public function hallInfo($id = null) {
+    $data = $this->homeModel->getInfoHall($id);
+    $this->view("pages/hallInfo",$data);
   }
  
 }
