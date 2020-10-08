@@ -74,8 +74,12 @@ class Home extends Controller {
   }
 
   public function hallInfo($id = null) {
-    $data = $this->homeModel->getInfoHall($id);
-    $this->view("pages/hallInfo",$data);
+    if ($id != null) {
+      $data = $this->homeModel->getInfoHall($id);
+      $this->view("pages/hallInfo",$data);
+    } else {
+      $this->redirect("Home");
+    }
   }
  
 }
