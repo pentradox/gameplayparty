@@ -14,7 +14,7 @@
   <div class="card mb-5 bg-transparent border-0">
     <div class="row ">
 
-      <div class="col col-md-12 col-xl-5 px-3 ">
+      <div class="col col-md-12  col-xl-5 px-3 ">
         <div class="card-body d-flex flex-column">
         <div class="card-block px-6 pl-2 ">
           <h4 class="card-title mt-3">Kinopolis Breda <br> zaal 1</h4>
