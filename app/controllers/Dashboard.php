@@ -1,10 +1,11 @@
 <?php
 
-class Dashboard extends controller {
+class Dashboard extends Controller {
 
   public function __construct() {
     $this->hallsModel = $this->model("Halls");
     $this->adminModel = $this->model("Admin");
+    $this->packagesModel = $this->model("Packages");
   }
 
   public function index() {
@@ -20,7 +21,7 @@ class Dashboard extends controller {
   public function halls() {
     if ($this->sessionCheck()) {
       $data["halls"] = $this->hallsModel->getAllHalls();
-      $this->view("Pages/halls", $data);
+      $this->view("pages/halls", $data);
     }
   }
 
@@ -152,7 +153,7 @@ class Dashboard extends controller {
   public function acounts() {
     if ($this->sessionCheck(1)) {
       $data["users"] = $this->adminModel->getAllAccounts();
-      $this->view("Pages/acounts",$data);
+      $this->view("pages/acounts",$data);
     }
   }
 
@@ -162,11 +163,11 @@ class Dashboard extends controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $data = $this->adminModel->updateaccount();
           $data["user"] = $this->adminModel->getaccount($_POST["id"]);
-          $this->view("Pages/editaccount",$data);
+          $this->view("pages/editaccount",$data);
         } else {
           $data["user"] = $this->adminModel->getaccount($id);
           if (!isset($data["user"]->message)) {
-            $this->view("Pages/editaccount",$data);
+            $this->view("pages/editaccount",$data);
           } else {
             $this->redirect("Dashboard");
           }
@@ -194,7 +195,31 @@ class Dashboard extends controller {
 
   public function createPacket() {
     if ($this->sessionCheck(1)) {
-      $this->view("Pages/createPacket");
+      if ($_SERVER["REQUEST_METHOD"] != "POST") {
+        $this->view("pages/createPacket");
+      } else {
+        $data = $this->packagesModel->addPacket();
+      }
+    }
+  }
+
+  public function packageOverview() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->packagesModel->fetchPackages();
+      $this->view("pages/packetOverview", $data);
+    }
+  }
+
+  public function deletePackage() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->packagesModel->fetchPackages();
+      $data["delete"] = $this->packagesModel->deletePackage();
+      $this->view("pages/packages", $data);
+    }
+  }
+
+  public function updatePackage() {
+    if ($this->sessionCheck(1)) {
     }
   }
 
@@ -202,21 +227,21 @@ class Dashboard extends controller {
 
   public function pageOverview() {
     if ($this->sessionCheck(1)) {
-      $this->view("Pages/pageoverview");
+      $this->view("pages/pageoverview");
     }
   }
 
   public function frontpageEditor() {
     if ($this->sessionCheck(1)) {
       $data = $this->adminModel->fetchContent('home');
-      $this->view("Pages/homeeditor", $data);
+      $this->view("pages/homeeditor", $data);
     }
   }
 
   public function contactPageEditor() {
     if ($this->sessionCheck(1)) {
       $data = $this->adminModel->fetchContent('contact');
-      $this->view("Pages/contacteditor", $data);
+      $this->view("pages/contacteditor", $data);
     }
   }
 

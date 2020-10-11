@@ -17,7 +17,7 @@
       <div class="col col-md-12  col-xl-5 px-3 ">
         <div class="card-body d-flex flex-column">
         <div class="card-block px-6 pl-2 ">
-          <h4 class="card-title mt-3">Kinopolis Breda <br> zaal 1</h4>
+          <h4 class="card-title mt-3"><?php echo $data["hall"]->name . " " . $data["hall"]->location; ?> <br> zaal <?php echo $data["hall"]->hall_number; ?></h4>
           <div class='table-responsive'>
  <!--Table-->
  <div class='table-responsive'>
@@ -89,9 +89,9 @@
 </div>
 </div>
           <div class="mt-auto align-self-bottom">
-            <p class="my-0"><span class="font-weight-bold ">Geluids systeem: </span> Bassinator 3000
+            <p class="my-0"><span class="font-weight-bold ">Geluids systeem: </span> <?php echo $data["hall"]->sound_system; ?>
             </p>
-            <p class="mb-4"><span class="font-weight-bold">Beeld: </span> Anthony zonder bril 4000 </p>
+            <p class="mb-4"><span class="font-weight-bold">Zitplaatsen: </span> <?php echo $data["hall"]->seats ?> </p>
         </div>
     </div>
 </div>

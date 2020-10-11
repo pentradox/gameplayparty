@@ -37,6 +37,14 @@
         echo '<label class="text-info" for="loc">locatie</label>
         <input type="text" name="location" id="loc" class="form-control mb-4" value="'. $data["user"]->location .'">';
       }
+      if (isset($data["adress_error"])) {
+        echo '<label class="text-danger" for="adres">Adres</label>
+        <input type="text" name="Adres" id="adres" class="form-control is-invalid mb-4" value="'. $data["user"]->adress .'">
+        <small class="text-danger">'.$data["adress_error"].'</small><br>';
+      } else {
+        echo '<label class="text-info" for="adres">Adres</label>
+        <input type="text" name="adress" id="adres" class="form-control mb-4" value="'. $data["user"]->adress .'">';
+      }
       if (isset($data["phone_error"])) {
         echo '<label class="text-danger" for="phone">Telefoon</label>
         <input type="text" name="phone" id="phone" class="form-control is-invalid mb-4" value="'.$data["user"]->phone.'">

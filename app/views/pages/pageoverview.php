@@ -21,7 +21,7 @@
     <div class="card">
       <div class="card-body">
         <i class="fa fa-address-book" aria-hidden="true"></i>
-        <p class="card-text">Contact pagina</p>
+        <p class="card-text">Contactpagina</p>
           <a href="<?php echo URLROOT ;?>/Dashboard/contactPageEditor" class="btn btn-primary">Aanpassen</a>
       </div>
     </div>

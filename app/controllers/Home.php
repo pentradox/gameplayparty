@@ -46,6 +46,7 @@ class Home extends Controller {
       $this->redirect("Home/Conatct");
     }
   }
+
   public function privacy() {
 
     $this->view("pages/privacy");
@@ -62,14 +63,23 @@ class Home extends Controller {
 
     $this->view("pages/terms");
   }
-  public function cinima() {
+  public function cinima($id = null) {
+    if ($id != null) {
+      $data = $this->homeModel->oneCinema($id);
+      $this->view("pages/cinima",$data);
+    } else {
+      $this->redirect("Home");
+    }
     
-    $this->view("pages/cinima");
   }
 
-  public function infoHall() {
-    
-    $this->view("pages/hallInfo");
+  public function hallInfo($id = null) {
+    if ($id != null) {
+      $data = $this->homeModel->getInfoHall($id);
+      $this->view("pages/hallInfo",$data);
+    } else {
+      $this->redirect("Home");
+    }
   }
   public function packets() {
     

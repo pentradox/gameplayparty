@@ -149,6 +149,7 @@ class Admin {
 			"phone_error" => null,
 			"description_error" => null,
 			"logo_error" => null,
+			"adress_error" => null,
 			"error" => false,
 			"message" => null,
 			"id" => $_POST["id"]
@@ -173,6 +174,10 @@ class Admin {
 			$data["description_error"] = "Error description is leeg!";
 			$data["error"] = true;
 		}
+		if ((!isset($_POST["adress"])) || ($_POST["adress"] == "")) {
+			$data["adress_error"] = "Error adres is leeg!";
+			$data["error"] = true;
+		}
 
 		if ($data["error"]) {
 			return $data;
@@ -180,13 +185,14 @@ class Admin {
 		$name = trim($_POST["name"]);
 		$mail = trim($_POST["mail"]);
 		$location = trim($_POST["location"]);
+		$adress = trim($_POST["adress"]);
 		$phone = trim($_POST["phone"]);
 		$description = trim($_POST["description"]);
 
 		if ((!isset($_FILES["logo"])) || ($_FILES["logo"]["size"] != 0)) {
 			$logo = $this->uploadFile($_FILES["logo"]);
 			if ($logo["upload"]) {
-				$query = "UPDATE cinema SET name=:name, mail=:mail, location=:location, logo=:logo, phone=:phone, description=:description WHERE id=:id";
+				$query = "UPDATE cinema SET name=:name, mail=:mail, location=:location, adress=:adress, logo=:logo, phone=:phone, description=:description WHERE id=:id";
 				$this->database->prepare($query);
 				$this->database->bind(":logo", $logo["name"]);
 			} else {
@@ -194,12 +200,13 @@ class Admin {
 				return $data;
 			}
 		} else {
-			$query = "UPDATE cinema SET name=:name, mail=:mail, location=:location, phone=:phone, description=:description WHERE id=:id";
+			$query = "UPDATE cinema SET name=:name, mail=:mail, location=:location, adress=:adress, phone=:phone, description=:description WHERE id=:id";
 			$this->database->prepare($query);
 		}
 		$this->database->bind(":name", $name);
 		$this->database->bind(":mail", $mail);
 		$this->database->bind(":location", $location);
+		$this->database->bind(":adress", $adress);
 		$this->database->bind(":phone", $phone);
 		$this->database->bind(":description", $description);
 		$this->database->bind(":id", $_POST["id"]);
@@ -210,14 +217,4 @@ class Admin {
 		}
 		return $data;
 	}
-
-  public function addPacket($data) {
-    $query = "INSERT INTO packages (name, price, description) VALUES (:name, :price, :description)";
-    $this->database->prepare($query);
-    $this->database->bind(":name", $data['packet_name']);
-    $this->database->bind(":price", $data['packet_price']);
-    $this->database->bind(":description", $data['packet_description']);
-    $result = $this->database->execute();
-    return $result;
-  }
 }
