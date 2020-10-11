@@ -85,5 +85,10 @@ class Home extends Controller {
     
     $this->view("pages/packets");
   }
+
+  public function createPackets() {
+    
+    $this->view("pages/createPacket");
+  }
  
 }
