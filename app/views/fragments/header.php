@@ -34,7 +34,9 @@
       rel="stylesheet" 
       href="http://demo.itsolutionstuff.com/plugin/croppie.css"
     />
-    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css" />
+
     <script 
       src="http://demo.itsolutionstuff.com/plugin/jquery.js">
     </script>

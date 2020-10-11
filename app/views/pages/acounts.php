@@ -1,5 +1,5 @@
 
-      <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
+
 
     <div class="col p-0">
       <div class="section px-5 p-5">

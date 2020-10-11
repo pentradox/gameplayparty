@@ -218,9 +218,20 @@ class Dashboard extends Controller {
     }
   }
 
+  public function activatePackage($id) {
+    if ($this->sessionCheck(1)) {
+      $this->adminModel->activatePackage($id);
+      $this->redirect("Dashboard/packages");
+    }
+  }
+
   public function updatePackage() {
     if ($this->sessionCheck(1)) {
     }
+  }
+
+  public function agenda() {
+    $this->view("pages/agenda");
   }
 
   // Page editor routing START
