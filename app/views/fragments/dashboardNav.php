@@ -15,8 +15,8 @@
               echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/acounts">
                 Bioscopen
               </a></li>';
-              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/createPacket">
-                Pakket maken
+              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/packageOverview">
+                Pakketten
               </a></li>';
            }else{
             echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/updateaccount/' . $_SESSION["userid"] . '">
