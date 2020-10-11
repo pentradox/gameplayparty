@@ -203,10 +203,10 @@ class Dashboard extends Controller {
     }
   }
 
-  public function packages() {
+  public function packageOverview() {
     if ($this->sessionCheck(1)) {
       $data = $this->packagesModel->fetchPackages();
-      $this->view("pages/packages", $data);
+      $this->view("pages/packetOverview", $data);
     }
   }
 
