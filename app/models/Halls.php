@@ -215,4 +215,11 @@ class Halls {
 		}
 		return $data;
 	}
+
+	public function getAgenda() {
+		$month = date("m");
+		$query = "SELECT * FROM hall_times WHERE MONTH(date) = $month";
+		$this->database->prepare($query);
+		$this->database->getArray();
+	}
 }

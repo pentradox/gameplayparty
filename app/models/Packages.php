@@ -99,4 +99,22 @@ class Packages {
         }
         return $data;
     }
+
+    public function activatePackage($id) {
+		$query = "SELECT active FROM packages WHERE id=:id";
+		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
+		$data = $this->database->getRow();
+		if ($data->active) {
+			$active = 0;
+		} else {
+			$active = 1;
+		}
+		$query = "UPDATE packages SET active=:active WHERE id=:id";
+		$this->database->prepare($query);
+		$this->database->bind(":active", $active);
+		$this->database->bind(":id", $id);
+		$this->database->execute();
+		return;
+	}
 }
