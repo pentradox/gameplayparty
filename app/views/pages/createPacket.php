@@ -8,7 +8,7 @@
 
 
 
-      <?php echo '<form class=" col-11 col-md-9 col-lg-8 col-xl-6 mb-5 " action="' . URLROOT . '/Dashboard/addPacket" method="POST">'; ?>
+      <?php echo '<form class=" col-11 col-md-9 col-lg-8 col-xl-6 mb-5 " action="' . URLROOT . '/Dashboard/createPacket" method="POST">'; ?>
         <div class="text-info text-center mb-5">
         <?php
         if(!empty($data)) {
@@ -40,3 +40,11 @@
     </div>
   </div>
   <?php include APPROOT . "/views/fragments/footer.php"; ?>
+
+  <?php
+
+    echo"<pre>";
+    print_r($data);
+    echo"</pre>"; 
+  
+  ?>

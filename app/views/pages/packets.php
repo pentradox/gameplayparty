@@ -1,4 +1,8 @@
+
+
 <?php include APPROOT."/views/fragments/navbar.php"; ?>
+
+
 
 <div class="jumbotron rounded-0 border-0" >
   <div id="hero-text " class=" ">
@@ -41,75 +45,44 @@
 
 </div>
 </div>
-<!-- Hals -->
 
-  <!-- Hals -->
 <section class="location-container mb-5">
 <p id="location" class="">Pakketen</p>
   <div class="row ">
   
+
+  <!-- Card -->
+  <?php 
+    foreach ($data["packages"] as $package){
+    echo '
+    
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-          <div class="card cinima-card" >
-            <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/feest2.jpg"
-            /alt="Card> image cap" />
-
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Standaart pakket</h5>
-              
-              <p class="card-text">
-                
-              </p>
-              <div class="link-container mt-auto d-inline">
-              <div class="btn btn-primary btn-lg active">5 Euro</div>
-                
-              </div>
-              
-              </div>
-            
-          </div>
+    <div class="card cinima-card" >
+      <img class="card-img-top cinima-img h-50" src="'. URLROOT .'/images/dino.jpg">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">'. $package->name . '</h5>
+        
+        <p class="card-text">
+          '. $package->description .'
+        </p>
+        <div class="link-container mt-auto d-inline">
+        <div class="btn btn-primary btn-lg deactive">€ '. $package->price .' </div>
+        
+          
         </div>
+        
+        </div>
+      
+    </div>
+  </div>
+  ';
 
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-            <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/dino.jpg"
-              /alt="Card> image cap" />
-  
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Dino pakket</h5>
-                
-                <p class="card-text">
-                  
-                </p>
-                <div class="link-container mt-auto d-inline">
-                <div class="btn btn-primary btn-lg active">5 Euro</div>
-                  
-                </div>
-                
-                </div>
-              
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
-            <div class="card cinima-card" >
-              <img class="card-img-top cinima-img h-50" src=" <?php echo URLROOT; ?>../public/images/unicorn.jpg"
-              /alt="Card> image cap" />
-  
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Unicorn Pakket</h5>
-                
-                <p class="card-text">
-                  
-                </p>
-                <div class="link-container mt-auto d-inline">
-                  <div class="btn btn-primary btn-lg active">5 Euro</div>
-                  
-                </div>
-                
-                </div>
-              
-            </div>
-          </div>
+  }
+  ?>
+ 
+    
+    <!-- End of card -->
+        
     
   </div>
   
@@ -117,3 +90,10 @@
 </main>
 
 <?php include APPROOT."/views/fragments/footer.php"; ?>
+<?php 
+
+  // echo "<pre>";
+  // print_r($data);
+  // echo "</pre>";
+
+?>

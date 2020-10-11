@@ -199,14 +199,23 @@ class Dashboard extends Controller {
         $this->view("pages/createPacket");
       } else {
         $data = $this->packagesModel->addPacket();
+        $this->view("pages/packetOverview",$data);
       }
     }
+  }
+
+  public function packets() {
+    $data = $this->packagesModel->fetchPackages();
+    $this->view("pages/packets", $data);
   }
 
   public function packageOverview() {
     if ($this->sessionCheck(1)) {
       $data = $this->packagesModel->fetchPackages();
       $this->view("pages/packetOverview", $data);
+    }else{
+      $data = $this->packagesModel->fetchPackages();
+      $this->view("pages/packets", $data);
     }
   }
 
@@ -227,6 +236,7 @@ class Dashboard extends Controller {
 
   public function updatePackage() {
     if ($this->sessionCheck(1)) {
+      
     }
   }
 

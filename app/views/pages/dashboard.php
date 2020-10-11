@@ -12,23 +12,72 @@
     </div>
 
     <div class="row mt-5 mr-auto">
-      <div class="col-md-8">
-        <!--  Put analytics here -->
+
+    <?php 
+
+if($_SESSION["roles"] == 1){
+  echo'<div class="col-md-8">
+    <!--  Put analytics here -->
+  </div>
+
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="card">
+          <div class="card-body">
+            <i class="fa fa-id-card" aria-hidden="true"></i>
+            <p class="card-text">Pagina`s aanpassen</p>
+            <a href=" '.URLROOT.'/Dashboard/pageOverview" class="btn btn-primary">Klik hier</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+
+        <div class="card">
+          <div class="card-body">
+            <i class="fa fa-id-card" aria-hidden="true"></i>
+            <p class="card-text">Pakketen aanmaken</p>
+            <a href="'. URLROOT .' /Home/createPackets" class="btn btn-primary">Klik hier</a>
+          </div>
+        </div>
+
+      </div>';
+}else{
+  echo'
+  
+
+<div class="col-md-6 m-auto ">
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card">
+        <div class="card-body">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+          <p class="card-text">Acount instellingen</p>
+          <a href=" '.URLROOT.'/Dashboard/pageOverview" class="btn btn-primary">Klik hier</a>
+        </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="row">
-          <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
 
-            <div class="card">
-              <div class="card-body">
-                <i class="fa fa-id-card" aria-hidden="true"></i>
-                <p class="card-text">Pagina`s aanpassen</p>
-                <a href="<?php echo URLROOT ;?>/Dashboard/pageOverview" class="btn btn-primary">Klik hier</a>
-              </div>
-            </div>
+      <div class="card">
+        <div class="card-body">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+          <p class="card-text">Zalen toevoegen</p>
+          <a href=" '.URLROOT.'/Dashboard/createhall" class="btn btn-primary">Klik hier</a>
+        </div>
+      </div>
 
-          </div>
+    </div>
+  ';
+}
+
+      ?>
+
+      
           <!-- <div class="col-md-6">
 
             <div class="card">
