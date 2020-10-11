@@ -5,6 +5,7 @@ class Dashboard extends Controller {
   public function __construct() {
     $this->hallsModel = $this->model("Halls");
     $this->adminModel = $this->model("Admin");
+    $this->packagesModel = $this->model("Packages");
   }
 
   public function index() {
@@ -194,7 +195,31 @@ class Dashboard extends Controller {
 
   public function createPacket() {
     if ($this->sessionCheck(1)) {
-      $this->view("pages/createPacket");
+      if ($_SERVER["REQUEST_METHOD"] != "POST") {
+        $this->view("pages/createPacket");
+      } else {
+        $data = $this->packagesModel->addPacket();
+      }
+    }
+  }
+
+  public function packages() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->packagesModel->fetchPackages();
+      $this->view("pages/packages", $data);
+    }
+  }
+
+  public function deletePackage() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->packagesModel->fetchPackages();
+      $data["delete"] = $this->packagesModel->deletePackage();
+      $this->view("pages/packages", $data);
+    }
+  }
+
+  public function updatePackage() {
+    if ($this->sessionCheck(1)) {
     }
   }
 
