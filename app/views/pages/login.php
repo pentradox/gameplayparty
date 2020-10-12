@@ -7,7 +7,7 @@
                         <form id="login-form" class="form" action="<?php echo URLROOT?>/Userlogin/" method="post">
                             <h3 class="text-center text-info">Inloggen</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Gebruikersnaam :</label><br>
+                                <label for="username" class="text-info">Email :</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
                             <div class="form-group">
