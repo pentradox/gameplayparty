@@ -8,28 +8,28 @@ class Packages {
     }
 
     public function addPacket() {
-        if (isset($_POST["packet_name"])) {
+        if (!empty($_POST['packet_name'])) {
             $packet_name = $_POST["packet_name"];
         } else {
-            $data["packet_name_error"] = "Paket naam is leeg!";
+            $data["packet_name_error"] = "Pakket naam is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (isset($_POST["packet_price"])) {
+        if (!empty($_POST["packet_price"])) {
             $packet_price = $_POST["packet_price"];
         } else {
-            $data["packet_price_error"] = "Paket prijs is leeg!";
+            $data["packet_price_error"] = "Pakket prijs is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (isset($_POST["packet_description"])) {
+        if (!empty($_POST["packet_description"])) {
             $packet_description = $_POST["packet_description"];
         } else {
-            $data["packet_description_error"] = "Paket beschrijving is leeg!";
+            $data["packet_description_error"] = "Pakket beschrijving is leeg!";
             $data["error"] = true;
             return $data;
         }
-        
+
         $this->database->beginTransaction();
 		$query = "INSERT INTO packages (name, price, description) VALUES (:name, :price, :description)";
 		$this->database->prepare($query);

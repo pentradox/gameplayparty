@@ -199,8 +199,7 @@ class Dashboard extends Controller {
         $this->view("pages/createPacket");
       } else {
         $data = $this->packagesModel->addPacket();
-        $data = $this->packagesModel->fetchPackages();
-        $this->view("pages/packetOverview",$data);
+        $this->view("pages/createPacket",$data);
       }
     }
   }

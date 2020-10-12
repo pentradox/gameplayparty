@@ -46,7 +46,7 @@ if($_SESSION["roles"] == 1){
           <div class="card-body">
             <i class="fa fa-id-card" aria-hidden="true"></i>
             <p class="card-text">Pakketen aanmaken</p>
-            <a href="'. URLROOT .' /Home/createPackets" class="btn btn-primary">Klik hier</a>
+            <a href="'. URLROOT .' /Dashboard/createPacket" class="btn btn-primary">Klik hier</a>
           </div>
         </div>
 
