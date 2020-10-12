@@ -22,7 +22,7 @@ class Halls {
             return $data;
 		}
         if ($id == null) {
-			$data["hall_message"] = "Error! fout zaal nummer!";
+			$data["hall_message"] = "Error! Fout zaal nummer!";
 			$data["hall_message_class"] = "alert-danger";
             return $data;
 		}
@@ -48,7 +48,7 @@ class Halls {
 			$data["hall_number_error"] = "Error zaal nummer is leeg!";
 		}
 		if ((!isset($_POST["hall_seats"])) || ($_POST["hall_seats"] == "")) {
-			$data["hall_seats_error"] = "Error zit plaatsen is leeg!";
+			$data["hall_seats_error"] = "Error zitplaatsen is leeg!";
 		}
 		if ((!isset($_POST["hall_sound"])) || (($_POST["hall_sound"] == ""))) {
 			$data["hall_sound_error"] = "Error geluids systeem is leeg!";
@@ -78,7 +78,7 @@ class Halls {
 			$data["hall_number_error"] = "Foute karacters gevonden in zaal nummer!";
 		}
 		if ($hall_seats != $hall_seats2) {
-			$data["hall_seats_error"] = "Foute karacters gevonden in zit plaatsen!";
+			$data["hall_seats_error"] = "Foute karacters gevonden in zitplaatsen!";
 		}
 		if ($hall_sound != $hall_sound2) {
 			$data["hall_sound_error"] = "Foute karacters gevonden in geluids systeem!";
@@ -116,7 +116,7 @@ class Halls {
 			$data["hall_number_error"] = "Error zaal nummer is leeg!";
 		}
 		if ((!isset($_POST["hall_seats"])) || ($_POST["hall_seats"] == "")) {
-			$data["hall_seats_error"] = "Error zit plaatsen is leeg!";
+			$data["hall_seats_error"] = "Error zitplaatsen is leeg!";
 		}
 		if ((!isset($_POST["hall_sound"])) || (($_POST["hall_sound"] == ""))) {
 			$data["hall_sound_error"] = "Error geluids systeem is leeg!";

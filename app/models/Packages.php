@@ -95,12 +95,12 @@ class Packages {
         if (!$this->database->execute()) {
             $data["error"] = "Error er ging iets fout!";
         } else {
-            $data["message"] = "pakket is verwijderd!";
+            $data["message"] = "Pakket is verwijderd!";
         }
     }
 
     public function updatePackage($id) {
-        
+
         $query = "SELECT * FROM packages WHERE id=:id";
         $this->database->prepare($query);
         $this->database->bind(":id", $id);
@@ -110,7 +110,7 @@ class Packages {
         }
 
         if (empty($id)) {
-            $data["error_id"] = "dit pakket bestaat niet!";
+            $data["error_id"] = "Dit pakket bestaat niet!";
             $data["error"] = true;
             return $data;
         }
@@ -183,7 +183,7 @@ class Packages {
     
     public function fetchPackage($id) {
         if (!isset($id)) {
-            $data["error_id"] = "dit pakket bestaat niet!";
+            $data["error_id"] = "Dit pakket bestaat niet!";
             $data["error"] = true;
             return $data;
         }
@@ -218,11 +218,11 @@ class Packages {
 					return $result;
 				}
 			} else {
-				$result = array('upload' => 'false', 'message' => 'ongeldige bestand type alleen jpg, jprg, png zijn toegestaan');
+				$result = array('upload' => 'false', 'message' => 'Ongeldige bestand type alleen jpg, jprg, png zijn toegestaan');
 				return $result;
 			}
 		} else {
-			$result = array('upload' => 'false', 'message' => 'geen logo binnengekregen controleer het formulier, en proebeer het opnieuw');
+			$result = array('upload' => 'false', 'message' => 'Geen logo binnengekregen controleer het formulier, en proebeer het opnieuw');
 			return $result;
 		}
 	}
