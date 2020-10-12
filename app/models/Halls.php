@@ -217,10 +217,12 @@ class Halls {
 	}
 
 	public function getAgenda() {
-		$month = date("m");
-		$query = "SELECT * FROM hall_times WHERE MONTH(date) = $month";
+		$query = "SELECT * FROM hall_times";
 		$this->database->prepare($query);
 		$data = $this->database->getArray();
 		echo json_encode($data);
+	}
+
+	public function addAgenda() {
 	}
 }

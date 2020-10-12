@@ -100,22 +100,31 @@ class Packages {
     }
 
     public function updatePackage($id) {
-        if (!isset($id)) {
+        
+        $query = "SELECT * FROM packages WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":id", $id);
+        $data["package"] = $this->database->getRow();
+        if (!$data["package"]) {
+            $data["error"] = "Error er ging iets fout!";
+        }
+
+        if (empty($id)) {
             $data["error_id"] = "dit pakket bestaat niet!";
             $data["error"] = true;
             return $data;
         }
-        if (!isset($_POST["name"])) {
+        if (empty($_POST["name"])) {
             $data["name_error"] = "Error pakket naam is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (!isset($_POST["price"])) {
+        if (empty($_POST["price"])) {
             $data["price_error"] = "Error pakket prijs is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (!isset($_POST["desc"])) {
+        if (empty($_POST["desc"])) {
             $data["desc_error"] = "Error pakket beschrijving is leeg!";
             $data["error"] = true;
             return $data;
@@ -146,16 +155,10 @@ class Packages {
         if (!$this->database->execute()) {
             $data["error"] = "Error er ging iets fout";
         } else {
-            $data["message"] = "Paket aangepast!";
+            $data["message"] = "Pakket aangepast!";
         }
 
-        $query = "SELECT * FROM packages WHERE id=:id";
-        $this->database->prepare($query);
-        $this->database->bind(":id", $id);
-        $data["package"] = $this->database->getRow();
-        if (!$data["package"]) {
-            $data["error"] = "Error er ging iets fout!";
-        }
+       
 
         return $data;
     }
