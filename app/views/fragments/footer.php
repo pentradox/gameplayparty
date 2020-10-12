@@ -85,6 +85,7 @@
 <script src="<?php echo URLROOT; ?>/js/CroppieFeature.js"></script>
 <!-- <script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script> -->
 
+
 <script src="<?php echo URLROOT; ?>/js/wysiwyg.js"></script>
 <script src="<?php echo URLROOT; ?>/js/cardNav.js"></script>
 </body>

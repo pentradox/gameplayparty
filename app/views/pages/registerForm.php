@@ -29,7 +29,7 @@
 							<p id="email_error" class="text-danger"></p>
 						</div>
 						<div class="form-group">
-							<input type="button" class="btn btn-success btn-md" value="Submit" onclick="formCheck()">
+							<button type="button" class="btn btn-success" value="Submit" onclick="formCheck()">Registreer</button>
 						</div>
 					</form>
 				</div>

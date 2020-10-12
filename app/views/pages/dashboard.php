@@ -17,7 +17,14 @@
 
 if($_SESSION["roles"] == 1){
   echo'<div class="col-md-8">
-    <!--  Put analytics here -->
+    
+
+<section id="auth-button"></section>
+<section id="view-selector"></section>
+<section id="timeline"></section>
+
+
+
   </div>
 
   <div class="col-md-4">
@@ -39,7 +46,7 @@ if($_SESSION["roles"] == 1){
           <div class="card-body">
             <i class="fa fa-id-card" aria-hidden="true"></i>
             <p class="card-text">Pakketen aanmaken</p>
-            <a href="'. URLROOT .' /Home/createPackets" class="btn btn-primary">Klik hier</a>
+            <a href="'. URLROOT .' /Dashboard/createPacket" class="btn btn-primary">Klik hier</a>
           </div>
         </div>
 
@@ -210,4 +217,72 @@ if($_SESSION["roles"] == 1){
 
   </div>
 </div>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous">
+</script>
+<script src="<?php echo URLROOT; ?>/js/wysiwyg.js"></script>
+<script src="<?php echo URLROOT; ?>/js/cardNav.js"></script>
+
+
+<script>
+(function(w,d,s,g,js,fjs){
+  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+  js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+  js.src='https://apis.google.com/js/platform.js';
+  fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+}(window,document,'script'));
+</script>
+<script>
+gapi.analytics.ready(function() {
+
+  // Step 3: Authorize the user.
+
+  var CLIENT_ID = '643022025064-3j7s0hik7ua7gg4g2akds4bs69794roq.apps.googleusercontent.com';
+
+  gapi.analytics.auth.authorize({
+    container: 'auth-button',
+    clientid: CLIENT_ID,
+  });
+
+  // Step 4: Create the view selector.
+
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector'
+  });
+
+  // Step 5: Create the timeline chart.
+
+  var timeline = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
+    query: {
+      'dimensions': 'ga:date',
+      'metrics': 'ga:sessions',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday',
+    },
+    chart: {
+      type: 'LINE',
+      container: 'timeline'
+    }
+  });
+
+  // Step 6: Hook up the components to work together.
+
+  gapi.analytics.auth.on('success', function(response) {
+    viewSelector.execute();
+  });
+
+  viewSelector.on('change', function(ids) {
+    var newIds = {
+      query: {
+        ids: ids
+      }
+    }
+    timeline.set(newIds).execute();
+  });
+});
+</script>
 <?php include APPROOT . "/views/fragments/footer.php"; ?>

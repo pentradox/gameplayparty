@@ -8,28 +8,28 @@ class Packages {
     }
 
     public function addPacket() {
-        if (isset($_POST["packet_name"])) {
+        if (!empty($_POST['packet_name'])) {
             $packet_name = $_POST["packet_name"];
         } else {
-            $data["packet_name_error"] = "Paket naam is leeg!";
+            $data["packet_name_error"] = "Pakket naam is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (isset($_POST["packet_price"])) {
+        if (!empty($_POST["packet_price"])) {
             $packet_price = $_POST["packet_price"];
         } else {
-            $data["packet_price_error"] = "Paket prijs is leeg!";
+            $data["packet_price_error"] = "Pakket prijs is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (isset($_POST["packet_description"])) {
+        if (!empty($_POST["packet_description"])) {
             $packet_description = $_POST["packet_description"];
         } else {
-            $data["packet_description_error"] = "Paket beschrijving is leeg!";
+            $data["packet_description_error"] = "Pakket beschrijving is leeg!";
             $data["error"] = true;
             return $data;
         }
-        
+
         $this->database->beginTransaction();
 		$query = "INSERT INTO packages (name, price, description) VALUES (:name, :price, :description)";
 		$this->database->prepare($query);
@@ -95,27 +95,36 @@ class Packages {
         if (!$this->database->execute()) {
             $data["error"] = "Error er ging iets fout!";
         } else {
-            $data["message"] = "pakket is verwijderd!";
+            $data["message"] = "Pakket is verwijderd!";
         }
     }
 
     public function updatePackage($id) {
-        if (!isset($id)) {
-            $data["error_id"] = "dit pakket bestaat niet!";
+
+        $query = "SELECT * FROM packages WHERE id=:id";
+        $this->database->prepare($query);
+        $this->database->bind(":id", $id);
+        $data["package"] = $this->database->getRow();
+        if (!$data["package"]) {
+            $data["error"] = "Error er ging iets fout!";
+        }
+
+        if (empty($id)) {
+            $data["error_id"] = "Dit pakket bestaat niet!";
             $data["error"] = true;
             return $data;
         }
-        if (!isset($_POST["name"])) {
+        if (empty($_POST["name"])) {
             $data["name_error"] = "Error pakket naam is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (!isset($_POST["price"])) {
+        if (empty($_POST["price"])) {
             $data["price_error"] = "Error pakket prijs is leeg!";
             $data["error"] = true;
             return $data;
         }
-        if (!isset($_POST["desc"])) {
+        if (empty($_POST["desc"])) {
             $data["desc_error"] = "Error pakket beschrijving is leeg!";
             $data["error"] = true;
             return $data;
@@ -146,16 +155,10 @@ class Packages {
         if (!$this->database->execute()) {
             $data["error"] = "Error er ging iets fout";
         } else {
-            $data["message"] = "Paket aangepast!";
+            $data["message"] = "Pakket aangepast!";
         }
 
-        $query = "SELECT * FROM packages WHERE id=:id";
-        $this->database->prepare($query);
-        $this->database->bind(":id", $id);
-        $data["package"] = $this->database->getRow();
-        if (!$data["package"]) {
-            $data["error"] = "Error er ging iets fout!";
-        }
+       
 
         return $data;
     }
@@ -180,7 +183,7 @@ class Packages {
     
     public function fetchPackage($id) {
         if (!isset($id)) {
-            $data["error_id"] = "dit pakket bestaat niet!";
+            $data["error_id"] = "Dit pakket bestaat niet!";
             $data["error"] = true;
             return $data;
         }
@@ -215,11 +218,11 @@ class Packages {
 					return $result;
 				}
 			} else {
-				$result = array('upload' => 'false', 'message' => 'ongeldige bestand type alleen jpg, jprg, png zijn toegestaan');
+				$result = array('upload' => 'false', 'message' => 'Ongeldige bestand type alleen jpg, jprg, png zijn toegestaan');
 				return $result;
 			}
 		} else {
-			$result = array('upload' => 'false', 'message' => 'geen logo binnengekregen controleer het formulier, en proebeer het opnieuw');
+			$result = array('upload' => 'false', 'message' => 'Geen logo binnengekregen controleer het formulier, en proebeer het opnieuw');
 			return $result;
 		}
 	}

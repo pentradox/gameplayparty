@@ -9,7 +9,7 @@
           <ul class="nav nav-tabs card-header-tabs">
 
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#tab1">Title</a>
+              <a class="nav-link" data-toggle="tab" href="#tab1">Title</a>
             </li>
 
             <li class="nav-item">
@@ -37,7 +37,7 @@
         <!-- .card-body.tab-content  -->
         <div class="card-body tab-content">
 
-          <div class="tab-pane fade active" id="tab1">
+          <div class="tab-pane fade" id="tab1">
             <form action="<?php echo URLROOT; ?>/Dashboard/updatecontent/home" method="POST">
               <textarea type="text" name="home_title" class="textEditor"><?php echo $data[0]->title;?></textarea>
               <button class="btn btn-primary btn-block mt-4">Update</button>
