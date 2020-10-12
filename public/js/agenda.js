@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const uri = 'http://localhost/gameplayparty/Dashboard/agendas';
-
-    console.log('FETCH: ', uri);
-
-    fetch(uri)
+    fetch('http://localhost/gameplayparty/Dashboard/agendas')
         .then(function (response) {
             if (response.status == 200) {
                 return response.json();
@@ -26,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch((err) => {
             console.log('ERROR: ', err.message);
         });
-});
-
-function calenda(event) {
+  });
+  
+  function calenda(event) {
     var calendarEl = document.getElementById('calendar');
-
     var calendar = new FullCalendar.Calendar(calendarEl, {
+        locale: 'nl',
         headerToolbar: {
             left: 'title',
             right: 'today prev,next'
@@ -39,8 +35,23 @@ function calenda(event) {
         events: event
     });
     calendar.on('dateClick', function (info) {
-        alert('clicked on ' + info.dateStr);
+        fetch('http://localhost/gameplayparty/Dashboard/addAgenda')
+        .then(function (response) {
+            if (response.status === 200) {
+                return response;
+            } else {
+                throw new Error('Invalid user ID');
+            }
+        })
+        .then(async (data) => {
+            const where_is_my_coffee_at_bitch = await data.text()
+            const shitcodelol = document.getElementById('im-not-gonna-fix-this-shit-code')
+            shitcodelol.style.display = 'initial !important';
+        })
+        .catch((err) => {
+            console.log('ERROR: ', err.message);
+        });
     });
-
+  
     calendar.render();
-}
+  }

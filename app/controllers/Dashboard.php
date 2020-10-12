@@ -246,6 +246,10 @@ class Dashboard extends Controller {
     $this->view("pages/agenda");
   }
 
+  public function addAgenda() {
+    $this->hallsModel->addAgenda();
+  }
+
   public function agendas() {
     $this->hallsModel->getAgenda();
   }
