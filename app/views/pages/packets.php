@@ -58,7 +58,7 @@
     
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3">
     <div class="card cinima-card" >
-      <img class="card-img-top cinima-img h-50" src="'. URLROOT .'/images/dino.jpg">
+      <img class="card-img-top cinima-img h-50" src="'. URLROOT .'/images/packages/'. $package->image.'">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">'. $package->name . '</h5>
         

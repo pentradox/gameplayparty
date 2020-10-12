@@ -1,8 +1,7 @@
 <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
 
-
+<a class="btn btn-primary" href="<?php echo URLROOT; ?>/Dashboard/createPacket">Pakket Toevoegen</a>
   <div class="section px-5 p-5">
-
     <table class="mt-3 w-75 m-auto table">
       <thead>
         <tr>
@@ -20,6 +19,7 @@
             echo "<tr scope='row'>
             <td>" . $package->name . "</td>
             <td>" . $package->price . "</td>
+            ".($package->active ? "<td><button type='button' class='btn btn-success' data-toggle='modal' data-target='#de-active".$package->id."'><i class='fas fa-check'></i></button></td>" : "<td><button type='button' class='btn btn-danger' style='padding: 6px 14px 6px 14px' data-toggle='modal' data-target='#active'><i class='fas fa-times'></i></button></td>")."
             <td><a href='" . URLROOT . "/Dashboard/updatePackage/" . $package->id . "'><button type='button' class='btn btn-primary'><i class='fas fa-cog'></i></button></a></td>
             <td><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#delete" . $package->id . "'><i class='fas fa-trash '></i></button></td>
             </tr>";
@@ -41,12 +41,12 @@
 </div>
 
 <?php
-if (isset($data["users"])) {
-  foreach ($data["users"] as $user) {
+if (isset($data["packages"])) {
+  foreach ($data["packages"] as $package) {
 
-    if ($user->active == 1) {
+    if ($package->active == 1) {
 
-      echo '<div class="modal fade" id="de-active' . $user->id . '" tabindex="-1" role="dialog" aria-labelledby="de-active' . $user->id . '" aria-hidden="true">
+      echo '<div class="modal fade" id="de-active' . $package->id . '" tabindex="-1" role="dialog" aria-labelledby="de-active' . $package->id . '" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -61,7 +61,7 @@ if (isset($data["users"])) {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Nee</button>
-          <a href="' . URLROOT . "/Dashboard/activate/" . $user->id . '"><button type="button" class="btn btn-danger">Deactiveren</button></a>
+          <a href="' . URLROOT . "/Dashboard/activatePackage/" . $package->id . '"><button type="button" class="btn btn-danger">Deactiveren</button></a>
         </div>
       </div>
     </div>
@@ -82,13 +82,13 @@ if (isset($data["users"])) {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Nee</button>
-          <a href="' . URLROOT . "/Dashboard/activate/" . $user->id . '"><button type="button" class="btn btn-success">Activeren</button></a>
+          <a href="' . URLROOT . "/Dashboard/activatePackage/" . $package->id . '"><button type="button" class="btn btn-success">Activeren</button></a>
         </div>
       </div>
     </div>
   </div>';
     }
-    echo '<div class="modal fade" id="delete' . $user->id . '" tabindex="-1" role="dialog" aria-labelledby="delete' . $user->id . '" aria-hidden="true">
+    echo '<div class="modal fade" id="delete' . $package->id . '" tabindex="-1" role="dialog" aria-labelledby="delete' . $package->id . '" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -103,7 +103,7 @@ if (isset($data["users"])) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Nee</button>
-        <a href="' . URLROOT . "/Dashboard/deleteUser/" . $user->id . '"><button type="button" class="btn btn-danger">Verwijder</button></a>
+        <a href="' . URLROOT . "/Dashboard/deletePackage/" . $package->id . '"><button type="button" class="btn btn-danger">Verwijder</button></a>
       </div>
     </div>
   </div>
@@ -114,9 +114,3 @@ if (isset($data["users"])) {
 ?>
 
 <?php include APPROOT . "/views/fragments/footer.php"; ?>
-
-<?php
-  // echo"<pre>";
-  // print_r($data);
-  // echo"</pre>";
-?>

@@ -14,7 +14,7 @@
         <a   class="navLinks text-xl    " href="<?php echo URLROOT; ?>/Home/contact">Contact</a>
       </li>
       <li class="nav-item ml-3 align-right ">
-        <a   class="navLinks text-xl    " href="<?php echo URLROOT; ?>/Dashboard/packets">Pakketen</a>
+        <a   class="navLinks text-xl    " href="<?php echo URLROOT; ?>/Home/packets">Pakketen</a>
       </li>
       <?php
         if ($_SESSION != null) {

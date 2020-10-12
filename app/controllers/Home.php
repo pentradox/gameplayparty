@@ -4,6 +4,7 @@
 class Home extends Controller {
   public function __construct() {
     $this->homeModel = $this->model("Homepage");
+    $this->packagesModel = $this->model("Packages");
   }
   public function index() {
     $data = $this->homeModel->cinema();
@@ -81,14 +82,10 @@ class Home extends Controller {
       $this->redirect("Home");
     }
   }
-  public function packets() {
-    
-    $this->view("pages/packets");
-  }
 
-  public function createPackets() {
-    
-    $this->view("pages/createPacket");
+  public function packets() {
+    $data = $this->packagesModel->fetchPackages(1);
+    $this->view("pages/packets", $data);
   }
  
 }

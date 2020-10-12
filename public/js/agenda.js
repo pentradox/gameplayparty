@@ -8,14 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         events: [
             {
-                start: '2020-10-12',
-                end: '2020-10-12',
-                display: 'background',
-                color: '#17a2b8'
-            },
-            {
-                start: '2020-10-12',
-                end: '2020-10-12',
+                start: '2020-10-13',
+                end: '2020-10-13',
                 display: 'background',
                 color: '#17a2b8'
             }
