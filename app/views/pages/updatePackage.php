@@ -10,16 +10,44 @@
 
       <?php echo (isset($data["message"]) ? "<p class=' alert alert-success'>" . $data["message"] . "</p>" : null); ?>
 
-      <label class="text-info" for="packetName">Pakket naam</label>
-      <input type="text" name="name" class="form-control mb-4" value="<?php echo $data["package"]->name; ?>">
+    <div class="form-group">
+      <?php
+      if (!isset($data["name_error"])) {
+        echo '<label class="text-info" for="packetName">Pakket naam</label>
+        <input type="text" name="name" class="form-control mb-4" value="'. $data["package"]->name . '">';
+      } else {
+        echo '<label class="text-info" for="packetName">Pakket naam</label>
+        <input type="text" name="name" class="form-control mb-4" value="'. $data["package"]->name . '">
+        <small class="text-danger">'.$data["name_error"].'</small>';
+      }
+      ?>
+    </div>
 
-      <label class="text-info" for="packetPrice">Pakket prijs</label>
-      <input type="number" name="price" class="form-control mb-4" placeholder="" min="0" value="<?php echo $data["package"]->price; ?>">
+    <div class="form-group">
+      <?php 
+      if (!isset($data["price_error"])) {
+        echo '<label class="text-info" for="packetPrice">Pakket prijs</label>
+        <input type="number" name="price" class="form-control mb-4" min="0" value="'. $data["package"]->price .'">';
+      } else {
+        echo '<label class="text-info" for="packetPrice">Pakket prijs</label>
+        <input type="number" name="price" class="form-control mb-4" min="0" value="'. $data["package"]->price .'">
+        <small class="text-danger">'.$data["price_error"].'</small>';
+      }
+      ?>
+    </div>
 
-      <label class="text-info" for="packetDesription">Beschrijving</label>
-      <textarea type="text" name="desc" id="tinymce" class="mb-4">
-        <?php echo $data["package"]->description; ?>
-      </textarea>
+    <div class="form-group">
+      <?php 
+      if (!isset($data["desc_error"])) {
+        echo '<label class="text-info" for="packetDesription">Beschrijving</label>
+        <textarea type="text" name="desc" id="tinymce" class="mb-4">'. $data["package"]->description . '</textarea>';
+      } else {
+        echo '<label class="text-info" for="packetDesription">Beschrijving</label>
+        <textarea type="text" name="desc" id="tinymce" class="mb-4">'. $data["package"]->description . '</textarea>
+        <small class="text-danger">'.$data["desc_error"].'</small>';
+      }
+      ?>
+    </div>
       <hr>
 
       <div class="custom-file mb-4">
@@ -32,7 +60,7 @@
       </div>
 
       <hr>
-      <button class="btn btn-info btn-block mt-5" type="submit">Toevoegen</button>
+      <button class="btn btn-info btn-block mt-5" type="submit">Updaten</button>
     </form>
 
   </div>

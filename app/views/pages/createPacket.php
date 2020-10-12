@@ -10,6 +10,8 @@
     <h3 class='text-info  mb-4'>Pakketten toevoegen</h3>
   </div>
 
+  <?php echo (isset($data["message"]) ? "<p class=' alert alert-success'>" . $data["message"] . "</p>" : null); ?>
+
   <div class="form-group">
     <?php
     if (!isset($data["packet_name_error"])) {
