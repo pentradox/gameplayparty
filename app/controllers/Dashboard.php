@@ -199,44 +199,46 @@ class Dashboard extends Controller {
         $this->view("pages/createPacket");
       } else {
         $data = $this->packagesModel->addPacket();
+        $data = $this->packagesModel->fetchPackages();
         $this->view("pages/packetOverview",$data);
       }
     }
-  }
-
-  public function packets() {
-    $data = $this->packagesModel->fetchPackages();
-    $this->view("pages/packets", $data);
   }
 
   public function packageOverview() {
     if ($this->sessionCheck(1)) {
       $data = $this->packagesModel->fetchPackages();
       $this->view("pages/packetOverview", $data);
-    }else{
-      $data = $this->packagesModel->fetchPackages();
-      $this->view("pages/packets", $data);
     }
   }
 
-  public function deletePackage() {
+  public function deletePackage($id) {
     if ($this->sessionCheck(1)) {
-      $data = $this->packagesModel->fetchPackages();
-      $data["delete"] = $this->packagesModel->deletePackage();
-      $this->view("pages/packages", $data);
+      $data["delete"] = $this->packagesModel->deletePackage($id);
+      $this->redirect("Dashboard/packageOverview");
     }
   }
 
   public function activatePackage($id) {
     if ($this->sessionCheck(1)) {
-      $this->adminModel->activatePackage($id);
-      $this->redirect("Dashboard/packages");
+      $this->packagesModel->activatePackage($id);
+      $this->redirect("Dashboard/packageOverview");
     }
   }
 
-  public function updatePackage() {
+  public function updatePackage($id) {
     if ($this->sessionCheck(1)) {
-      
+      if ($_SERVER["REQUEST_METHOD"] != "POST") {
+        $data = $this->packagesModel->fetchPackage($id);
+        if (isset($data["error"])) {
+          $this->redirect("Dashboard/packageOverview");
+        } else {
+          $this->view("pages/updatePackage", $data);
+        }
+      } else {
+        $data = $this->packagesModel->updatePackage($id);
+        $this->view("pages/updatePackage",$data);
+      }
     }
   }
 
