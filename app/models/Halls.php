@@ -220,6 +220,7 @@ class Halls {
 		$month = date("m");
 		$query = "SELECT * FROM hall_times WHERE MONTH(date) = $month";
 		$this->database->prepare($query);
-		$this->database->getArray();
+		$data = $this->database->getArray();
+		echo json_encode($data);
 	}
 }
