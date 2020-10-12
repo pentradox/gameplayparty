@@ -246,6 +246,10 @@ class Dashboard extends Controller {
     $this->view("pages/agenda");
   }
 
+  public function agendas() {
+    $this->hallsModel->getAgenda();
+  }
+
   // Page editor routing START
 
   public function pageOverview() {
