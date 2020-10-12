@@ -247,10 +247,11 @@ class Dashboard extends Controller {
 
   public function addAgenda() {
     $this->hallsModel->addAgenda();
+    $this->redirect("Dashboard/halls");
   }
 
-  public function agendas() {
-    $this->hallsModel->getAgenda();
+  public function agendas($id) {
+    $this->hallsModel->getAgenda($id);
   }
 
   // Page editor routing START

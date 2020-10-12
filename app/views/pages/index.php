@@ -102,11 +102,10 @@
               <h5 class="card-title">'.$cinema->location.'</h5>
               <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
               <p class="card-text">
-                <i class="fas fa-check text-success"></i> Taart met slingers
+                '.substr($cinema->description, 0, 80).'...
               </p>
               <div class="link-container mt-auto d-inline">
-                <a href="'. URLROOT .'/Home/cinima/'.$cinema->id.'" class="card-link">Meer informatie</a>
-                <a href="#" class="card-link">Reserveer</a>
+                <a href="'. URLROOT .'/Home/cinima/'.$cinema->id.'" class="btn btn-block btn-primary">Meer informatie</a>
               </div>
             </div>
           </div>
