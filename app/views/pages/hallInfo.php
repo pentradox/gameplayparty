@@ -19,72 +19,13 @@
         <div class="card-block px-6 pl-2 ">
           <h4 class="card-title mt-3"><?php echo $data["hall"]->name . " " . $data["hall"]->location; ?> <br> zaal <?php echo $data["hall"]->hall_number; ?></h4>
           <div class='table-responsive'>
+            
+           <input type="text" hidden name="hall_id" id="hall_id" value="<?php echo $data["hall"]->hall_id; ?>">
  <!--Table-->
  <div class='table-responsive'>
- <!--Table-->
- <table id="tablePreview" class="table table-sm table-striped table-hover">
- <!--Table head-->
-   <thead class="border-top-0">
-     <tr class=" ">
-       <th scope="row"></th>
-       <th colspan=3 scope="row">Beschikbare tijden</th>
-      </tr>
-   </thead>
-   <!--Table head-->
-   <!--Table body-->
-   <tbody>
-      <tr>
-       <th scope="row">Maandag</th>
-       <td>10-12</td>
-       <td>12-14</td>
-       <td>14-16</td>
-      
-     </tr>
-     <tr>
-       <th scope="row">Dinsdag</th>
-       <td>10-12</td>
-       <td>12-14</td>
-       <td>14-16</td>
-      
-     </tr>
-    <tr>
-       <th scope="row">Woensdag</th>
-       <td>10-12</td>
-       <td>12-14</td>
-       <td>14-16</td>
-      
-     </tr>
-      <tr>
-       <th scope="row">Donderdag</th>
-       <td>10-12</td>
-       <td>12-14</td>
-       <td>14-16</td>
-      
-     </tr>
-     <tr>
-       <th scope="row">Vrijdag</th>
-       <td>10-12</td>
-       <td>12-14</td>
-       <td>14-16</td>
-      
-     </tr>
-     <tr>
-       <th scope="row">Zaterdag</th>
-       <td>10-12</td>
-       <td>12-14</td>
-       <td>14-16</td>
-      
-     </tr>
-      <tr>
-       <th scope="row">Zondag</th>
-       <td>10-12</td>
-       <td>12-14</td>
-       <td>14-16</td>
-      
-     </tr>
-   </tbody>
-   <!--Table body-->
- </table>
+ <div id='calendar'></div>
+ <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/js/visitor.js"></script>
  <!--Table-->
 </div>
 </div>

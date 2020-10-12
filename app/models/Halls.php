@@ -216,13 +216,24 @@ class Halls {
 		return $data;
 	}
 
-	public function getAgenda() {
-		$query = "SELECT * FROM hall_times";
+	public function getAgenda($id) {
+		$query = "SELECT * FROM hall_times WHERE hall_id=:id";
 		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
 		$data = $this->database->getArray();
 		echo json_encode($data);
 	}
 
 	public function addAgenda() {
+		$id = $_POST["hall_id"];
+		$date = $_POST["date"];
+		$time_area = $_POST["time_area"];
+		$query = "INSERT INTO hall_times (hall_id, date, time_area) VALUES (:hall_id, :date, :time_area)";
+		$this->database->prepare($query);
+		$this->database->bind(":hall_id", $id);
+		$this->database->bind(":date", $date);
+		$this->database->bind(":time_area", $time_area);
+		$this->database->execute();
+		return;
 	}
 }
