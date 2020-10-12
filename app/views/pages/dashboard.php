@@ -12,20 +12,22 @@
     </div>
 
     <div class="row mt-5 mr-auto">
-
-    <?php 
-
-if($_SESSION["roles"] == 1){
-  echo'<div class="col-md-8">
+    <div class="col-md-8">
     
 
-<section id="auth-button"></section>
+    <section id="auth-button"></section>
 <section id="view-selector"></section>
 <section id="timeline"></section>
 
 
 
-  </div>
+
+    </div>
+    <?php 
+   
+
+if($_SESSION["roles"] == 1){
+  echo'
 
   <div class="col-md-4">
     <div class="row">
