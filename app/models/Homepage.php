@@ -34,7 +34,7 @@ class Homepage {
         $data["error"] = "Bioscoopzaal bestaat niet!";
       }
 
-      $query = "SELECT halls.*, cinema.* FROM halls INNER JOIN cinema ON cinema.id = halls.cinema_id WHERE halls.id=:id";
+      $query = "SELECT halls.*, halls.id AS hall_id, cinema.* FROM halls INNER JOIN cinema ON cinema.id = halls.cinema_id WHERE halls.id=:id";
       $this->database->prepare($query);
       $this->database->bind(":id", $id);
       $data["hall"] = $this->database->getRow();
