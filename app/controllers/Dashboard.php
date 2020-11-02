@@ -272,7 +272,6 @@ class Dashboard extends Controller {
     }
   }
 
-
   // Page editor routing START
 
   public function pageOverview() {
