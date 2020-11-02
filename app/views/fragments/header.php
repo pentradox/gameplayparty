@@ -44,20 +44,8 @@
     />
   
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" integrity="sha384-3Nqiqht3ZZEO8FKj7GR1upiI385J92VwWNLj+FqHxtLYxd9l+WYpeqSOrLh0T12c" crossorigin="anonymous"></script>
-    <link 
-      rel="stylesheet" 
-      href="http://demo.itsolutionstuff.com/plugin/croppie.css"
-    />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css" />
-
-    <!-- <script 
-      src="http://demo.itsolutionstuff.com/plugin/jquery.js">
-    </script> -->
-
-    <script 
-      src="http://demo.itsolutionstuff.com/plugin/croppie.js">
-    </script>
     
     <script 
       src="https://cdn.tiny.cloud/1/t1us2j64dk33clrig30q0mbqju7fmy5pgro2a612tvmtyusw/tinymce/5/tinymce.min.js" 
