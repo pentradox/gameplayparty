@@ -3,9 +3,8 @@
 // Database
 define("DBHOST","212.129.36.116:3366");
 define("DBUSER","yayeet");
-define("DBPASS","A9pLa3r78aSfCEDi");
+define("DBPASS","KLMrtFNbJtfnK5i8");
 define("DBNAME","gameplayparty_yayeet");
-
 
 // Sitename
 define ("SITENAME","gameplayparty");
