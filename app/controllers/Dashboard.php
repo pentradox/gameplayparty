@@ -242,6 +242,8 @@ class Dashboard extends Controller {
     }
   }
 
+  // Agenda routing START
+
   public function agenda() {
     $this->view("pages/agenda");
   }
@@ -270,6 +272,7 @@ class Dashboard extends Controller {
     }
   }
 
+
   // Page editor routing START
 
   public function pageOverview() {
@@ -293,4 +296,10 @@ class Dashboard extends Controller {
   }
 
   // Page editor routing END
+
+  public function reservationOverview() {
+    if ($this->sessionCheck(1)) {
+      $this->view("pages/reservationOverview");
+    }
+  }
 }
