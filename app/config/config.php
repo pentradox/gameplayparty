@@ -1,10 +1,10 @@
 <?php
 
 // Database
-define("DBHOST","142.93.226.230");
-define("DBUSER","root");
-define("DBPASS","password");
-define("DBNAME","gameplayparty");
+define("DBHOST","212.129.36.116:3366");
+define("DBUSER","yayeet");
+define("DBPASS","A9pLa3r78aSfCEDi");
+define("DBNAME","gameplayparty_yayeet");
 
 
 // Sitename
