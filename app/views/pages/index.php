@@ -100,7 +100,6 @@
 
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">'.$cinema->location.'</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Pakketen</h6>
               <p class="card-text">
                 '.substr($cinema->description, 0, 80).'...
               </p>

@@ -177,7 +177,7 @@ class Dashboard extends Controller {
       }
     }
   }
-
+  
   public function activate($id) {
     if ($this->sessionCheck(1)) {
       $this->adminModel->activateAccount($id);
