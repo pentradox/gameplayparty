@@ -241,6 +241,8 @@ class Dashboard extends Controller {
     }
   }
 
+  // Agenda routing START
+
   public function agenda() {
     $this->view("pages/agenda");
   }
@@ -253,6 +255,8 @@ class Dashboard extends Controller {
   public function agendas($id) {
     $this->hallsModel->getAgenda($id);
   }
+
+  // Agenda routing END
 
   // Page editor routing START
 
@@ -277,4 +281,10 @@ class Dashboard extends Controller {
   }
 
   // Page editor routing END
+
+  public function reservationOverview() {
+    if ($this->sessionCheck(1)) {
+      $this->view("pages/reservationOverview");
+    }
+  }
 }
