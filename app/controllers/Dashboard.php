@@ -1,10 +1,11 @@
 <?php
 
-class Dashboard extends controller {
+class Dashboard extends Controller {
 
   public function __construct() {
     $this->hallsModel = $this->model("Halls");
     $this->adminModel = $this->model("Admin");
+    $this->packagesModel = $this->model("Packages");
   }
 
   public function index() {
@@ -20,7 +21,7 @@ class Dashboard extends controller {
   public function halls() {
     if ($this->sessionCheck()) {
       $data["halls"] = $this->hallsModel->getAllHalls();
-      $this->view("Pages/halls", $data);
+      $this->view("pages/halls", $data);
     }
   }
 
@@ -149,25 +150,30 @@ class Dashboard extends controller {
   }
   // Crud Cinema Halls - End
 
-  public function profile() {
-    if ($this->sessionCheck()) {
-      $this->view("Pages/profile");
-    }
-  }
-
   public function acounts() {
     if ($this->sessionCheck(1)) {
       $data["users"] = $this->adminModel->getAllAccounts();
-      $this->view("Pages/acounts",$data);
+      $this->view("pages/acounts",$data);
     }
   }
 
-  public function updateaccount($id) {
-    if ($this->sessionCheck(1)) {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $this->view("Pages/editaccount");
+  public function updateaccount($id = null) {
+    if ($this->sessionCheck()) {
+      if ((isset($id)) || (isset($_POST["id"]))) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          $data = $this->adminModel->updateaccount();
+          $data["user"] = $this->adminModel->getaccount($_POST["id"]);
+          $this->view("pages/editaccount",$data);
+        } else {
+          $data["user"] = $this->adminModel->getaccount($id);
+          if (!isset($data["user"]->message)) {
+            $this->view("pages/editaccount",$data);
+          } else {
+            $this->redirect("Dashboard");
+          }
+        }
       } else {
-        $this->view("Pages/editaccount");
+        $this->redirect("Dashboard");
       }
     }
   }
@@ -189,33 +195,86 @@ class Dashboard extends controller {
 
   public function createPacket() {
     if ($this->sessionCheck(1)) {
-      $this->view("Pages/createPacket");
+      if ($_SERVER["REQUEST_METHOD"] != "POST") {
+        $this->view("pages/createPacket");
+      } else {
+        $data = $this->packagesModel->addPacket();
+        $this->view("pages/createPacket",$data);
+      }
     }
+  }
+
+  public function packageOverview() {
+    if ($this->sessionCheck(1)) {
+      $data = $this->packagesModel->fetchPackages();
+      $this->view("pages/packetOverview", $data);
+    }
+  }
+
+  public function deletePackage($id) {
+    if ($this->sessionCheck(1)) {
+      $data["delete"] = $this->packagesModel->deletePackage($id);
+      $this->redirect("Dashboard/packageOverview");
+    }
+  }
+
+  public function activatePackage($id) {
+    if ($this->sessionCheck(1)) {
+      $this->packagesModel->activatePackage($id);
+      $this->redirect("Dashboard/packageOverview");
+    }
+  }
+
+  public function updatePackage($id) {
+    if ($this->sessionCheck(1)) {
+      if ($_SERVER["REQUEST_METHOD"] != "POST") {
+        $data = $this->packagesModel->fetchPackage($id);
+        if (isset($data["error"])) {
+          $this->redirect("Dashboard/packageOverview");
+        } else {
+          $this->view("pages/updatePackage", $data);
+        }
+      } else {
+        $data = $this->packagesModel->updatePackage($id);
+        $this->view("pages/updatePackage",$data);
+      }
+    }
+  }
+
+  public function agenda() {
+    $this->view("pages/agenda");
+  }
+
+  public function addAgenda() {
+    $this->hallsModel->addAgenda();
+    $this->redirect("Dashboard/halls");
+  }
+
+  public function agendas($id) {
+    $this->hallsModel->getAgenda($id);
   }
 
   // Page editor routing START
 
   public function pageOverview() {
     if ($this->sessionCheck(1)) {
-      $this->view("Pages/pageoverview");
+      $this->view("pages/pageoverview");
     }
   }
 
   public function frontpageEditor() {
     if ($this->sessionCheck(1)) {
       $data = $this->adminModel->fetchContent('home');
-      $this->view("Pages/homeeditor", $data);
+      $this->view("pages/homeeditor", $data);
     }
   }
 
   public function contactPageEditor() {
     if ($this->sessionCheck(1)) {
       $data = $this->adminModel->fetchContent('contact');
-      $this->view("Pages/contacteditor", $data);
+      $this->view("pages/contacteditor", $data);
     }
   }
 
   // Page editor routing END
-
-
 }

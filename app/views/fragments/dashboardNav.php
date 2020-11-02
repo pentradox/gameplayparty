@@ -9,19 +9,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo URLROOT; ?>/home">Home</a>
+              <a class="nav-link" href="<?php echo URLROOT; ?>/Dashboard">Home</a>
             </li>
            <?php if ($_SESSION["roles"] == 1) {
-              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/profile">
-                Profiel
-              </a></li>';
               echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/acounts">
                 Bioscopen
               </a></li>';
-              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/createPacket">
-                Pakket maken
+              echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/packageOverview">
+                Pakketten
               </a></li>';
            }else{
+            echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/updateaccount/' . $_SESSION["userid"] . '">
+            Account
+            </a></li>';
             echo '<li class="nav-item dropdown"><a class="nav-link" href="'. URLROOT .'/Dashboard/halls">
               Bioscoop Zalen
             </a></li>';

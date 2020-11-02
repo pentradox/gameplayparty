@@ -4,6 +4,7 @@
 class Home extends Controller {
   public function __construct() {
     $this->homeModel = $this->model("Homepage");
+    $this->packagesModel = $this->model("Packages");
   }
   public function index() {
     $data = $this->homeModel->cinema();
@@ -11,12 +12,12 @@ class Home extends Controller {
     $data = array($data, $data2);
     $this->view("pages/index",$data);
   }
+
   public function contact() {
     $data = $this->homeModel->fetchcontent('contact');
     $this->view("pages/contact",$data);
   }
   public function info() {
-
     $this->view("pages/info");
   }
   public function sendmail() {
@@ -46,6 +47,7 @@ class Home extends Controller {
       $this->redirect("Home/Conatct");
     }
   }
+
   public function privacy() {
 
     $this->view("pages/privacy");
@@ -62,9 +64,28 @@ class Home extends Controller {
 
     $this->view("pages/terms");
   }
-  public function cinima() {
+  public function cinima($id = null) {
+    if ($id != null) {
+      $data = $this->homeModel->oneCinema($id);
+      $this->view("pages/cinima",$data);
+    } else {
+      $this->redirect("Home");
+    }
     
-    $this->view("pages/cinima");
+  }
+
+  public function hallInfo($id = null) {
+    if ($id != null) {
+      $data = $this->homeModel->getInfoHall($id);
+      $this->view("pages/hallInfo",$data);
+    } else {
+      $this->redirect("Home");
+    }
+  }
+
+  public function packets() {
+    $data = $this->packagesModel->fetchPackages(1);
+    $this->view("pages/packets", $data);
   }
  
 }
