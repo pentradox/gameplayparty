@@ -62,7 +62,7 @@
             <form action="<?php echo URLROOT; ?>/Dashboard/addAgenda" method="post">
               <div class="modal-body">
 
-                <input type="text" id="agenda_id" hidden name="hall_id">
+                <input type="text" id="agenda_id" hidden name="hall_id" value="<?php $data["hall"]->id ?>">
                 <p id="date"></p>
                 <input type="text" hidden id="date2" name="date">
                <select name="time_area">
