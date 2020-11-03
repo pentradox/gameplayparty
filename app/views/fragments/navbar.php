@@ -1,7 +1,7 @@
 <?php include APPROOT."/views/fragments/header.php"; ?>
 
 <nav class="navbar navbar-expand-lg w-100 position-absolute p-0 pr-5">
-  <a class="navbar-brand w-75 py-0 mt-n2 mr-0 " href="<?php echo URLROOT; ?>/Home"><img  src="<?php echo URLROOT; ?>/public/images/gpp.svg"></a>
+  <a class="navbar-brand w-75 py-0 mt-n2 mr-0"><img  src="<?php echo URLROOT; ?>/public/images/gpp.svg"></a>
   <button class="navbar-toggler mt-n5 bg-dark  text-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   <i class="fas fa-bars"></i>
   </button>
