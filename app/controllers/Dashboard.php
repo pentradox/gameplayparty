@@ -6,6 +6,7 @@ class Dashboard extends Controller {
     $this->hallsModel = $this->model("Halls");
     $this->adminModel = $this->model("Admin");
     $this->packagesModel = $this->model("Packages");
+    $this->reservationModel = $this->model("Reservation");
   }
 
   public function index() {
@@ -282,9 +283,13 @@ class Dashboard extends Controller {
 
   // Page editor routing END
 
+  // Reservation routing START
+
   public function reservationOverview() {
     if ($this->sessionCheck(1)) {
-      $this->view("pages/reservationOverview");
+      $data = $this->reservationModel->getAllReservations();
+      $this->view("pages/reservationOverview", $data);
     }
   }
+  // Reservation routing END
 }
