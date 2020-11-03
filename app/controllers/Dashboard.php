@@ -301,10 +301,8 @@ class Dashboard extends Controller {
   // Reservation routing START
 
   public function reservationOverview() {
-    if ($this->sessionCheck(1)) {
-      $data = $this->reservationModel->getAllReservations();
-      $this->view("pages/reservationOverview", $data);
-    }
+    $data = $this->reservationModel->getAllReservations();
+    $this->view("pages/reservationOverview", $data);
   }
   // Reservation routing END
 }
