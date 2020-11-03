@@ -1,17 +1,17 @@
 <?php include APPROOT . "/views/fragments/dashboardNav.php"; ?>
 
 <div class="col p-0">
-  <div class="section px-5 p-5">
+  <div class="section px-5">
 
-    <table class="mt-3 table">
+    <table class="mt-3 table" id="reservation_table">
       <thead>
         <tr>
           <th scope="col">Naam</th>
-          <th scope="col">Telefoonnummer</th>
-          <th scope="col">Personen</th>
+          <th scope="col">E-Mail</th>
+          <th scope="col">Datum</th>
+          <th scope="col">Tijd</th>
           <th scope="col">Packet</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th scope="col">Prijs</th>
         </tr>
       </thead>
       <tbody>
@@ -20,22 +20,12 @@
           foreach ($data["reservations"] as $reservation) {
             echo 
               "<tr scope='row'>
-                <td>" . $reservation->name ."</td>
-                  <td>" . $reservation->phone . "</td>
-                  <td>" . $reservation->amount . "</td>
-
-                  <td>
-                    <a href='" . URLROOT . "/Dashboard/reservationEdit/" . $reservation->id . "'>
-                      <button type='button' class='btn btn-primary'>
-                        <i class='fas fa-cog'></i>
-                      </button>
-                    /a>
-                  </td>
-
-                  <td>
-                    <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#delete" . $reservation->id . "'><i class='fas fa-trash '></i>
-                    </button>
-                  </td>
+                <td>" . $reservation->first_name . " " . $reservation->last_name . "</td>
+                <td>" . $reservation->mail . "</td>
+                <td>" . $reservation->date . "</td>
+                <td>" . $reservation->time_area . "</td>
+                <td>" . $reservation->package_name. "</td>
+                <td>" . "€" . $reservation->package_price . "</td>
               </tr>";
           }
         } else {
