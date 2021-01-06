@@ -44,13 +44,29 @@ if($_SESSION["roles"] == 1){
 
         <div class="card">
           <div class="card-body">
-            <i class="fa fa-id-card" aria-hidden="true"></i>
+            <i class="fas fa-box" aria-hidden="true"></i>
             <p class="card-text">Pakketen aanmaken</p>
             <a href="'. URLROOT .' /Dashboard/createPacket" class="btn btn-primary">Klik hier</a>
           </div>
         </div>
 
-      </div>';
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mt-5">
+
+        <div class="card">
+          <div class="card-body">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <p class="card-text">Reserveringen overzicht</p>
+            <a href=" '.URLROOT.'/Dashboard/reservationOverview" class="btn btn-primary">Klik hier</a>
+          </div>
+        </div>
+
+      </div>
+    </div>';
+    
 }else{
   echo'
   
@@ -79,7 +95,21 @@ if($_SESSION["roles"] == 1){
       </div>
 
     </div>
-  ';
+  </div>
+
+    <div class="row">
+      <div class="col-md-6 mt-5">
+
+        <div class="card">
+          <div class="card-body">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <p class="card-text">Reserveringen overzicht</p>
+            <a href=" '.URLROOT.'/Dashboard/reservationOverview" class="btn btn-primary">Klik hier</a>
+          </div>
+        </div>
+
+      </div>
+    </div>';
 }
 
       ?>

@@ -20,4 +20,3 @@ class RegisterBios extends Controller {
     }
   }
 }
-?>

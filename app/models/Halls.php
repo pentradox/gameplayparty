@@ -234,6 +234,14 @@ class Halls {
 		$this->database->bind(":date", $date);
 		$this->database->bind(":time_area", $time_area);
 		$this->database->execute();
-		return;
+		return $id;
+	}
+
+	public function deleteAgenda($id) {
+		$query = "DELETE FROM hall_times WHERE id=:id LIMIT 1";
+		$this->database->prepare($query);
+		$this->database->bind(":id", $id);
+		$this->database->execute();
+		return $id;
 	}
 }

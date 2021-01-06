@@ -6,6 +6,9 @@ class Dashboard extends Controller {
     $this->hallsModel = $this->model("Halls");
     $this->adminModel = $this->model("Admin");
     $this->packagesModel = $this->model("Packages");
+    $this->reservationModel = $this->model("Reservation");
+    $this->reserveModel = $this->model("Reserve");
+
   }
 
   public function index() {
@@ -241,17 +244,34 @@ class Dashboard extends Controller {
     }
   }
 
+  // Agenda routing START
+
   public function agenda() {
     $this->view("pages/agenda");
   }
 
   public function addAgenda() {
-    $this->hallsModel->addAgenda();
-    $this->redirect("Dashboard/halls");
+    $id = $this->hallsModel->addAgenda();
+    $this->redirect("Dashboard/updatehall/" . $id);
   }
 
   public function agendas($id) {
     $this->hallsModel->getAgenda($id);
+  }
+
+  public function deleteAgenda($id) {
+    $id = $this->hallsModel->deleteAgenda($id);
+    $this->redirect("Dashboard/updatehall/" . $id);
+  }
+
+  public function reserve($hall=null, $time=null) {
+    if ($_SERVER["REQUEST_METHOD"] != "POST") {
+      $data = $this->reserveModel->getReservation($hall, $time);
+      $this->view("pages/reservation", $data);
+    } else {
+      $this->reserveModel->reservation();
+      $this->view("pages/confirmation");
+    }
   }
 
   // Page editor routing START
@@ -277,4 +297,12 @@ class Dashboard extends Controller {
   }
 
   // Page editor routing END
+
+  // Reservation routing START
+
+  public function reservationOverview() {
+    $data = $this->reservationModel->getAllReservations();
+    $this->view("pages/reservationOverview", $data);
+  }
+  // Reservation routing END
 }
